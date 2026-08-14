@@ -23,10 +23,10 @@ export function CodeBlock({
 
   return (
     <div className="group/code my-5 overflow-hidden rounded-xl border bg-muted/40">
-      <div className="flex items-center justify-between border-b bg-muted/60 px-4 py-2">
-        <div className="flex items-center gap-2 text-xs text-muted-foreground">
-          <span className="rounded bg-background px-1.5 py-0.5 font-mono uppercase">{lang}</span>
-          {filename && <span className="font-mono">{filename}</span>}
+      <div className="flex items-center justify-between gap-3 border-b bg-muted/60 px-4 py-2">
+        <div className="flex min-w-0 items-center gap-2 text-xs text-muted-foreground">
+          <span className="shrink-0 rounded bg-background px-1.5 py-0.5 font-mono uppercase">{lang}</span>
+          {filename && <span className="truncate font-mono">{filename}</span>}
         </div>
         <Button
           variant="ghost"

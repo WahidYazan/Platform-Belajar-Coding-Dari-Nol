@@ -1,98 +1,123 @@
-import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { getCurriculum } from "@/lib/curriculum";
+import { categoryKinds, getCategoryGroups } from "@/lib/categories";
 import { tutorials } from "@/lib/tutorials";
-import { ArrowRight, BookOpen, Clock, Map } from "lucide-react";
+import { ArrowRight, BookOpen, Clock, GraduationCap } from "lucide-react";
 import Link from "next/link";
-import { OverviewProgress } from "../component/overview-progress";
 
 export default function DashboardPage() {
-    const curriculum = getCurriculum();
+    const groups = getCategoryGroups();
     const totalMinutes = tutorials.reduce((total, tutorial) => total + tutorial.minutes, 0);
-    const totalTutorials = tutorials.length;
 
     return (
-        <div className="mx-auto w-full max-w-4xl px-4 py-10">
-            <div className="mb-10">
-                <p className="mb-2 flex items-center gap-2 text-sm font-medium text-primary">
-                    <Map />
-                    Sinau Koding
-                </p>
-                <h1 className="font-heading text-3xl font-semibold tracking-tight md:text-4xl">
-                    Belajar step by step, dari nol sampai bisa
+        <main className="mx-auto w-full max-w-6xl px-4 py-10">
+            <div className="mb-14 max-w-3xl">
+                <p className="mb-3 text-sm font-medium text-primary">Sinau Coding</p>
+                <h1 className="font-heading text-4xl font-semibold tracking-tight sm:text-5xl">
+                    Belajar Coding dari Nol sampai Bisa
                 </h1>
-                <p className="mt-3 max-w-2xl leading-7 text-muted-foreground">
-                    {totalTutorials} bab tersusun berurutan. Ikuti dari bab pertama, klik &quot;Tandai Selesai&quot;
-                    setelah tuntas, dan pantau progresmu di sini.
+                <p className="mt-4 max-w-2xl leading-7 text-muted-foreground">
+                    Materi dipisah per topik — Frontend, Backend, Tools, sampai Deployment — dan disusun
+                    berurutan. Pilih topik yang mau kamu pelajari, progres belajarmu tersimpan otomatis.
                 </p>
-                <div className="mt-5 flex flex-wrap gap-4 text-sm">
-                    <span className="flex items-center gap-1.5 text-muted-foreground">
-                        <BookOpen className="size-4" />
-                        <span className="font-medium text-foreground">{totalTutorials} bab</span> total
+                <div className="mt-6 flex flex-wrap gap-4 text-sm">
+                    <span className="flex items-center gap-2 rounded-full border px-3 py-1">
+                        <GraduationCap className="size-4 text-primary" />
+                        {tutorials.length} materi tersedia
                     </span>
-                    <span className="flex items-center gap-1.5 text-muted-foreground">
-                        <Clock className="size-4" />±{totalMinutes} menit materi inti
+                    <span className="flex items-center gap-2 rounded-full border px-3 py-1">
+                        <Clock className="size-4 text-primary" />±{totalMinutes} menit materi inti
                     </span>
                 </div>
-                <OverviewProgress />
+                <div className="mt-8 flex flex-wrap gap-3">
+                    <Button asChild size="lg">
+                        <Link href={`/dashboard/tutorials/${tutorials[0].slug}`}>
+                            Mulai Belajar
+                            <ArrowRight />
+                        </Link>
+                    </Button>
+                    <Button asChild variant="outline" size="lg">
+                        <Link href="/start">
+                            <BookOpen />
+                            Panduan Mulai dari Sini
+                        </Link>
+                    </Button>
+                </div>
             </div>
 
-            <div className="space-y-10">
-                {curriculum.map((group, groupIndex) => (
-                    <section key={group.category} id={group.category.toLowerCase()} className="scroll-mt-24">
-                        <div className="mb-4 flex items-center gap-3">
-                            <span className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-muted font-heading text-sm font-semibold">
-                                {groupIndex + 1}
-                            </span>
-                            <h2 className="font-heading text-xl font-semibold">{group.category}</h2>
-                            <Badge variant="secondary">{group.items.length} bab</Badge>
-                        </div>
-                        <div className="grid gap-3 sm:grid-cols-2">
-                            {group.items.map((tutorial, index) => (
-                                <Link
-                                    key={tutorial.slug}
-                                    href={`/dashboard/tutorials/${tutorial.slug}`}
-                                    className="group"
-                                >
-                                    <Card className="h-full transition-colors group-hover:ring-primary/40">
-                                        <CardHeader>
-                                            <div className="mb-1 flex items-center gap-2 text-xs text-muted-foreground">
-                                                <span className="font-medium text-foreground">Bab {index + 1}</span>
-                                                <span>·</span>
-                                                <span>{tutorial.minutes} menit</span>
-                                                <span>·</span>
-                                                <span>{tutorial.level}</span>
-                                            </div>
-                                            <CardTitle className="group-hover:underline">{tutorial.title}</CardTitle>
-                                            <CardDescription className="line-clamp-2">
-                                                {tutorial.description}
-                                            </CardDescription>
-                                        </CardHeader>
-                                        <CardContent className="mt-auto flex items-center gap-2 text-sm">
-                                            <span className="text-primary font-medium">Buka bab</span>
-                                            <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-                                        </CardContent>
-                                    </Card>
-                                </Link>
-                            ))}
-                        </div>
-                    </section>
-                ))}
+            <div className="mb-14 space-y-14">
+                <div>
+                    <h2 className="mb-2 font-heading text-2xl font-semibold">Pilih Materi</h2>
+                    <p className="mb-8 text-muted-foreground">
+                        Pilih dulu topiknya, lalu lihat daftar bab yang tersedia di halaman topik.
+                    </p>
+                </div>
+
+                {categoryKinds
+                    .map(kind => ({
+                        kind,
+                        groups: groups.filter(group => group.category.kind === kind.kind),
+                    }))
+                    .filter(item => item.groups.length > 0)
+                    .map(({ kind, groups }) => (
+                        <section key={kind.kind}>
+                            <div className="mb-4">
+                                <h3 className="font-heading text-xl font-semibold">{kind.label}</h3>
+                                <p className="mt-1 text-sm text-muted-foreground">{kind.description}</p>
+                            </div>
+                            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                                {groups.map(({ category, items }) => {
+                                    const Icon = category.icon;
+                                    return (
+                                        <Link key={category.slug} href={`/${category.slug}`} className="group">
+                                            <Card className="flex h-full flex-col transition-colors group-hover:ring-1 group-hover:ring-primary/40">
+                                                <CardHeader>
+                                                    <span
+                                                        className={`mb-3 flex size-10 items-center justify-center rounded-xl ${category.accent}`}
+                                                    >
+                                                        <Icon className="size-5" />
+                                                    </span>
+                                                    <CardTitle className="font-heading">{category.name}</CardTitle>
+                                                    <CardDescription className="line-clamp-2">
+                                                        {category.description}
+                                                    </CardDescription>
+                                                </CardHeader>
+                                                <CardContent className="mt-auto">
+                                                    <p className="mb-3 text-xs text-muted-foreground">
+                                                        {items.length} bab · ±
+                                                        {items.reduce((total, item) => total + item.minutes, 0)} menit
+                                                    </p>
+                                                    <p className="flex items-center gap-1 text-sm font-medium text-primary">
+                                                        Buka topik
+                                                        <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                                                    </p>
+                                                </CardContent>
+                                            </Card>
+                                        </Link>
+                                    );
+                                })}
+                            </div>
+                        </section>
+                    ))}
             </div>
 
-            <div className="mt-14 rounded-2xl border bg-muted/50 p-8 text-center">
-                <h2 className="font-heading text-2xl font-semibold">Mulai dari bab pertama</h2>
+            <div className="rounded-2xl border bg-muted/50 p-8 text-center">
+                <h2 className="font-heading text-2xl font-semibold">Bingung mulai dari mana?</h2>
                 <p className="mx-auto mt-2 max-w-md text-muted-foreground">
-                    Jangan loncat-loncat. Urutan bab dirancang agar konsep lama jadi fondasi konsep baru.
+                    Baca panduan langkah pertama: tools yang harus dipasang dan cara belajar yang benar.
                 </p>
-                <Link
-                    href={`/dashboard/tutorials/${tutorials[0].slug}`}
-                    className="mt-6 inline-flex h-9 items-center gap-1.5 rounded-lg bg-primary px-2.5 text-sm font-medium text-primary-foreground hover:bg-primary/80"
-                >
-                    Mulai: {tutorials[0].title}
-                    <ArrowRight />
-                </Link>
+                <div className="mt-6 flex flex-wrap justify-center gap-3">
+                    <Button asChild size="lg">
+                        <Link href="/start">
+                            Baca Panduan Mulai dari Sini
+                            <ArrowRight />
+                        </Link>
+                    </Button>
+                    <Button asChild variant="outline" size="lg">
+                        <Link href="/roadmap">Lihat Roadmap</Link>
+                    </Button>
+                </div>
             </div>
-        </div>
+        </main>
     );
 }

@@ -4,6 +4,7 @@ import { categories, getCategoryGroups } from "@/lib/categories";
 import { tutorials } from "@/lib/tutorials";
 import { ArrowRight, BookOpen, CheckCircle2, Goal, GraduationCap, Map, Rocket, ThumbsUp } from "lucide-react";
 import Link from "next/link";
+import { MobileNavBar } from "./component/mobile-nav-bar";
 import { SiteFooter } from "./component/site-footer-home";
 import { SiteHeader } from "./component/site-header-home";
 
@@ -50,7 +51,7 @@ export default function HomePage() {
     const totalMinutes = tutorials.reduce((total, tutorial) => total + tutorial.minutes, 0);
 
     return (
-        <div className="flex min-h-svh flex-col">
+        <div className="flex min-h-svh flex-col pb-16 md:pb-0">
             <SiteHeader />
             <main className="flex-1">
                 <section className="mx-auto w-full max-w-6xl px-4 pb-16 pt-20 sm:pt-24">
@@ -259,6 +260,7 @@ export default function HomePage() {
                 </section>
             </main>
             <SiteFooter />
+            <MobileNavBar />
         </div>
     );
 }

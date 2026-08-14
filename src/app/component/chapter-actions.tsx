@@ -9,7 +9,7 @@ export function ChapterActions({ slug }: { slug: string }) {
   const done = completed.includes(slug)
 
   return (
-    <div className="flex items-center justify-between gap-3 rounded-xl border bg-card p-4">
+    <div className="flex flex-col gap-3 rounded-xl border bg-card p-4 sm:flex-row sm:items-center sm:justify-between">
       <div>
         <p className="text-sm font-medium">{done ? "Bab selesai! 🎉" : "Sudah paham bab ini?"}</p>
         <p className="text-xs text-muted-foreground">
@@ -18,7 +18,7 @@ export function ChapterActions({ slug }: { slug: string }) {
             : "Tandai untuk menyimpan progres belajarmu."}
         </p>
       </div>
-      <Button variant={done ? "outline" : "default"} onClick={() => toggle(slug)} className="shrink-0">
+      <Button variant={done ? "outline" : "default"} onClick={() => toggle(slug)} className="w-full shrink-0 sm:w-auto">
         {done ? (
           <>
             <Circle className="size-4" />

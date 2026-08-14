@@ -1,19 +1,26 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { categories } from "@/lib/categories";
 import { createClient } from "@/lib/supabase/client";
 import { cn } from "@/lib/utils";
-import { Code2, LogOut, Menu, UserRound, X } from "lucide-react";
 import type { User } from "@supabase/supabase-js";
+import { ChevronDown, Code2, LogOut, Menu, UserRound, X } from "lucide-react";
 import Link from "next/link";
 import * as React from "react";
 
 const navLinks = [
-    { href: "/", label: "Beranda" },
+    { href: "/dashboard", label: "Dashboard" },
     { href: "/start", label: "Mulai dari Sini" },
     { href: "/roadmap", label: "Roadmap" },
-    { href: "/dashboard", label: "Tutorial" },
 ];
 
 export function SiteHeader() {
@@ -51,17 +58,33 @@ export function SiteHeader() {
                         </Button>
                     ))}
                     {user ? (
-                        <>
-                            <span className="mx-1 hidden max-w-40 truncate px-2 text-sm text-muted-foreground lg:inline">
-                                {user.email}
-                            </span>
-                            <form action="/auth/logout" method="post">
-                                <Button type="submit" variant="ghost" size="sm" className="text-muted-foreground">
-                                    <LogOut className="size-4" />
-                                    Keluar
+                        <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                                <Button
+                                    variant="ghost"
+                                    size="sm"
+                                    className="group mx-1 max-w-40 text-muted-foreground"
+                                    aria-label="Menu akun"
+                                >
+                                    <span className="truncate">{user.email}</span>
+                                    <ChevronDown className="size-4 shrink-0 transition-transform duration-200 group-data-[state=open]:rotate-180" />
                                 </Button>
-                            </form>
-                        </>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent align="end" className="w-56">
+                                <DropdownMenuLabel className="truncate text-muted-foreground">
+                                    {user.email}
+                                </DropdownMenuLabel>
+                                <DropdownMenuSeparator />
+                                <form action="/auth/logout" method="post">
+                                    <DropdownMenuItem asChild variant="destructive">
+                                        <button type="submit" className="flex w-full items-center">
+                                            <LogOut className="size-4" />
+                                            Keluar
+                                        </button>
+                                    </DropdownMenuItem>
+                                </form>
+                            </DropdownMenuContent>
+                        </DropdownMenu>
                     ) : (
                         <>
                             <Button asChild variant="ghost" size="sm">
@@ -107,7 +130,7 @@ export function SiteHeader() {
             <div
                 className={cn(
                     "overflow-hidden border-b transition-all md:hidden",
-                    open ? "max-h-96" : "max-h-0 border-b-0",
+                    open ? "max-h-[calc(100svh-4rem)] overflow-y-auto" : "max-h-0 border-b-0",
                 )}
             >
                 <nav className="flex flex-col gap-1 p-4">
