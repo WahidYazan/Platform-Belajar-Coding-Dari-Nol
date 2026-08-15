@@ -7,7 +7,9 @@ export const curriculumOrder = [
   "JavaScript",
   "Tools",
   "Backend",
+  "Laravel",
   "React",
+  "Next.js",
   "Deployment",
 ]
 

@@ -1,5 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-import { Atom, BookOpen, Braces, Palette, Rocket, Server, Wrench, Zap } from "lucide-react";
+import { Atom, BookOpen, Braces, Palette, Rocket, Server, Wrench, Zap, ShieldCheck, Globe } from "lucide-react";
 import { tutorials, type Tutorial } from "./tutorials";
 
 export type CategoryKind = "Dasar" | "Frontend" | "Backend" | "Tools" | "Deployment";
@@ -55,12 +55,28 @@ export const categories: Category[] = [
         description: "Framework frontend modern untuk membangun aplikasi web yang powerful.",
     },
     {
+        slug: "nextjs",
+        name: "Next.js",
+        kind: "Frontend",
+        icon: Globe,
+        accent: "bg-slate-100 text-slate-700",
+        description: "Framework React untuk produksi: App Router, Server Components, dan full-stack dalam satu aplikasi.",
+    },
+    {
         slug: "backend",
         name: "Backend",
         kind: "Backend",
         icon: Server,
         accent: "bg-emerald-100 text-emerald-700",
         description: "Sisi server: Node.js, REST API dengan Express, dan database SQL.",
+    },
+    {
+        slug: "laravel",
+        name: "Laravel",
+        kind: "Backend",
+        icon: ShieldCheck,
+        accent: "bg-red-100 text-red-700",
+        description: "Framework PHP untuk membangun aplikasi web modern: routing, Eloquent, auth, sampai API.",
     },
     {
         slug: "tools",
@@ -95,7 +111,9 @@ const nameToSlug: Record<string, string> = {
     CSS: "css",
     JavaScript: "javascript",
     React: "react",
+    "Next.js": "nextjs",
     Backend: "backend",
+    Laravel: "laravel",
     Tools: "tools",
     Deployment: "deployment",
 };

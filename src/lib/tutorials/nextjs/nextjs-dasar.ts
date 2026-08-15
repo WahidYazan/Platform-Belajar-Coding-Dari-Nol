@@ -5,7 +5,7 @@ export const nextjsDasar: Tutorial = {
     title: "Next.js untuk Produksi: App Router & Server Components",
     description:
         "Kenali framework React paling populer: file-based routing, komponen server vs client, dan data fetching di server.",
-    category: "React",
+    category: "Next.js",
     level: "Lanjutan",
     minutes: 17,
     date: "2026-08-14",

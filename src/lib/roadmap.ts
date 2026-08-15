@@ -219,12 +219,74 @@ export const roadmapPhases: RoadmapPhase[] = [
         description:
           "Next.js memberikan server-side rendering, file-based routing, dan optimasi di luar kotak. Ini yang paling banyak dipakai perusahaan.",
         skills: ["Next.js", "App Router"],
+        tutorialSlug: "nextjs-pengenalan",
       },
       {
         title: "Project: aplikasi React penuh",
         description:
           "Bangun aplikasi dengan multi-halaman, state, dan data API. Contoh: weather app atau blog sederhana.",
         skills: ["Project", "Integrasi"],
+      },
+    ],
+  },
+  {
+    id: "nextjs",
+    title: "Next.js Full-stack",
+    emoji: "▲",
+    tagline: "Framework React untuk produksi",
+    description:
+      "Dari pengenalan sampai bisa: routing, Server Components, data fetching, Server Actions, Route Handlers, database dengan Prisma, autentikasi, dan deploy ke Vercel.",
+    duration: "8–10 minggu",
+    level: "Menengah",
+    topics: [
+      {
+        title: "Instalasi & struktur",
+        description:
+          "Buat project dengan create-next-app, pahami struktur folder, script, dan cara kerja App Router.",
+        skills: ["create-next-app", "App Router"],
+        tutorialSlug: "nextjs-pengenalan",
+      },
+      {
+        title: "Routing & layout",
+        description:
+          "File-based routing, dynamic route [slug], searchParams, navigasi dengan Link, dan layout yang dipakai ulang.",
+        skills: ["Routing", "Layout"],
+        tutorialSlug: "nextjs-routing",
+      },
+      {
+        title: "Server & Client Components",
+        description:
+          "Pahami kapan komponen berjalan di server dan kapan butuh 'use client' — konsep inti Next.js.",
+        skills: ["Server Components", "Client"],
+        tutorialSlug: "nextjs-server-client",
+      },
+      {
+        title: "Data fetching & mutasi",
+        description:
+          "Ambil data di server, buat form dengan Server Actions, validasi, revalidasi, dan update data.",
+        skills: ["Data Fetching", "Server Actions"],
+        tutorialSlug: "nextjs-data-fetching",
+      },
+      {
+        title: "API & database",
+        description:
+          "Buat endpoint dengan Route Handlers dan hubungkan database dengan Prisma ORM.",
+        skills: ["Route Handlers", "Prisma"],
+        tutorialSlug: "nextjs-database",
+      },
+      {
+        title: "Auth & produksi",
+        description:
+          "Autentikasi dengan session + middleware, optimasi SEO/gambar, dan deploy ke Vercel.",
+        skills: ["Auth", "Deploy"],
+        tutorialSlug: "nextjs-auth",
+      },
+      {
+        title: "Project: aplikasi Next.js",
+        description:
+          "Bangun blog lengkap: auth, CRUD artikel, relasi database, dan deploy ke dunia nyata.",
+        skills: ["Project", "Full-stack"],
+        tutorialSlug: "nextjs-project",
       },
     ],
   },
@@ -274,6 +336,67 @@ export const roadmapPhases: RoadmapPhase[] = [
         description:
           "Gabungkan frontend dan backend: aplikasi CRUD lengkap dengan autentikasi dan database.",
         skills: ["Fullstack", "CRUD"],
+      },
+    ],
+  },
+  {
+    id: "laravel",
+    title: "Laravel",
+    emoji: "🛡️",
+    tagline: "Framework PHP paling populer",
+    description:
+      "Alternatif backend selain Node.js: Laravel memberi struktur MVC, Eloquent ORM, auth, dan ekosistem lengkap. Populer di industri dan perusahaan Indonesia.",
+    duration: "6–8 minggu",
+    level: "Menengah",
+    topics: [
+      {
+        title: "Dasar & instalasi",
+        description:
+          "Pasang PHP, Composer, buat proyek Laravel, dan pahami struktur folder serta perintah Artisan.",
+        skills: ["PHP", "Composer"],
+        tutorialSlug: "laravel-dasar",
+      },
+      {
+        title: "Routing & controller",
+        description:
+          "Definisikan URL di routes/web.php, tangkap parameter, named route, dan pindahkan logika ke controller.",
+        skills: ["Routing", "MVC"],
+        tutorialSlug: "laravel-routing",
+      },
+      {
+        title: "Blade template",
+        description:
+          "Tampilkan data, buat layout yang bisa dipakai ulang, dan gunakan direktif kondisional dengan Blade.",
+        skills: ["Blade", "Layout"],
+        tutorialSlug: "laravel-blade",
+      },
+      {
+        title: "Database & Eloquent",
+        description:
+          "Kelola skema dengan migration, isi data dengan seeder, dan query data dengan Eloquent ORM.",
+        skills: ["Migration", "Eloquent"],
+        tutorialSlug: "laravel-database",
+      },
+      {
+        title: "CRUD lengkap",
+        description:
+          "Bangun aplikasi CRUD penuh: route resource, controller, model, dan view yang terhubung.",
+        skills: ["CRUD", "Resource"],
+        tutorialSlug: "laravel-crud",
+      },
+      {
+        title: "Auth & API",
+        description:
+          "Tambahkan login/register dengan middleware, dan buka data sebagai REST API dengan Sanctum.",
+        skills: ["Auth", "API"],
+        tutorialSlug: "laravel-auth",
+      },
+      {
+        title: "Project: aplikasi Laravel",
+        description:
+          "Bangun aplikasi catatan pribadi lengkap — auth, relasi user, CRUD, dan otorisasi pemilik data.",
+        skills: ["Project", "Otorisasi"],
+        tutorialSlug: "laravel-project",
       },
     ],
   },
