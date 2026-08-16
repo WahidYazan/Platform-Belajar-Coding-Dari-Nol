@@ -4,7 +4,7 @@ export const nextjsServerClient: Tutorial = {
     slug: "nextjs-server-client",
     title: "Server & Client Components: Kapan Memakai Apa",
     description:
-      "Pahami dua jenis komponen di Next.js — kapan berjalan di server, kapan butuh 'use client', dan cara menyusunnya.",
+      "Pahami dua jenis komponen di Next.js kapan berjalan di server, kapan butuh 'use client', dan cara menyusunnya.",
     category: "Next.js",
     level: "Menengah",
     minutes: 17,
@@ -18,8 +18,8 @@ export const nextjsServerClient: Tutorial = {
       {
         type: "list",
         items: [
-          "Server Component — di-render di server. Cocok untuk ambil data, baca secret, konten statis.",
-          "Client Component — di-render di browser. Butuh untuk state, event handler, dan API browser.",
+          "Server Component di-render di server. Cocok untuk ambil data, baca secret, konten statis.",
+          "Client Component di-render di browser. Butuh untuk state, event handler, dan API browser.",
           "Semua komponen default-nya Server Component.",
           "Tambahkan \"use client\" di baris pertama file untuk membuat Client Component.",
         ],
@@ -96,7 +96,7 @@ export default async function ArtikelPage({
         type: "callout",
         title: "Jangan boros use client",
         tone: "warning",
-        text: "Satu file \"use client\" membuat semua komponen yang di-render dari sana masuk bundle client. Letakkan \"use client\" pada komponen interaktif sekecil mungkin — jangan pada layout yang besar.",
+        text: "Satu file \"use client\" membuat semua komponen yang di-render dari sana masuk bundle client. Letakkan \"use client\" pada komponen interaktif sekecil mungkin jangan pada layout yang besar.",
       },
       { type: "h2", text: "Client Component bisa memuat Server Component" },
       {

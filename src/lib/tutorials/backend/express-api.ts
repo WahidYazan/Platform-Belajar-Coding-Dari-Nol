@@ -12,7 +12,7 @@ export const expressApi: Tutorial = {
     content: [
       {
         type: "p",
-        text: "Setelah mengenal Node.js, saatnya membangun server sungguhan. Express adalah framework paling populer untuk membuat API di Node.js — dipakai jutaan developer dan jadi fondasi yang bagus sebelum beralih ke Next.js API routes.",
+        text: "Setelah mengenal Node.js, saatnya membangun server sungguhan. Express adalah framework paling populer untuk membuat API di Node.js dipakai jutaan developer dan jadi fondasi yang bagus sebelum beralih ke Next.js API routes.",
       },
       { type: "h2", text: "Setup project" },
       {
@@ -141,7 +141,7 @@ curl -X DELETE http://localhost:3000/api/users/1`,
         type: "callout",
         title: "Kenapa return sebelum res?",
         tone: "tip",
-        text: "Setelah res.json() dipanggil, function harus berhenti — kalau tidak, kode di bawahnya ikut jalan dan bisa memicu error 'headers already sent'. return memastikan penghentian.",
+        text: "Setelah res.json() dipanggil, function harus berhenti kalau tidak, kode di bawahnya ikut jalan dan bisa memicu error 'headers already sent'. return memastikan penghentian.",
       },
       { type: "h2", text: "Struktur project yang rapi" },
       {
@@ -151,7 +151,7 @@ curl -X DELETE http://localhost:3000/api/users/1`,
       {
         type: "callout",
         title: "Langkah berikutnya",
-        text: "Data di memori hilang saat server restart. Itu sebabnya kamu butuh database — pelajari di tutorial berikutnya.",
+        text: "Data di memori hilang saat server restart. Itu sebabnya kamu butuh database pelajari di tutorial berikutnya.",
       },
     ],
   }

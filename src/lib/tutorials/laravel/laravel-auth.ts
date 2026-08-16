@@ -12,7 +12,7 @@ export const laravelAuth: Tutorial = {
     content: [
       {
         type: "p",
-        text: "Sebagian besar aplikasi butuh pengguna yang bisa daftar dan login. Laravel menyediakan semua yang dibutuhkan — hash password, session, dan middleware — sehingga kamu fokus pada logika aplikasi, bukan mengulang mekanisme auth.",
+        text: "Sebagian besar aplikasi butuh pengguna yang bisa daftar dan login. Laravel menyediakan semua yang dibutuhkan hash password, session, dan middleware sehingga kamu fokus pada logika aplikasi, bukan mengulang mekanisme auth.",
       },
       { type: "h2", text: "Siapkan auth dengan Breeze" },
       {
@@ -62,7 +62,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('artikel', ArtikelController::class);
 });
 
-// Harus GUEST (belum login) — untuk halaman login/register
+// Harus GUEST (belum login) untuk halaman login/register
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'index']);
 });`,
@@ -143,7 +143,7 @@ public function logout(Request $request)
         type: "callout",
         title: "Jangan simpan password mentah",
         tone: "warning",
-        text: "Selalu hash password dengan Hash::make() — jangan pernah simpan password sebagai teks biasa. Password ter-hash bersifat satu arah: tidak bisa dibalik jadi teks asli.",
+        text: "Selalu hash password dengan Hash::make() jangan pernah simpan password sebagai teks biasa. Password ter-hash bersifat satu arah: tidak bisa dibalik jadi teks asli.",
       },
       { type: "h2", text: "Membuat middleware kustom" },
       {

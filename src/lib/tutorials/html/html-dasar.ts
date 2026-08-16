@@ -11,7 +11,7 @@ export const htmlDasar: Tutorial = {
     content: [
         {
             type: "p",
-            text: "HTML (HyperText Markup Language) adalah bahasa yang mendefinisikan struktur sebuah halaman web. Bayangkan HTML sebagai kerangka tulang — belum terlihat cantik, tapi tanpanya tidak ada yang bisa berdiri.",
+            text: "HTML (HyperText Markup Language) adalah bahasa yang mendefinisikan struktur sebuah halaman web. Bayangkan HTML sebagai kerangka tulang belum terlihat cantik, tapi tanpanya tidak ada yang bisa berdiri.",
         },
         { type: "h2", text: "Anatomi elemen HTML" },
         {
@@ -29,9 +29,9 @@ export const htmlDasar: Tutorial = {
         {
             type: "list",
             items: [
-                "Tag pembuka: <p> — menandai awal elemen.",
+                "Tag pembuka: <p> menandai awal elemen.",
                 "Konten: teks atau elemen lain di dalamnya.",
-                "Tag penutup: </p> — menandai akhir elemen.",
+                "Tag penutup: </p> menandai akhir elemen.",
                 'Atribut: informasi tambahan di dalam tag pembuka, contohnya <a href="https://...">.',
             ],
         },
@@ -59,10 +59,10 @@ export const htmlDasar: Tutorial = {
         {
             type: "list",
             items: [
-                "<!DOCTYPE html> — deklarasi bahwa ini dokumen HTML5.",
-                "<html> — elemen akar yang membungkus seluruh halaman.",
-                "<head> — berisi metadata seperti judul dan charset (tidak tampil).",
-                "<body> — berisi semua konten yang terlihat oleh pengguna.",
+                "<!DOCTYPE html> deklarasi bahwa ini dokumen HTML5.",
+                "<html> elemen akar yang membungkus seluruh halaman.",
+                "<head> berisi metadata seperti judul dan charset (tidak tampil).",
+                "<body> berisi semua konten yang terlihat oleh pengguna.",
             ],
         },
         { type: "h2", text: "Elemen semantik (yang penting!)" },
@@ -102,13 +102,13 @@ export const htmlDasar: Tutorial = {
         {
             type: "list",
             items: [
-                "<h1> sampai <h6> — judul berjenjang (pakai satu <h1> per halaman).",
-                "<p> — paragraf.",
-                '<a href="..."> — link.',
-                '<img src="..." alt="..."> — gambar (alt wajib untuk aksesibilitas).',
-                "<ul>/<ol> dan <li> — daftar (list).",
-                "<strong> dan <em> — teks tebal dan miring.",
-                "<button> — tombol.",
+                "<h1> sampai <h6> judul berjenjang (pakai satu <h1> per halaman).",
+                "<p> paragraf.",
+                '<a href="..."> link.',
+                '<img src="..." alt="..."> gambar (alt wajib untuk aksesibilitas).',
+                "<ul>/<ol> dan <li> daftar (list).",
+                "<strong> dan <em> teks tebal dan miring.",
+                "<button> tombol.",
             ],
         },
         { type: "h2", text: "Latihan singkat" },

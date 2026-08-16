@@ -4,7 +4,7 @@ export const htmlFormulir: Tutorial = {
     slug: "html-formulir",
     title: "HTML Lanjutan: Form, Tabel & Media",
     description:
-      "Pelajari input form, tabel data, dan elemen media — komponen penting website nyata yang jarang dibahas di tutorial dasar.",
+      "Pelajari input form, tabel data, dan elemen media komponen penting website nyata yang jarang dibahas di tutorial dasar.",
     category: "HTML",
     level: "Pemula",
     minutes: 13,
@@ -12,12 +12,12 @@ export const htmlFormulir: Tutorial = {
     content: [
       {
         type: "p",
-        text: "Halaman statis saja tidak cukup — website nyata butuh form (pendaftaran, pencarian, komentar), tabel (data, harga), dan media (gambar, video). Tutorial ini melengkapi HTML dasarmu.",
+        text: "Halaman statis saja tidak cukup website nyata butuh form (pendaftaran, pencarian, komentar), tabel (data, harga), dan media (gambar, video). Tutorial ini melengkapi HTML dasarmu.",
       },
       { type: "h2", text: "Form & input" },
       {
         type: "p",
-        text: "Form adalah jembatan antara pengguna dan server. Setiap input wajib punya atribut name — inilah kunci data yang dikirim.",
+        text: "Form adalah jembatan antara pengguna dan server. Setiap input wajib punya atribut name inilah kunci data yang dikirim.",
       },
       {
         type: "code",
@@ -65,10 +65,10 @@ export const htmlFormulir: Tutorial = {
       {
         type: "list",
         items: [
-          "type=\"email\"/\"number\" — browser memvalidasi otomatis.",
-          "required — input wajib diisi.",
-          "label + for/id — wajib untuk aksesibilitas (dan bisa diklik untuk fokus).",
-          "name — nama field saat data dikirim ke server.",
+          "type=\"email\"/\"number\" browser memvalidasi otomatis.",
+          "required input wajib diisi.",
+          "label + for/id wajib untuk aksesibilitas (dan bisa diklik untuk fokus).",
+          "name nama field saat data dikirim ke server.",
         ],
       },
       { type: "h2", text: "Tabel data" },
@@ -124,8 +124,8 @@ export const htmlFormulir: Tutorial = {
       {
         type: "list",
         items: [
-          "loading=\"lazy\" — gambar dimuat hanya saat mendekati layar (performa).",
-          "controls — menampilkan tombol play/pause.",
+          "loading=\"lazy\" gambar dimuat hanya saat mendekati layar (performa).",
+          "controls menampilkan tombol play/pause.",
           "Selalu sediakan atribut alt yang menjelaskan isi gambar.",
         ],
       },

@@ -12,7 +12,7 @@ export const nextjsProject: Tutorial = {
     content: [
       {
         type: "p",
-        text: "Waktunya menyatukan semuanya. Kita bangun 'Blog Sinau' — aplikasi blog lengkap: user login, CRUD artikel dengan relasi ke penulis, tampilan rapi, lalu deploy. Inilah gambaran kerja seorang Next.js developer sesungguhnya.",
+        text: "Waktunya menyatukan semuanya. Kita bangun 'Blog Sinau' aplikasi blog lengkap: user login, CRUD artikel dengan relasi ke penulis, tampilan rapi, lalu deploy. Inilah gambaran kerja seorang Next.js developer sesungguhnya.",
       },
       { type: "h2", text: "Spesifikasi" },
       {
@@ -335,7 +335,7 @@ git push          # lalu import ke Vercel
       },
       {
         type: "p",
-        text: "Selamat — kamu sudah membangun aplikasi full-stack dari nol sampai deploy! Perluas dengan fitur edit artikel, komentar, kategori, dan pencarian. Terus bangun project untuk mengasah skill.",
+        text: "Selamat kamu sudah membangun aplikasi full-stack dari nol sampai deploy! Perluas dengan fitur edit artikel, komentar, kategori, dan pencarian. Terus bangun project untuk mengasah skill.",
       },
     ],
   }

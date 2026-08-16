@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { BookOpen, Code2, GraduationCap, LogOut, MoreVertical, Rocket, Map } from "lucide-react";
+import { BookOpen, ChevronRight, Code2, GraduationCap, LogOut, Map, MoreVertical, Rocket } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -15,10 +15,18 @@ import {
     SidebarMenu,
     SidebarMenuButton,
     SidebarMenuItem,
+    SidebarMenuSub,
+    SidebarMenuSubButton,
+    SidebarMenuSubItem,
     SidebarRail,
     useSidebar,
 } from "@/components/ui/sidebar";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import {
+    Collapsible,
+    CollapsibleContent,
+    CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -27,7 +35,7 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { categories } from "@/lib/categories";
+import { categories, getTutorialsInCategory } from "@/lib/categories";
 import { createClient } from "@/lib/supabase/client";
 import type { User } from "@supabase/supabase-js";
 
@@ -79,21 +87,53 @@ function NavCategories() {
             <SidebarGroupLabel>Topik Materi</SidebarGroupLabel>
             <SidebarMenu>
                 {categories.map(category => {
-                    const active = pathname === `/${category.slug}`;
+                    const items = getTutorialsInCategory(category.slug);
+                    const categoryActive =
+                        pathname === `/${category.slug}` ||
+                        items.some(item => pathname === `/dashboard/tutorials/${item.slug}`);
                     return (
-                        <SidebarMenuItem key={category.slug}>
-                            <SidebarMenuButton
-                                asChild
-                                tooltip={category.name}
-                                isActive={active}
-                                onClick={() => setOpenMobile(false)}
-                            >
-                                <Link href={`/${category.slug}`}>
-                                    <category.icon />
-                                    <span>{category.name}</span>
-                                </Link>
-                            </SidebarMenuButton>
-                        </SidebarMenuItem>
+                        <Collapsible
+                            key={category.slug}
+                            asChild
+                            defaultOpen={categoryActive}
+                            className="group/collapsible"
+                        >
+                            <SidebarMenuItem>
+                                <CollapsibleTrigger asChild>
+                                    <SidebarMenuButton
+                                        tooltip={category.name}
+                                        isActive={categoryActive}
+                                        onClick={() => setOpenMobile(false)}
+                                    >
+                                        <category.icon />
+                                        <span>{category.name}</span>
+                                        <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                                    </SidebarMenuButton>
+                                </CollapsibleTrigger>
+                                <CollapsibleContent>
+                                    <SidebarMenuSub>
+                                        {items.map((item, index) => {
+                                            const itemActive = pathname === `/dashboard/tutorials/${item.slug}`;
+                                            return (
+                                                <SidebarMenuSubItem key={item.slug}>
+                                                    <SidebarMenuSubButton
+                                                        asChild
+                                                        isActive={itemActive}
+                                                        onClick={() => setOpenMobile(false)}
+                                                    >
+                                                        <Link href={`/dashboard/tutorials/${item.slug}`}>
+                                                            {/* <span>Bab {index + 1}</span> */}
+                                                            <span>{index + 1}</span>
+                                                            <span className="truncate">{item.title}</span>
+                                                        </Link>
+                                                    </SidebarMenuSubButton>
+                                                </SidebarMenuSubItem>
+                                            );
+                                        })}
+                                    </SidebarMenuSub>
+                                </CollapsibleContent>
+                            </SidebarMenuItem>
+                        </Collapsible>
                     );
                 })}
             </SidebarMenu>

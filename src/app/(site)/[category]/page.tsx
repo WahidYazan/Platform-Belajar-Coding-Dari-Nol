@@ -37,7 +37,7 @@ export default async function CategoryPage({ params }: PageProps<"/[category]">)
     return (
         <div className="mx-auto w-full max-w-6xl px-4 py-14">
             <nav className="mb-8 flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
-                <Link href="/" className="hover:text-foreground">
+                <Link href="/dashboard" className="hover:text-foreground">
                     Beranda
                 </Link>
                 <span>/</span>

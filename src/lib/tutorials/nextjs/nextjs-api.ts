@@ -4,7 +4,7 @@ export const nextjsApi: Tutorial = {
     slug: "nextjs-api",
     title: "Route Handlers: Membuat API di Next.js",
     description:
-      "Buat endpoint REST dengan route.ts — GET, POST, PUT, DELETE — lengkap dengan status code dan pengambilan data.",
+      "Buat endpoint REST dengan route.ts GET, POST, PUT, DELETE lengkap dengan status code dan pengambilan data.",
     category: "Next.js",
     level: "Menengah",
     minutes: 16,
@@ -12,7 +12,7 @@ export const nextjsApi: Tutorial = {
     content: [
       {
         type: "p",
-        text: "Route Handlers memungkinkan kamu membuat API (endpoint JSON) di dalam App Router. Cocok untuk webhook, integrasi pihak ketiga, atau endpoint yang dipakai aplikasi mobile — berbeda dari Server Action yang khusus untuk form.",
+        text: "Route Handlers memungkinkan kamu membuat API (endpoint JSON) di dalam App Router. Cocok untuk webhook, integrasi pihak ketiga, atau endpoint yang dipakai aplikasi mobile berbeda dari Server Action yang khusus untuk form.",
       },
       { type: "h2", text: "Membuat Route Handler" },
       {
@@ -46,7 +46,7 @@ export async function POST(request: Request) {
       {
         type: "list",
         items: [
-          "route.ts hanya ada di app/ — tidak bisa bersebelahan dengan page.tsx di folder yang sama.",
+          "route.ts hanya ada di app/ tidak bisa bersebelahan dengan page.tsx di folder yang sama.",
           "Export GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS.",
           "Route Handler tidak di-cache secara default.",
           "Gunakan Response.json() untuk respons JSON.",
@@ -94,7 +94,7 @@ export async function DELETE(
         type: "callout",
         title: "params berupa Promise",
         tone: "warning",
-        text: "Sama seperti di halaman, params di Route Handler juga Promise — wajib await. Ini pembeda dari versi Next.js lama.",
+        text: "Sama seperti di halaman, params di Route Handler juga Promise wajib await. Ini pembeda dari versi Next.js lama.",
       },
       { type: "h2", text: "Validasi input" },
       {
@@ -122,12 +122,12 @@ export async function DELETE(
       {
         type: "list",
         items: [
-          "400 — input salah / malformed.",
-          "401 — belum login.",
-          "403 — tidak punya akses.",
-          "404 — data tidak ada.",
-          "422 — validasi gagal.",
-          "500 — error server.",
+          "400 input salah / malformed.",
+          "401 belum login.",
+          "403 tidak punya akses.",
+          "404 data tidak ada.",
+          "422 validasi gagal.",
+          "500 error server.",
         ],
       },
       { type: "h2", text: "Membaca query string" },

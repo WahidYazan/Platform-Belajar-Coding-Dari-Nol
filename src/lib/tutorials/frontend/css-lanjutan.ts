@@ -12,7 +12,7 @@ export const cssLanjutan: Tutorial = {
     content: [
       {
         type: "p",
-        text: "CSS tidak hanya mengatur tampilan diam — ia bisa merespons interaksi dan bergerak. Tutorial ini mengangkat tingkat skill CSS-mu dari 'bisa' menjadi 'rapi dan profesional'.",
+        text: "CSS tidak hanya mengatur tampilan diam ia bisa merespons interaksi dan bergerak. Tutorial ini mengangkat tingkat skill CSS-mu dari 'bisa' menjadi 'rapi dan profesional'.",
       },
       { type: "h2", text: "Pseudo-class: gaya saat kondisi tertentu" },
       {
@@ -92,7 +92,7 @@ p::first-line {
         type: "callout",
         title: "Transition di properti tertentu",
         tone: "tip",
-        text: "Jangan animasikan semua properti (transition: all). Batasi ke properti yang benar-benar berubah agar performa tetap mulus — transform dan opacity adalah yang paling ringan.",
+        text: "Jangan animasikan semua properti (transition: all). Batasi ke properti yang benar-benar berubah agar performa tetap mulus transform dan opacity adalah yang paling ringan.",
       },
       { type: "h2", text: "Transform: ubah bentuk tanpa mengganggu layout" },
       {

@@ -18,10 +18,10 @@ export const laravelRouting: Tutorial = {
       {
         type: "list",
         items: [
-          "routes/web.php — route untuk aplikasi web (yang dibuka di browser).",
-          "routes/api.php — route untuk API (prefix /api, tanpa session/CSRF).",
-          "routes/console.php — perintah artisan kustom.",
-          "routes/channels.php — broadcast channel (jarang dipakai pemula).",
+          "routes/web.php route untuk aplikasi web (yang dibuka di browser).",
+          "routes/api.php route untuk API (prefix /api, tanpa session/CSRF).",
+          "routes/console.php perintah artisan kustom.",
+          "routes/channels.php broadcast channel (jarang dipakai pemula).",
         ],
       },
       { type: "h2", text: "Route dasar" },
@@ -56,10 +56,10 @@ Route::delete('/pengguna/1', function () {
       {
         type: "list",
         items: [
-          "get — mengambil halaman/data.",
-          "post — mengirim data baru (form).",
-          "put / patch — memperbarui data.",
-          "delete — menghapus data.",
+          "get mengambil halaman/data.",
+          "post mengirim data baru (form).",
+          "put / patch memperbarui data.",
+          "delete menghapus data.",
         ],
       },
       { type: "h2", text: "Parameter URL" },
@@ -148,7 +148,7 @@ Route::post('/artikel', [ArtikelController::class, 'store']);`,
       },
       {
         type: "p",
-        text: "Lanjut ke tutorial Blade untuk mempelajari template tampilan — pasangan routing yang paling sering dipakai.",
+        text: "Lanjut ke tutorial Blade untuk mempelajari template tampilan pasangan routing yang paling sering dipakai.",
       },
     ],
   }

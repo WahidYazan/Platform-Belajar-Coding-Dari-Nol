@@ -4,7 +4,7 @@ export const caraKerjaWeb: Tutorial = {
     slug: "cara-kerja-web",
     title: "Cara Kerja Web: Internet, Browser & Server",
     description:
-        "Pahami apa yang terjadi di balik layar setiap kali kamu membuka website — fondasi konsep yang wajib dikuasai dari hari pertama.",
+        "Pahami apa yang terjadi di balik layar setiap kali kamu membuka website fondasi konsep yang wajib dikuasai dari hari pertama.",
     category: "Dasar",
     level: "Pemula",
     minutes: 10,
@@ -12,7 +12,7 @@ export const caraKerjaWeb: Tutorial = {
     content: [
         {
             type: "p",
-            text: "Sebelum menulis kode, kamu perlu memahami apa itu website dan bagaimana ia sampai ke layarmu. Konsep ini adalah fondasi semua materi selanjutnya — tanpa memahaminya, istilah seperti 'server', 'API', dan 'deploy' akan selalu membingungkan.",
+            text: "Sebelum menulis kode, kamu perlu memahami apa itu website dan bagaimana ia sampai ke layarmu. Konsep ini adalah fondasi semua materi selanjutnya tanpa memahaminya, istilah seperti 'server', 'API', dan 'deploy' akan selalu membingungkan.",
         },
         { type: "h2", text: "Apa yang terjadi saat kamu membuka website?" },
         {
@@ -58,8 +58,8 @@ Content-Type: text/html
         {
             type: "list",
             items: [
-                "GET — minta data (buka halaman).",
-                "POST — kirim data baru (submit form).",
+                "GET minta data (buka halaman).",
+                "POST kirim data baru (submit form).",
                 "Status 200 = sukses, 404 = tidak ditemukan, 500 = error server.",
             ],
         },

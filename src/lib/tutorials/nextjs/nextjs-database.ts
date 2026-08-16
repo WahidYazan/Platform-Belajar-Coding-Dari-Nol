@@ -12,7 +12,7 @@ export const nextjsDatabase: Tutorial = {
     content: [
       {
         type: "p",
-        text: "Aplikasi serius butuh data yang tersimpan. Prisma adalah ORM paling populer di ekosistem Next.js — kamu mendefinisikan skema dengan bahasa yang mudah, lalu Prisma membuat tipe TypeScript dan query yang aman.",
+        text: "Aplikasi serius butuh data yang tersimpan. Prisma adalah ORM paling populer di ekosistem Next.js kamu mendefinisikan skema dengan bahasa yang mudah, lalu Prisma membuat tipe TypeScript dan query yang aman.",
       },
       { type: "h2", text: "Setup Prisma" },
       {

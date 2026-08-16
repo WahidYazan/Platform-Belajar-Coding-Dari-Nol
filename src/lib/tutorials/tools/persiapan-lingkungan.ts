@@ -14,7 +14,7 @@ export const persiapanLingkungan: Tutorial = {
             type: "p",
             text: "Developer profesional punya 'lingkungan kerja' yang nyaman: editor yang cepat, terminal yang dikuasai, dan runtime yang terpasang benar. Tutorial ini memandumu menyiapkan semuanya sekali, untuk dipakai seterusnya.",
         },
-        { type: "h2", text: "Langkah 1 — Install Visual Studio Code" },
+        { type: "h2", text: "Langkah 1 Install Visual Studio Code" },
         {
             type: "p",
             text: "Kunjungi code.visualstudio.com dan unduh versi untuk sistem operasimu (Windows/macOS/Linux). Setelah terpasang, buka dan akrabi tiga area utama:",
@@ -22,12 +22,12 @@ export const persiapanLingkungan: Tutorial = {
         {
             type: "list",
             items: [
-                "Explorer (kiri) — daftar file dan folder project.",
-                "Editor (tengah) — tempat menulis kode.",
-                "Terminal (bawah) — menjalankan perintah (buka dengan Ctrl+`).",
+                "Explorer (kiri) daftar file dan folder project.",
+                "Editor (tengah) tempat menulis kode.",
+                "Terminal (bawah) menjalankan perintah (buka dengan Ctrl+`).",
             ],
         },
-        { type: "h2", text: "Langkah 2 — Ekstensi wajib" },
+        { type: "h2", text: "Langkah 2 Ekstensi wajib" },
         {
             type: "p",
             text: "Buka panel Extensions (Ctrl+Shift+X) dan install yang ini dulu:",
@@ -35,13 +35,13 @@ export const persiapanLingkungan: Tutorial = {
         {
             type: "list",
             items: [
-                "Prettier — merapikan format kode otomatis.",
-                "ESLint — mendeteksi kesalahan JavaScript.",
-                "Tailwind CSS IntelliSense — autocomplete Tailwind.",
-                "Live Server — membuka HTML dengan auto-reload.",
+                "Prettier merapikan format kode otomatis.",
+                "ESLint mendeteksi kesalahan JavaScript.",
+                "Tailwind CSS IntelliSense autocomplete Tailwind.",
+                "Live Server membuka HTML dengan auto-reload.",
             ],
         },
-        { type: "h2", text: "Langkah 3 — Kenali Terminal" },
+        { type: "h2", text: "Langkah 3 Kenali Terminal" },
         {
             type: "p",
             text: "Terminal adalah cara berkomunikasi dengan komputer memakai teks, bukan klik. Buat kamu akan sangat sering memakainya. Mulai dengan perintah navigasi:",
@@ -71,9 +71,9 @@ touch index.html</code>`,
             type: "callout",
             title: "Tab auto-complete",
             tone: "tip",
-            text: "Ketik cd pro lalu tekan Tab — terminal melengkapi otomatis menjadi 'cd project'. Ini menghemat ribuan penekanan tombol. Biasakan sejak awal.",
+            text: "Ketik cd pro lalu tekan Tab terminal melengkapi otomatis menjadi 'cd project'. Ini menghemat ribuan penekanan tombol. Biasakan sejak awal.",
         },
-        { type: "h2", text: "Langkah 4 — Install Node.js & NPM" },
+        { type: "h2", text: "Langkah 4 Install Node.js & NPM" },
         {
             type: "p",
             text: "Unduh versi LTS dari nodejs.org, install, lalu verifikasi. Buka terminal baru dan jalankan:",
@@ -105,7 +105,7 @@ npm --version
             code: `node halo.js
 # Halo, dunia! Ini JavaScript pertamaku di terminal.</code>`,
         },
-        { type: "h2", text: "Langkah 5 — Susun struktur folder" },
+        { type: "h2", text: "Langkah 5 Susun struktur folder" },
         {
             type: "code",
             lang: "bash",
@@ -121,7 +121,7 @@ mkdir project-2</code>`,
         {
             type: "callout",
             title: "Selesai!",
-            text: "Lingkunganmu sudah siap. Dari sini kamu tinggal fokus belajar HTML dan CSS — tools tidak akan jadi penghalang lagi. Jika macet di langkah mana pun, error yang muncul bisa langsung dicari di Google.",
+            text: "Lingkunganmu sudah siap. Dari sini kamu tinggal fokus belajar HTML dan CSS tools tidak akan jadi penghalang lagi. Jika macet di langkah mana pun, error yang muncul bisa langsung dicari di Google.",
         },
     ],
 };

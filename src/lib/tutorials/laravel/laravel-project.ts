@@ -12,7 +12,7 @@ export const laravelProject: Tutorial = {
     content: [
       {
         type: "p",
-        text: "Waktunya membangun aplikasi utuh. Kita buat 'CatatanKu' — aplikasi catatan pribadi di mana user bisa login, membuat/mengubah/menghapus catatan, dan setiap user hanya melihat catatannya sendiri. Ini menguji semua yang sudah dipelajari.",
+        text: "Waktunya membangun aplikasi utuh. Kita buat 'CatatanKu' aplikasi catatan pribadi di mana user bisa login, membuat/mengubah/menghapus catatan, dan setiap user hanya melihat catatannya sendiri. Ini menguji semua yang sudah dipelajari.",
       },
       { type: "h2", text: "Spesifikasi aplikasi" },
       {
@@ -86,7 +86,7 @@ php artisan make:controller CatatanController --resource`,
     return $this->hasMany(Catatan::class);
 }`,
       },
-      { type: "h2", text: "2. Route — semua butuh login" },
+      { type: "h2", text: "2. Route semua butuh login" },
       {
         type: "code",
         lang: "php",
@@ -327,7 +327,7 @@ class CatatanController extends Controller
 php artisan serve
 
 # Register user, buat catatan, edit, hapus.
-# Login sebagai user lain — pastikan tidak bisa
+# Login sebagai user lain pastikan tidak bisa
 # membuka catatan user pertama (harus 403).`,
       },
       {

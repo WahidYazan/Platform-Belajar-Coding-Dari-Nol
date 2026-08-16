@@ -12,7 +12,7 @@ export const javascriptDom: Tutorial = {
     content: [
       {
         type: "p",
-        text: "JavaScript di browser bukan hanya menulis console.log — ia bisa memilih elemen HTML, mengubahnya, dan merespons aksi pengguna. Inilah kekuatan yang membuat website menjadi aplikasi.",
+        text: "JavaScript di browser bukan hanya menulis console.log ia bisa memilih elemen HTML, mengubahnya, dan merespons aksi pengguna. Inilah kekuatan yang membuat website menjadi aplikasi.",
       },
       { type: "h2", text: "Apa itu DOM?" },
       {
@@ -62,7 +62,7 @@ title.classList.toggle("active");`,
         type: "callout",
         title: "textContent vs innerHTML",
         tone: "warning",
-        text: "Gunakan textContent untuk menampilkan teks dari pengguna. innerHTML merender HTML mentah — jika isinya berasal dari input pengguna, itu celah keamanan (XSS).",
+        text: "Gunakan textContent untuk menampilkan teks dari pengguna. innerHTML merender HTML mentah jika isinya berasal dari input pengguna, itu celah keamanan (XSS).",
       },
       { type: "h2", text: "Membuat dan menghapus elemen" },
       {
@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", init); // halaman siap`,
         type: "callout",
         title: "Event delegation",
         tone: "tip",
-        text: "Jika punya 100 tombol yang dibuat dinamis, jangan pasang listener satu per satu. Pasang satu listener di kontainer, lalu cek event.target — ini pola event delegation yang wajib dikenal.",
+        text: "Jika punya 100 tombol yang dibuat dinamis, jangan pasang listener satu per satu. Pasang satu listener di kontainer, lalu cek event.target ini pola event delegation yang wajib dikenal.",
       },
       {
         type: "p",

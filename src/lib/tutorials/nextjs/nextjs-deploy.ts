@@ -12,7 +12,7 @@ export const nextjsDeploy: Tutorial = {
     content: [
       {
         type: "p",
-        text: "Kode yang tidak dideploy tidak berguna. Vercel adalah platform buatan para pembuat Next.js — integrasinya paling mulus: push ke GitHub, aplikasi langsung ter-build dan ter-hosting otomatis.",
+        text: "Kode yang tidak dideploy tidak berguna. Vercel adalah platform buatan para pembuat Next.js integrasinya paling mulus: push ke GitHub, aplikasi langsung ter-build dan ter-hosting otomatis.",
       },
       { type: "h2", text: "1. Siapkan repository" },
       {
@@ -40,7 +40,7 @@ git push -u origin main`,
       },
       {
         type: "p",
-        text: "Setiap push ke GitHub (atau pull request) otomatis membuat build baru. Inilah 'preview deployment' — setiap PR punya URL sendiri untuk ditest sebelum digabung.",
+        text: "Setiap push ke GitHub (atau pull request) otomatis membuat build baru. Inilah 'preview deployment' setiap PR punya URL sendiri untuk ditest sebelum digabung.",
       },
       { type: "h2", text: "Environment variables" },
       {
@@ -66,7 +66,7 @@ grep -r "process.env" src/`,
         type: "callout",
         title: "Secret tidak boleh di client",
         tone: "warning",
-        text: "Variabel tanpa prefix NEXT_PUBLIC_ hanya tersedia di server. Jangan pernah menaruh secret di variabel NEXT_PUBLIC_* — itu akan dikirim ke browser.",
+        text: "Variabel tanpa prefix NEXT_PUBLIC_ hanya tersedia di server. Jangan pernah menaruh secret di variabel NEXT_PUBLIC_* itu akan dikirim ke browser.",
       },
       { type: "h2", text: "Produksi: build & start" },
       {
@@ -76,10 +76,10 @@ grep -r "process.env" src/`,
       {
         type: "list",
         items: [
-          "npm run dev — development, hot reload, tanpa optimasi penuh.",
-          "npm run build — build produksi, static page di-pre-render.",
-          "npm start — menjalankan hasil build di server (node).",
-          "Halaman statis dilayani CDN — sangat cepat di seluruh dunia.",
+          "npm run dev development, hot reload, tanpa optimasi penuh.",
+          "npm run build build produksi, static page di-pre-render.",
+          "npm start menjalankan hasil build di server (node).",
+          "Halaman statis dilayani CDN sangat cepat di seluruh dunia.",
         ],
       },
       { type: "h2", text: "Analytics & monitoring" },

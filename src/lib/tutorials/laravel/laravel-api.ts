@@ -12,7 +12,7 @@ export const laravelApi: Tutorial = {
     content: [
       {
         type: "p",
-        text: "API (Application Programming Interface) memungkinkan aplikasi lain — mobile app, SPA, atau layanan pihak ketiga — memakai data aplikasimu. Alih-alih mengembalikan HTML, API mengembalikan JSON.",
+        text: "API (Application Programming Interface) memungkinkan aplikasi lain mobile app, SPA, atau layanan pihak ketiga memakai data aplikasimu. Alih-alih mengembalikan HTML, API mengembalikan JSON.",
       },
       { type: "h2", text: "Route API" },
       {

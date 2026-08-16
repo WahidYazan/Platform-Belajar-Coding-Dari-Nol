@@ -83,7 +83,7 @@ export default function RootLayout({
         code: `import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: { default: "Sinau Coding", template: "%s — Sinau Coding" },
+  title: { default: "Sinau Coding", template: "%s Sinau Coding" },
   description: "Belajar coding dari nol dalam Bahasa Indonesia.",
   openGraph: {
     title: "Sinau Coding",
@@ -101,7 +101,7 @@ export const metadata: Metadata = {
       {
         type: "list",
         items: [
-          "metadata diekspor dari layout atau page — Next.js merendernya di <head>.",
+          "metadata diekspor dari layout atau page Next.js merendernya di <head>.",
           "Open Graph dipakai saat link dibagikan di WhatsApp/Facebook.",
           "generateMetadata untuk metadata dinamis per halaman.",
         ],
@@ -143,7 +143,7 @@ export default function DashboardPage() {
         type: "callout",
         title: "Kebiasaan kecil, dampak besar",
         tone: "tip",
-        text: "Gunakan <Image> untuk semua gambar, satu <h1> per halaman, metadata selalu diisi, dan jangan bungkus semuanya dengan \"use client\" — semakin kecil JS yang dikirim, semakin cepat aplikasi.",
+        text: "Gunakan <Image> untuk semua gambar, satu <h1> per halaman, metadata selalu diisi, dan jangan bungkus semuanya dengan \"use client\" semakin kecil JS yang dikirim, semakin cepat aplikasi.",
       },
       {
         type: "p",

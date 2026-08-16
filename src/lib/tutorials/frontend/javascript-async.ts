@@ -12,7 +12,7 @@ export const javascriptAsync: Tutorial = {
     content: [
       {
         type: "p",
-        text: "Mengambil data dari internet membutuhkan waktu — bisa 100ms atau 10 detik. JavaScript tidak boleh membeku sambil menunggu. Di sinilah pemrograman asinkron bekerja: jalankan tugas lain sambil menunggu respons.",
+        text: "Mengambil data dari internet membutuhkan waktu bisa 100ms atau 10 detik. JavaScript tidak boleh membeku sambil menunggu. Di sinilah pemrograman asinkron bekerja: jalankan tugas lain sambil menunggu respons.",
       },
       { type: "h2", text: "Masalahnya: tugas memakan waktu" },
       {
@@ -64,7 +64,7 @@ const users = await loadUsers();`,
         items: [
           "await hanya bisa dipakai di dalam fungsi async.",
           "try/catch menangkap error dari jaringan maupun status non-200.",
-          "async/await adalah gula sintaks di atas Promise — konsepnya sama.",
+          "async/await adalah gula sintaks di atas Promise konsepnya sama.",
         ],
       },
       { type: "h2", text: "Memakai fetch di halaman web" },
@@ -84,7 +84,7 @@ const users = await loadUsers();`,
       const users = await res.json();
 
       list.innerHTML = users
-        .map((user) => \`<li>\${user.name} — \${user.email}</li>\`)
+        .map((user) => \`<li>\${user.name} \${user.email}</li>\`)
         .join("");
     } catch (error) {
       list.innerHTML = "<li>Gagal memuat data</li>";
@@ -107,7 +107,7 @@ const users = await loadUsers();`,
       },
       {
         type: "p",
-        text: "Konsep async ini adalah jembatan menuju backend. Di sana, istilahnya sama — hanya berjalan di server. Lanjut ke Node.js & Express saat kamu siap.",
+        text: "Konsep async ini adalah jembatan menuju backend. Di sana, istilahnya sama hanya berjalan di server. Lanjut ke Node.js & Express saat kamu siap.",
       },
     ],
   }

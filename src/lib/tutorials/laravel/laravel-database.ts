@@ -41,7 +41,7 @@ DB_PASSWORD=`,
       { type: "h2", text: "Apa itu migration?" },
       {
         type: "p",
-        text: "Migration adalah file yang mendeskripsikan struktur tabel. Karena disimpan di repository, seluruh tim (dan server produksi) bisa punya struktur database yang sama persis — seperti Git untuk database.",
+        text: "Migration adalah file yang mendeskripsikan struktur tabel. Karena disimpan di repository, seluruh tim (dan server produksi) bisa punya struktur database yang sama persis seperti Git untuk database.",
       },
       {
         type: "code",
@@ -106,7 +106,7 @@ $table->timestamps();          // created_at + updated_at`,
       { type: "h2", text: "Seeder: mengisi data awal" },
       {
         type: "p",
-        text: "Seeder mengisi database dengan data contoh — sangat berguna untuk pengembangan dan testing:",
+        text: "Seeder mengisi database dengan data contoh sangat berguna untuk pengembangan dan testing:",
       },
       {
         type: "code",
@@ -143,7 +143,7 @@ class ArtikelSeeder extends Seeder
         type: "callout",
         title: "Sequelize?",
         tone: "info",
-        text: "Catatan: Istilah 'seeder' di Laravel mirip konsep 'seed' di bahasa lain — mengisi data awal. Jangan tertukar dengan ORM seperti Sequelize (JavaScript).",
+        text: "Catatan: Istilah 'seeder' di Laravel mirip konsep 'seed' di bahasa lain mengisi data awal. Jangan tertukar dengan ORM seperti Sequelize (JavaScript).",
       },
       { type: "h2", text: "Tinker: uji coba database" },
       {

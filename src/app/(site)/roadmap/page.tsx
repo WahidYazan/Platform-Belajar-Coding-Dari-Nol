@@ -17,7 +17,7 @@ export default function RoadmapPage() {
           Roadmap Belajar Coding dari Nol
         </h1>
         <p className="mt-4 leading-7 text-muted-foreground">
-          Ada 8 fase yang harus kamu lewati secara berurutan — kecuali fase Git & GitHub yang
+          Ada 8 fase yang harus kamu lewati secara berurutan kecuali fase Git & GitHub yang
           bisa dipelajari paralel dengan fase JavaScript. Setiap fase punya durasi estimasi dan
           project untuk menguji pemahamanmu.
         </p>

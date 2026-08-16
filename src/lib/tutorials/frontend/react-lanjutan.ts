@@ -17,7 +17,7 @@ export const reactLanjutan: Tutorial = {
       { type: "h2", text: "useEffect: kapan dipakai?" },
       {
         type: "p",
-        text: "useEffect menjalankan kode setelah komponen di-render. Aturan sederhana: pakai untuk sinkronisasi dengan sistem luar (API, storage, event global) — bukan untuk menghitung data dari props/state.",
+        text: "useEffect menjalankan kode setelah komponen di-render. Aturan sederhana: pakai untuk sinkronisasi dengan sistem luar (API, storage, event global) bukan untuk menghitung data dari props/state.",
       },
       {
         type: "code",
@@ -100,7 +100,7 @@ function UserList() {
         type: "callout",
         title: "Hindari infinite loop",
         tone: "warning",
-        text: "Jangan taruh setState() di tubuh efek tanpa dependency yang benar — bisa memicu render → efek → render terus-menerus. Selalu pikirkan array dependency-mu.",
+        text: "Jangan taruh setState() di tubuh efek tanpa dependency yang benar bisa memicu render → efek → render terus-menerus. Selalu pikirkan array dependency-mu.",
       },
       { type: "h2", text: "Pola: custom hook useFetch" },
       {

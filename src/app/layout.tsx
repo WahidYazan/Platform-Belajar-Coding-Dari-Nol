@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
     title: {
-        default: "Sinau Coding — Belajar Coding dari Nol",
-        template: "%s — Sinau Coding",
+        default: "Sinau Coding Belajar Coding dari Nol",
+        template: "%s Sinau Coding",
     },
     description:
         "Roadmap belajar coding lengkap dari nol dalam Bahasa Indonesia: HTML, CSS, JavaScript, React, backend, hingga deployment. Mulai dari mana dan ke mana arahmu, semua di sini.",

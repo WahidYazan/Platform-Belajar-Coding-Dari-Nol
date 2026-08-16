@@ -12,7 +12,7 @@ export const laravelValidasi: Tutorial = {
     content: [
       {
         type: "p",
-        text: "Jangan pernah percaya input user. Validasi di sisi server adalah garis pertahanan utama — validasi browser (required, type=email) bisa dilewati siapa saja. Laravel menyediakan validasi yang ringkas dan aman.",
+        text: "Jangan pernah percaya input user. Validasi di sisi server adalah garis pertahanan utama validasi browser (required, type=email) bisa dilewati siapa saja. Laravel menyediakan validasi yang ringkas dan aman.",
       },
       { type: "h2", text: "Validasi di controller" },
       {
@@ -36,7 +36,7 @@ export const laravelValidasi: Tutorial = {
       },
       {
         type: "p",
-        text: "Jika validasi gagal, Laravel otomatis melempar error, kembali ke halaman form, dan mengirim pesan error — tanpa perlu menulis satu baris if.",
+        text: "Jika validasi gagal, Laravel otomatis melempar error, kembali ke halaman form, dan mengirim pesan error tanpa perlu menulis satu baris if.",
       },
       { type: "h2", text: "Aturan validasi yang sering dipakai" },
       {
@@ -83,9 +83,9 @@ export const laravelValidasi: Tutorial = {
       {
         type: "list",
         items: [
-          "old('judul') — nilai yang sudah diketik tetap muncul setelah validasi gagal.",
-          "@error('judul') — blok hanya tampil jika field itu error.",
-          "$message — pesan error default dari Laravel (bisa dikustom).",
+          "old('judul') nilai yang sudah diketik tetap muncul setelah validasi gagal.",
+          "@error('judul') blok hanya tampil jika field itu error.",
+          "$message pesan error default dari Laravel (bisa dikustom).",
         ],
       },
       { type: "h2", text: "Form Request: aturan yang rapi" },

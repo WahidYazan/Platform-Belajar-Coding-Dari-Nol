@@ -12,7 +12,7 @@ export const nextjsDataFetching: Tutorial = {
     content: [
       {
         type: "p",
-        text: "Keunggulan besar Server Component: kamu bisa mengambil data langsung di dalam komponen — dari API eksternal, database, atau ORM — tanpa mengekspos kredensial ke browser. Tidak ada fetch di useEffect yang ribet.",
+        text: "Keunggulan besar Server Component: kamu bisa mengambil data langsung di dalam komponen dari API eksternal, database, atau ORM tanpa mengekspos kredensial ke browser. Tidak ada fetch di useEffect yang ribet.",
       },
       { type: "h2", text: "Fetch dengan fetch API" },
       {
@@ -35,7 +35,7 @@ export const nextjsDataFetching: Tutorial = {
       {
         type: "list",
         items: [
-          "Jadikan komponen async — Next.js akan menunggu data selesai.",
+          "Jadikan komponen async Next.js akan menunggu data selesai.",
           "Fetch identik di satu pohon komponen di-memoize otomatis (tidak duplikat).",
           "Secara default fetch tidak di-cache dan menunggu selesai sebelum render.",
           "Gunakan use cache untuk menyimpan hasil, atau bungkus dengan <Suspense>/loading.tsx.",
@@ -67,7 +67,7 @@ export default async function BlogPage() {
       { type: "h2", text: "loading.tsx: streaming UI" },
       {
         type: "p",
-        text: "Buat file loading.tsx di folder yang sama — Next.js akan menampilkannya segera sambil data diproses, lalu menggantinya otomatis:",
+        text: "Buat file loading.tsx di folder yang sama Next.js akan menampilkannya segera sambil data diproses, lalu menggantinya otomatis:",
       },
       {
         type: "code",

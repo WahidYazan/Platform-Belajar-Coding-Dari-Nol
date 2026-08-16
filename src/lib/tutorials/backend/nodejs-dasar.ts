@@ -12,7 +12,7 @@ export const nodejsDasar: Tutorial = {
     content: [
       {
         type: "p",
-        text: "Node.js memungkinkan JavaScript berjalan di luar browser — di server. Dengan begitu, satu bahasa (JavaScript) cukup untuk seluruh aplikasi: frontend dan backend.",
+        text: "Node.js memungkinkan JavaScript berjalan di luar browser di server. Dengan begitu, satu bahasa (JavaScript) cukup untuk seluruh aplikasi: frontend dan backend.",
       },
       { type: "h2", text: "Menjalankan JavaScript dengan Node" },
       {
@@ -56,7 +56,7 @@ npm run dev`,
       },
       {
         type: "p",
-        text: "Setelah install, muncul folder node_modules (isinya ribuan file — jangan di-commit ke Git, abaikan dengan file .gitignore).",
+        text: "Setelah install, muncul folder node_modules (isinya ribuan file jangan di-commit ke Git, abaikan dengan file .gitignore).",
       },
       { type: "h2", text: "Server pertama dengan Express" },
       {
@@ -105,10 +105,10 @@ curl -X POST http://localhost:3000/users \\
       {
         type: "list",
         items: [
-          "GET — mengambil data (baca).",
-          "POST — membuat data baru.",
-          "PUT/PATCH — memperbarui data.",
-          "DELETE — menghapus data.",
+          "GET mengambil data (baca).",
+          "POST membuat data baru.",
+          "PUT/PATCH memperbarui data.",
+          "DELETE menghapus data.",
         ],
       },
       {

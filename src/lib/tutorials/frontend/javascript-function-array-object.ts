@@ -4,7 +4,7 @@ export const javascriptFunctionArrayObject: Tutorial = {
     slug: "javascript-function-array-object",
     title: "Function, Array & Object di JavaScript",
     description:
-      "Kelompokkan logika dengan function dan kelola data dengan array serta object — bekal wajib sebelum React.",
+      "Kelompokkan logika dengan function dan kelola data dengan array serta object bekal wajib sebelum React.",
     category: "JavaScript",
     level: "Pemula",
     minutes: 16,
@@ -119,7 +119,7 @@ console.log(adultNames); // ["Budi", "Sari"]`,
       {
         type: "callout",
         title: "Langkah berikutnya",
-        text: "Konsep ini adalah fondasi React. Saat kamu belajar component, props (object), dan state — semuanya memakai function, array, dan object. Lanjut ke tutorial React Dasar.",
+        text: "Konsep ini adalah fondasi React. Saat kamu belajar component, props (object), dan state semuanya memakai function, array, dan object. Lanjut ke tutorial React Dasar.",
       },
     ],
   }

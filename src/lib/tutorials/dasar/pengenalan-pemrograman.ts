@@ -24,7 +24,7 @@ export const pengenalanPemrograman: Tutorial = {
         items: [
           "Interpreter: membaca dan menjalankan kode baris per baris (contoh: Node.js, browser).",
           "Compiler: menerjemahkan seluruh kode menjadi biner dulu, baru dijalankan (contoh: TypeScript, C).",
-          "Kamu cukup fokus menulis kode — mesin yang mengurus sisanya.",
+          "Kamu cukup fokus menulis kode mesin yang mengurus sisanya.",
         ],
       },
       { type: "h2", text: "Kenapa belajar pemrograman?" },
@@ -45,7 +45,7 @@ export const pengenalanPemrograman: Tutorial = {
       {
         type: "list",
         items: [
-          "Code editor: Visual Studio Code (VS Code) — gratis dan paling populer.",
+          "Code editor: Visual Studio Code (VS Code) gratis dan paling populer.",
           "Browser modern: Google Chrome atau Firefox (dengan developer tools).",
           "Node.js: untuk menjalankan JavaScript di luar browser.",
           "Git: untuk version control (akan dibahas di tutorial lain).",
@@ -70,7 +70,7 @@ export const pengenalanPemrograman: Tutorial = {
         type: "callout",
         title: "Rahasia terbesar",
         tone: "tip",
-        text: "Konsistensi jauh lebih penting daripada durasi. Belajar 30 menit setiap hari lebih baik daripada 5 jam sekali seminggu. Jangan menunda — langsung mulai dari halaman roadmap kami.",
+        text: "Konsistensi jauh lebih penting daripada durasi. Belajar 30 menit setiap hari lebih baik daripada 5 jam sekali seminggu. Jangan menunda langsung mulai dari halaman roadmap kami.",
       },
     ],
   }

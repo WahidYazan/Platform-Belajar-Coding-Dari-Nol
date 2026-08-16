@@ -1,13 +1,13 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { BookOpen, GraduationCap, Home, Map } from "lucide-react";
+import { BookOpen, Home, Map } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const items = [
-    { href: "/", label: "Beranda", icon: Home },
-    { href: "/dashboard", label: "Dashboard", icon: GraduationCap },
+    { href: "/dashboard", label: "Beranda", icon: Home },
+    // { href: "/dashboard", label: "Dashboard", icon: GraduationCap },
     { href: "/start", label: "Mulai", icon: BookOpen },
     { href: "/roadmap", label: "Roadmap", icon: Map },
 ];

@@ -12,7 +12,7 @@ export const laravelEloquent: Tutorial = {
     content: [
       {
         type: "p",
-        text: "Eloquent adalah ORM bawaan Laravel. Setiap tabel punya Model — sebuah class PHP yang mewakili satu baris data. Alih-alih menulis SELECT * FROM ..., kamu menulis Artikel::all(). Lebih aman dari SQL injection dan lebih mudah dibaca.",
+        text: "Eloquent adalah ORM bawaan Laravel. Setiap tabel punya Model sebuah class PHP yang mewakili satu baris data. Alih-alih menulis SELECT * FROM ..., kamu menulis Artikel::all(). Lebih aman dari SQL injection dan lebih mudah dibaca.",
       },
       { type: "h2", text: "Membuat Model" },
       {
@@ -135,7 +135,7 @@ $artikel->save();`,
         type: "callout",
         title: "Mass assignment protection",
         tone: "warning",
-        text: "Tanpa $fillable (atau $guarded), Model::create() akan menolak semua input — fitur keamanan bawaan agar user tidak bisa mengisi kolom sensitif seperti is_admin. Selalu daftarkan kolom yang memang boleh diisi user.",
+        text: "Tanpa $fillable (atau $guarded), Model::create() akan menolak semua input fitur keamanan bawaan agar user tidak bisa mengisi kolom sensitif seperti is_admin. Selalu daftarkan kolom yang memang boleh diisi user.",
       },
       { type: "h2", text: "Mengubah & menghapus data" },
       {

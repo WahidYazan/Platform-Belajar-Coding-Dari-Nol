@@ -26,7 +26,7 @@ export const laravelBlade: Tutorial = {
         code: `<h1>Halo, {{ $nama }}!</h1>
 <p>Umur: {{ $umur }}</p>
 
-{{-- Ini komentar Blade — tidak dikirim ke HTML --}}
+{{-- Ini komentar Blade tidak dikirim ke HTML --}}
 
 {{-- Fungsi PHP juga bisa dipakai --}}
 <p>Sekarang: {{ now()->format('d-m-Y') }}</p>`,
@@ -158,7 +158,7 @@ export const laravelBlade: Tutorial = {
       },
       {
         type: "p",
-        text: "Selanjutnya kita akan memindahkan logika dari route ke Controller — pola MVC yang benar. Lanjut ke tutorial Controller.",
+        text: "Selanjutnya kita akan memindahkan logika dari route ke Controller pola MVC yang benar. Lanjut ke tutorial Controller.",
       },
     ],
   }

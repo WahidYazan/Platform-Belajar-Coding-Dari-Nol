@@ -38,7 +38,7 @@ const tools = [
 const mistakes = [
   {
     title: "Menonton tutorial tanpa praktik",
-    desc: "Tubuh tidak bisa kuat hanya dengan menonton olahraga. Kode pun begitu — tulis sendiri, jangan hanya tiru.",
+    desc: "Tubuh tidak bisa kuat hanya dengan menonton olahraga. Kode pun begitu tulis sendiri, jangan hanya tiru.",
   },
   {
     title: "Pindah-pindah bahasa/framework",
@@ -71,7 +71,7 @@ export default function StartPage() {
       <div className="mb-14">
         <h2 className="mb-6 flex items-center gap-2 font-heading text-2xl font-semibold">
           <Download className="size-5 text-primary" />
-          Langkah 1 — Pasang Tools
+          Langkah 1 Pasang Tools
         </h2>
         <div className="grid gap-4 sm:grid-cols-2">
           {tools.map((tool) => (
@@ -108,17 +108,17 @@ npm --version`}
       <div className="mb-14">
         <h2 className="mb-6 flex items-center gap-2 font-heading text-2xl font-semibold">
           <PencilRuler className="size-5 text-primary" />
-          Langkah 2 — Pelajari Fondasi (dengan benar)
+          Langkah 2 Pelajari Fondasi (dengan benar)
         </h2>
         <div className="grid gap-4 sm:grid-cols-2">
           {[
             {
               title: "Fondasi 1: HTML & CSS",
-              desc: "Struktur dan tampilan website. Kerjakan 4–6 minggu. Cukup sampai kamu bisa membuat halaman profil yang rapi.",
+              desc: "Struktur dan tampilan website. Kerjakan 4-6 minggu. Cukup sampai kamu bisa membuat halaman profil yang rapi.",
             },
             {
               title: "Fondasi 2: JavaScript",
-              desc: "Logika dan interaksi. Ini fondasi paling penting — berikan 6–8 minggu sebelum menyentuh framework apa pun.",
+              desc: "Logika dan interaksi. Ini fondasi paling penting berikan 6-8 minggu sebelum menyentuh framework apa pun.",
             },
             {
               title: "Fondasi 3: Git & GitHub",
@@ -142,7 +142,7 @@ npm --version`}
       <div className="mb-14">
         <h2 className="mb-6 flex items-center gap-2 font-heading text-2xl font-semibold">
           <MousePointerClick className="size-5 text-primary" />
-          Langkah 3 — Cara Belajar yang Efektif
+          Langkah 3 Cara Belajar yang Efektif
         </h2>
         <div className="grid gap-4 sm:grid-cols-2">
           {[
@@ -156,11 +156,11 @@ npm --version`}
             },
             {
               title: "3. Rusak kodenya",
-              desc: "Ubah nilai, hapus baris, buat error — lalu perbaiki. Ini cara tercepat membangun intuisi.",
+              desc: "Ubah nilai, hapus baris, buat error lalu perbaiki. Ini cara tercepat membangun intuisi.",
             },
             {
               title: "4. Bangun project kecil",
-              desc: "Setiap 1–2 minggu, buat satu project kecil yang memakai materi baru. Project mengikat semua yang kamu pelajari.",
+              desc: "Setiap 1-2 minggu, buat satu project kecil yang memakai materi baru. Project mengikat semua yang kamu pelajari.",
             },
           ].map((item) => (
             <Card key={item.title} className="h-full">
@@ -203,7 +203,7 @@ npm --version`}
             "Tulis ulang tutorial HTML pertama tanpa melihat",
             "Pelajari 10 tag HTML paling umum",
             "Mulai biasakan git init + commit di tiap latihan",
-            "Jadwalkan 30–60 menit belajar per hari",
+            "Jadwalkan 30-60 menit belajar per hari",
             "Bergabung komunitas (Discord/komunitas lokal)",
           ].map((item) => (
             <li key={item} className="flex items-start gap-2 text-sm">

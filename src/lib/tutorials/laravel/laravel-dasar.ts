@@ -12,16 +12,16 @@ export const laravelDasar: Tutorial = {
     content: [
       {
         type: "p",
-        text: "Laravel adalah framework PHP untuk membangun aplikasi web. Framework artinya kumpulan aturan dan alat yang sudah jadi — kamu tinggal mengisi logika bisnis, bukan membangun semuanya dari nol. Laravel dikenal karena sintaks yang bersih, ekosistem yang besar, dan kemudahan untuk ditim-tim.",
+        text: "Laravel adalah framework PHP untuk membangun aplikasi web. Framework artinya kumpulan aturan dan alat yang sudah jadi kamu tinggal mengisi logika bisnis, bukan membangun semuanya dari nol. Laravel dikenal karena sintaks yang bersih, ekosistem yang besar, dan kemudahan untuk ditim-tim.",
       },
       { type: "h2", text: "Apa yang membuat Laravel populer?" },
       {
         type: "list",
         items: [
-          "MVC (Model-View-Controller) — struktur yang rapi dan dipakai industri.",
-          "Blade — template engine yang mudah dibaca ({{ $nama }}).",
-          "Eloquent ORM — bekerja dengan database tanpa menulis SQL mentah.",
-          "Artisan — command-line tool untuk generate kode otomatis.",
+          "MVC (Model-View-Controller) struktur yang rapi dan dipakai industri.",
+          "Blade template engine yang mudah dibaca ({{ $nama }}).",
+          "Eloquent ORM bekerja dengan database tanpa menulis SQL mentah.",
+          "Artisan command-line tool untuk generate kode otomatis.",
           "Ekosistem lengkap: auth, queue, notifikasi, testing, dan lainnya siap pakai.",
         ],
       },
@@ -68,13 +68,13 @@ php artisan serve`,
       {
         type: "list",
         items: [
-          "app/ — kode inti aplikasi: controllers, models, dan services.",
-          "routes/ — file yang mendefinisikan URL aplikasi (web.php, api.php).",
-          "resources/views/ — file Blade (.blade.php) untuk tampilan.",
-          "database/ — migration, seeder, dan factory untuk database.",
-          "public/ — folder yang ter-akses publik: index.php, gambar, CSS.",
-          "config/ — pengaturan aplikasi (database, mail, dsb.).",
-          "bootstrap/ — cara aplikasi diboot, termasuk cache.",
+          "app/ kode inti aplikasi: controllers, models, dan services.",
+          "routes/ file yang mendefinisikan URL aplikasi (web.php, api.php).",
+          "resources/views/ file Blade (.blade.php) untuk tampilan.",
+          "database/ migration, seeder, dan factory untuk database.",
+          "public/ folder yang ter-akses publik: index.php, gambar, CSS.",
+          "config/ pengaturan aplikasi (database, mail, dsb.).",
+          "bootstrap/ cara aplikasi diboot, termasuk cache.",
         ],
       },
       {

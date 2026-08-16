@@ -12,7 +12,7 @@ export const nextjsLayout: Tutorial = {
     content: [
       {
         type: "p",
-        text: "Layout adalah bagian UI yang dipakai ulang di banyak halaman — header, navigasi, footer. Di Next.js, layout dibuat cukup sekali dan otomatis membungkus semua halaman di dalam folder yang sama.",
+        text: "Layout adalah bagian UI yang dipakai ulang di banyak halaman header, navigasi, footer. Di Next.js, layout dibuat cukup sekali dan otomatis membungkus semua halaman di dalam folder yang sama.",
       },
       { type: "h2", text: "Root layout" },
       {
@@ -22,7 +22,7 @@ export const nextjsLayout: Tutorial = {
         code: `import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: { default: "Sinau Coding", template: "%s — Sinau Coding" },
+  title: { default: "Sinau Coding", template: "%s Sinau Coding" },
   description: "Belajar coding dari nol dalam Bahasa Indonesia.",
 };
 
@@ -44,7 +44,7 @@ export default function RootLayout({
         type: "list",
         items: [
           "Root layout WAJIB ada dan berisi <html> dan <body>.",
-          "Layout tetap ada saat navigasi antar halaman — tidak di-render ulang.",
+          "Layout tetap ada saat navigasi antar halaman tidak di-render ulang.",
           "props.children berisi halaman (page.tsx) yang sedang aktif.",
           "Gunakan LayoutProps helper tanpa import.",
         ],
@@ -124,7 +124,7 @@ export function Kartu({ judul }: { judul: string }) {
       },
       {
         type: "p",
-        text: "create-next-app menyiapkan Tailwind CSS sejak awal. Class utility ditulis langsung di className — cepat untuk prototyping dan menjaga konsistensi.",
+        text: "create-next-app menyiapkan Tailwind CSS sejak awal. Class utility ditulis langsung di className cepat untuk prototyping dan menjaga konsistensi.",
       },
       { type: "h2", text: "Metadata per halaman" },
       {
@@ -165,7 +165,7 @@ export async function generateMetadata({
         items: [
           "metadata statis cukup dengan export const metadata.",
           "generateMetadata bisa membuat metadata dinamis per halaman.",
-          "title.template \"%s — Sinau Coding\" otomatis menyisipkan judul halaman.",
+          "title.template \"%s Sinau Coding\" otomatis menyisipkan judul halaman.",
         ],
       },
       {
@@ -176,7 +176,7 @@ export async function generateMetadata({
       },
       {
         type: "p",
-        text: "Kerangka situs sudah rapi. Lanjut ke tutorial Server & Client Components — konsep inti Next.js.",
+        text: "Kerangka situs sudah rapi. Lanjut ke tutorial Server & Client Components konsep inti Next.js.",
       },
     ],
   }

@@ -4,7 +4,7 @@ export const cssFlexboxGrid: Tutorial = {
     slug: "css-flexbox-grid",
     title: "Flexbox & Grid: Layout Modern",
     description:
-      "Kuasai dua sistem layout utama CSS — Flexbox untuk satu dimensi dan Grid untuk dua dimensi.",
+      "Kuasai dua sistem layout utama CSS Flexbox untuk satu dimensi dan Grid untuk dua dimensi.",
     category: "CSS",
     level: "Menengah",
     minutes: 14,
@@ -45,10 +45,10 @@ export const cssFlexboxGrid: Tutorial = {
       {
         type: "list",
         items: [
-          "flex-direction: row / column — arah utama.",
-          "justify-content — perataan pada arah utama (horizontal di row).",
-          "align-items — perataan pada arah silang (vertical di row).",
-          "gap — jarak antar anak elemen.",
+          "flex-direction: row / column arah utama.",
+          "justify-content perataan pada arah utama (horizontal di row).",
+          "align-items perataan pada arah silang (vertical di row).",
+          "gap jarak antar anak elemen.",
         ],
       },
       { type: "h2", text: "Grid: dua dimensi" },

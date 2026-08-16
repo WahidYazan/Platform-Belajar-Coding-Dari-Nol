@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { categoryKinds, getCategoryGroups } from "@/lib/categories";
+import { getCategoryGroups } from "@/lib/categories";
 import { tutorials } from "@/lib/tutorials";
 import { ArrowRight, BookOpen, Clock, GraduationCap } from "lucide-react";
 import Link from "next/link";
@@ -17,7 +17,7 @@ export default function DashboardPage() {
                     Belajar Coding dari Nol sampai Bisa
                 </h1>
                 <p className="mt-4 max-w-2xl leading-7 text-muted-foreground">
-                    Materi dipisah per topik — Frontend, Backend, Tools, sampai Deployment — dan disusun
+                    Materi dipisah per topik Frontend, Backend, Tools, sampai Deployment dan disusun
                     berurutan. Pilih topik yang mau kamu pelajari, progres belajarmu tersimpan otomatis.
                 </p>
                 <div className="mt-6 flex flex-wrap gap-4 text-sm">
@@ -49,56 +49,66 @@ export default function DashboardPage() {
                 <div>
                     <h2 className="mb-2 font-heading text-2xl font-semibold">Pilih Materi</h2>
                     <p className="mb-8 text-muted-foreground">
-                        Pilih dulu topiknya, lalu lihat daftar bab yang tersedia di halaman topik.
+                        Materi dikelompokkan per topik. Pilih topiknya, lalu ikuti bab-babnya secara berurutan.
                     </p>
                 </div>
 
-                {categoryKinds
-                    .map(kind => ({
-                        kind,
-                        groups: groups.filter(group => group.category.kind === kind.kind),
-                    }))
-                    .filter(item => item.groups.length > 0)
-                    .map(({ kind, groups }) => (
-                        <section key={kind.kind}>
-                            <div className="mb-4">
-                                <h3 className="font-heading text-xl font-semibold">{kind.label}</h3>
-                                <p className="mt-1 text-sm text-muted-foreground">{kind.description}</p>
+                {groups.map(({ category, items }) => {
+                    const Icon = category.icon;
+                    const totalMinutes = items.reduce((total, item) => total + item.minutes, 0);
+                    return (
+                        <section key={category.slug} className="scroll-mt-20">
+                            <div className="mb-4 flex flex-wrap items-center gap-3">
+                                <span
+                                    className={`flex size-10 items-center justify-center rounded-xl ${category.accent}`}
+                                >
+                                    <Icon className="size-5" />
+                                </span>
+                                <div className="min-w-0">
+                                    <h3 className="font-heading text-xl font-semibold">{category.name}</h3>
+                                    <p className="mt-0.5 truncate text-sm text-muted-foreground">
+                                        {category.description}
+                                    </p>
+                                </div>
+                                <span className="ml-auto flex shrink-0 items-center gap-1 text-xs text-muted-foreground">
+                                    <BookOpen className="size-3.5" />
+                                    {items.length} bab · ±{totalMinutes} menit
+                                </span>
                             </div>
-                            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                                {groups.map(({ category, items }) => {
-                                    const Icon = category.icon;
-                                    return (
-                                        <Link key={category.slug} href={`/${category.slug}`} className="group">
-                                            <Card className="flex h-full flex-col transition-colors group-hover:ring-1 group-hover:ring-primary/40">
-                                                <CardHeader>
-                                                    <span
-                                                        className={`mb-3 flex size-10 items-center justify-center rounded-xl ${category.accent}`}
-                                                    >
-                                                        <Icon className="size-5" />
-                                                    </span>
-                                                    <CardTitle className="font-heading">{category.name}</CardTitle>
-                                                    <CardDescription className="line-clamp-2">
-                                                        {category.description}
-                                                    </CardDescription>
-                                                </CardHeader>
-                                                <CardContent className="mt-auto">
-                                                    <p className="mb-3 text-xs text-muted-foreground">
-                                                        {items.length} bab · ±
-                                                        {items.reduce((total, item) => total + item.minutes, 0)} menit
-                                                    </p>
-                                                    <p className="flex items-center gap-1 text-sm font-medium text-primary">
-                                                        Buka topik
-                                                        <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-                                                    </p>
-                                                </CardContent>
-                                            </Card>
-                                        </Link>
-                                    );
-                                })}
+                            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                                {items.map((item, index) => (
+                                    <Link
+                                        key={item.slug}
+                                        href={`/dashboard/tutorials/${item.slug}`}
+                                        className="group"
+                                    >
+                                        <Card className="h-full transition-colors group-hover:ring-1 group-hover:ring-primary/40">
+                                            <CardHeader>
+                                                <div className="mb-1 flex items-center gap-2 text-xs text-muted-foreground">
+                                                    <span className="font-medium text-foreground">Bab {index + 1}</span>
+                                                    <span>·</span>
+                                                    <span>{item.minutes} menit</span>
+                                                    <span>·</span>
+                                                    <span>{item.level}</span>
+                                                </div>
+                                                <CardTitle className="leading-snug group-hover:underline">
+                                                    {item.title}
+                                                </CardTitle>
+                                                <CardDescription className="line-clamp-2">
+                                                    {item.description}
+                                                </CardDescription>
+                                            </CardHeader>
+                                            <CardContent className="mt-auto flex items-center gap-1 text-sm font-medium text-primary">
+                                                Baca bab
+                                                <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                                            </CardContent>
+                                        </Card>
+                                    </Link>
+                                ))}
                             </div>
                         </section>
-                    ))}
+                    );
+                })}
             </div>
 
             <div className="rounded-2xl border bg-muted/50 p-8 text-center">

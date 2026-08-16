@@ -12,7 +12,7 @@ export const terminalDasar: Tutorial = {
     content: [
       {
         type: "p",
-        text: "Terminal terlihat menakutkan, tapi sebenarnya hanya cara mengetik perintah alih-alih mengklik. Banyak hal di developer yang hanya bisa dilakukan lewat terminal — dari git sampai menjalankan server.",
+        text: "Terminal terlihat menakutkan, tapi sebenarnya hanya cara mengetik perintah alih-alih mengklik. Banyak hal di developer yang hanya bisa dilakukan lewat terminal dari git sampai menjalankan server.",
       },
       { type: "h2", text: "Navigasi: ke mana pun kamu mau" },
       {
@@ -52,7 +52,7 @@ rm -r folder         # hapus folder beserta isinya</code>`,
         type: "callout",
         title: "Hati-hati dengan rm",
         tone: "warning",
-        text: "Tidak ada tombol undo di terminal. File yang dihapus dengan rm benar-benar hilang. Periksa path sekali lagi sebelum menekan Enter — terutama saat memakai rm -rf.",
+        text: "Tidak ada tombol undo di terminal. File yang dihapus dengan rm benar-benar hilang. Periksa path sekali lagi sebelum menekan Enter terutama saat memakai rm -rf.",
       },
       { type: "h2", text: "Melihat dan menulis isi file" },
       {
@@ -105,7 +105,7 @@ history | grep "docker"   # pernah ngetik apa?`,
       },
       {
         type: "p",
-        text: "Itu 80% perintah yang kamu butuhkan. Sisanya akan datang seiring kebutuhan — dan selalu bisa dicari di Google dengan mengetik 'bash [apa yang ingin kamu lakukan]'.",
+        text: "Itu 80% perintah yang kamu butuhkan. Sisanya akan datang seiring kebutuhan dan selalu bisa dicari di Google dengan mengetik 'bash [apa yang ingin kamu lakukan]'.",
       },
     ],
   }

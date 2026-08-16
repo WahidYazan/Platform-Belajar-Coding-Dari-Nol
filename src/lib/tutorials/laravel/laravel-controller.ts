@@ -17,7 +17,7 @@ export const laravelController: Tutorial = {
       { type: "h2", text: "Membuat controller" },
       {
         type: "p",
-        text: "Gunakan Artisan untuk membuat controller — ia akan ditempatkan di app/Http/Controllers/:",
+        text: "Gunakan Artisan untuk membuat controller ia akan ditempatkan di app/Http/Controllers/:",
       },
       {
         type: "code",
@@ -79,12 +79,12 @@ Route::get('/artikel/{slug}', [ArtikelController::class, 'show']);`,
         type: "callout",
         title: "Resource controller",
         tone: "tip",
-        text: "Tujuh metode di atas adalah CRUD standar. Generate sekaligus dengan php artisan make:controller ArtikelController --resource, lalu daftarkan dengan Route::resource('artikel', ArtikelController::class) — semua route CRUD dibuat otomatis.",
+        text: "Tujuh metode di atas adalah CRUD standar. Generate sekaligus dengan php artisan make:controller ArtikelController --resource, lalu daftarkan dengan Route::resource('artikel', ArtikelController::class) semua route CRUD dibuat otomatis.",
       },
       { type: "h2", text: "Request & input" },
       {
         type: "p",
-        text: "Laravel menyuntikkan objek Request ke parameter metode — kamu bisa membaca data yang dikirim user:",
+        text: "Laravel menyuntikkan objek Request ke parameter metode kamu bisa membaca data yang dikirim user:",
       },
       {
         type: "code",

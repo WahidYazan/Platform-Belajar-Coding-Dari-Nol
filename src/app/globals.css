@@ -128,3 +128,14 @@
         @apply font-sans;
     }
 }
+
+.nav-link-active {
+    background-color: lab(29.04% -0.71 15.79 / 0.253);
+    color: var(--foreground);
+    font-weight: 600;
+}
+/* .nav-link-active {
+    background-color: var(--accent);
+    color: var(--foreground);
+    font-weight: 600;
+} */

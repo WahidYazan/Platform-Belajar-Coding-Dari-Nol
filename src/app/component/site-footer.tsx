@@ -11,7 +11,7 @@ export function SiteFooter() {
                         <span className="flex size-6 items-center justify-center rounded-md bg-primary text-primary-foreground">
                             <Code2 className="size-3.5" />
                         </span>
-                        <span>Sinau Coding — panduan belajar coding dari nol</span>
+                        <span>Sinau Coding panduan belajar coding dari nol</span>
                     </div>
                     <nav className="flex items-center gap-4">
                         <Link href="/roadmap" className="hover:text-foreground">

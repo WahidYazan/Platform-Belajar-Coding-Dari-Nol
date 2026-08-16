@@ -19,7 +19,7 @@ export const nextjsAuth: Tutorial = {
         type: "list",
         items: [
           "Form login memvalidasi email + password (di server).",
-          "Buat session — cookie terenkripsi berisi data user.",
+          "Buat session cookie terenkripsi berisi data user.",
           "Middleware memeriksa cookie untuk memproteksi route.",
           "Server Action membaca session untuk otorisasi.",
         ],
@@ -159,7 +159,7 @@ export async function buatArtikel(formData: FormData) {
         type: "callout",
         title: "Jangan hanya andalkan middleware",
         tone: "warning",
-        text: "Middleware hanya menyembunyikan halaman dari user yang tidak login — tapi Server Action bisa dipanggil langsung via POST. Selalu periksa session di dalam setiap action yang mengubah data.",
+        text: "Middleware hanya menyembunyikan halaman dari user yang tidak login tapi Server Action bisa dipanggil langsung via POST. Selalu periksa session di dalam setiap action yang mengubah data.",
       },
       { type: "h2", text: "Menampilkan status login di UI" },
       {
@@ -206,7 +206,7 @@ export async function logout() {
         type: "callout",
         title: "Jangan hash ulang yang sudah di-hash",
         tone: "info",
-        text: "Simpan password selalu dengan bcrypt (atau argon2). Saat login, bandingkan dengan compareSync — jangan pernah membandingkan string plaintext.",
+        text: "Simpan password selalu dengan bcrypt (atau argon2). Saat login, bandingkan dengan compareSync jangan pernah membandingkan string plaintext.",
       },
       {
         type: "callout",

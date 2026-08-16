@@ -18,7 +18,7 @@ export const cssDasar: Tutorial = {
       {
         type: "list",
         items: [
-          "Inline: atribut style di dalam tag — contohnya <p style=\"color: red\">. Hindari, sulit dirawat.",
+          "Inline: atribut style di dalam tag contohnya <p style=\"color: red\">. Hindari, sulit dirawat.",
           "Internal: tag <style> di dalam <head>.",
           "Eksternal (terbaik): file .css terpisah yang di-link dari HTML.",
         ],
@@ -70,7 +70,7 @@ p {
       { type: "h2", text: "Cascade & specificity" },
       {
         type: "p",
-        text: "CSS bekerja seperti aturan yang saling tumpang tindih — itu arti 'cascading'. Ketika dua aturan bertabrakan, yang menang adalah yang lebih spesifik:",
+        text: "CSS bekerja seperti aturan yang saling tumpang tindih itu arti 'cascading'. Ketika dua aturan bertabrakan, yang menang adalah yang lebih spesifik:",
       },
       {
         type: "code",
@@ -112,10 +112,10 @@ p { color: yellow }  /* ini yang dipakai */`,
       {
         type: "list",
         items: [
-          "content — isi kotak (teks/gambar).",
-          "padding — ruang dalam antara konten dan border.",
-          "border — garis tepi kotak.",
-          "margin — ruang luar memisahkan kotak dengan kotak lain.",
+          "content isi kotak (teks/gambar).",
+          "padding ruang dalam antara konten dan border.",
+          "border garis tepi kotak.",
+          "margin ruang luar memisahkan kotak dengan kotak lain.",
         ],
       },
       { type: "h2", text: "Warna, font & jarak yang umum" },
@@ -139,7 +139,7 @@ p { color: yellow }  /* ini yang dipakai */`,
         type: "callout",
         title: "Praktik terbaik",
         tone: "tip",
-        text: "Satu halaman = satu judul utama (<h1>). Pakai palet warna 2–3 warna utama, gunakan unit relatif seperti rem untuk font agar mengikuti ukuran default pengguna.",
+        text: "Satu halaman = satu judul utama (<h1>). Pakai palet warna 2-3 warna utama, gunakan unit relatif seperti rem untuk font agar mengikuti ukuran default pengguna.",
       },
       {
         type: "p",

@@ -18,11 +18,11 @@ export const nextjsPengenalan: Tutorial = {
       {
         type: "list",
         items: [
-          "File-based routing — folder di app/ langsung jadi URL, tanpa config.",
-          "Server Components — ambil data di server, hasilnya cepat dan SEO-friendly.",
-          "Optimasi otomatis — gambar, font, dan bundle JavaScript.",
-          "Full-stack — backend (Route Handlers) dan frontend satu aplikasi.",
-          "Deploy mudah — Vercel, Netlify, dan banyak platform mendukung penuh.",
+          "File-based routing folder di app/ langsung jadi URL, tanpa config.",
+          "Server Components ambil data di server, hasilnya cepat dan SEO-friendly.",
+          "Optimasi otomatis gambar, font, dan bundle JavaScript.",
+          "Full-stack backend (Route Handlers) dan frontend satu aplikasi.",
+          "Deploy mudah Vercel, Netlify, dan banyak platform mendukung penuh.",
         ],
       },
       { type: "h2", text: "Syarat & instalasi" },
@@ -38,7 +38,7 @@ export const nextjsPengenalan: Tutorial = {
 
 npx create-next-app@latest nama-proyek
 
-# Ikuti prompt — untuk belajar, pilih:
+# Ikuti prompt untuk belajar, pilih:
 # TypeScript: Yes
 # ESLint: Yes
 # Tailwind CSS: Yes
@@ -58,7 +58,7 @@ npm run dev
       },
       {
         type: "p",
-        text: "Next.js menggunakan Turbopack sebagai bundler default — cepat saat development. Edit file di app/page.tsx lalu simpan, hasilnya langsung terlihat di browser tanpa reload manual (hot reload).",
+        text: "Next.js menggunakan Turbopack sebagai bundler default cepat saat development. Edit file di app/page.tsx lalu simpan, hasilnya langsung terlihat di browser tanpa reload manual (hot reload).",
       },
       { type: "h2", text: "Struktur folder yang dihasilkan" },
       {
@@ -92,14 +92,14 @@ npm run dev
         type: "callout",
         title: "Import alias @/*",
         tone: "tip",
-        text: "Alias @/ memetakan ke folder src/ (atau root jika tanpa src). Jadi import { Button } from \"@/components/button\" — bukan ../../../components/button. Ini membuat kode rapi dan mudah dipindah.",
+        text: "Alias @/ memetakan ke folder src/ (atau root jika tanpa src). Jadi import { Button } from \"@/components/button\" bukan ../../../components/button. Ini membuat kode rapi dan mudah dipindah.",
       },
       { type: "h2", text: "Perbedaan penting versi ini" },
       {
         type: "list",
         items: [
           "App Router adalah default (bukan Pages Router).",
-          "params dan searchParams adalah Promise — wajib di-await.",
+          "params dan searchParams adalah Promise wajib di-await.",
           "TypeScript, ESLint, dan Tailwind aktif sejak awal.",
           "next build tidak lagi menjalankan linter otomatis.",
         ],

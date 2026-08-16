@@ -18,11 +18,11 @@ export const nextjsDasar: Tutorial = {
         {
             type: "list",
             items: [
-                "File-based routing — folder = URL, tanpa config.",
-                "Server components — ambil data langsung di server, lebih cepat dan SEO-friendly.",
-                "Optimasi otomatis — gambar, font, dan bundle size.",
-                "API routes — backend kecil bisa satu aplikasi.",
-                "Deploy mudah — Vercel/Netlify mendukung penuh.",
+                "File-based routing folder = URL, tanpa config.",
+                "Server components ambil data langsung di server, lebih cepat dan SEO-friendly.",
+                "Optimasi otomatis gambar, font, dan bundle size.",
+                "API routes backend kecil bisa satu aplikasi.",
+                "Deploy mudah Vercel/Netlify mendukung penuh.",
             ],
         },
         { type: "h2", text: "Routing dengan App Router" },
@@ -53,7 +53,7 @@ export default async function BlogPostPage({
         {
             type: "callout",
             title: "Ini bukan Next.js versi lama",
-            text: "Di versi ini, params dan searchParams adalah Promise — wajib di-await. Perhatikan juga helper PageProps/LayoutProps yang disediakan tanpa import.",
+            text: "Di versi ini, params dan searchParams adalah Promise wajib di-await. Perhatikan juga helper PageProps/LayoutProps yang disediakan tanpa import.",
         },
         { type: "h2", text: "Server vs Client Component" },
         {
@@ -115,7 +115,7 @@ export function Nav() {
         {
             type: "list",
             items: [
-                "Link melakukan client-side navigation — cepat, tanpa reload.",
+                "Link melakukan client-side navigation cepat, tanpa reload.",
                 "Halaman yang terhubung di-prefetch otomatis.",
                 "Gunakan useRouter untuk navigasi programatik (misal setelah login).",
             ],
@@ -128,7 +128,7 @@ export function Nav() {
             code: `import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: { default: "Sinau Coding", template: "%s — Sinau Coding" },
+  title: { default: "Sinau Coding", template: "%s Sinau Coding" },
   description: "Roadmap belajar coding dari nol dalam Bahasa Indonesia.",
 };
 
@@ -147,7 +147,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         },
         {
             type: "p",
-            text: "Selamat — kamu sudah menempuh seluruh jalur dari nol sampai framework produksi! Lanjutkan dengan memperdalam spesialisasi yang kamu pilih di roadmap, dan terus bangun project. Konsistensi adalah segalanya.",
+            text: "Selamat kamu sudah menempuh seluruh jalur dari nol sampai framework produksi! Lanjutkan dengan memperdalam spesialisasi yang kamu pilih di roadmap, dan terus bangun project. Konsistensi adalah segalanya.",
         },
     ],
 };

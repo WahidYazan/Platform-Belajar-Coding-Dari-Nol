@@ -4,7 +4,7 @@ export const gitDasar: Tutorial = {
     slug: "git-dasar",
     title: "Git & GitHub untuk Pemula",
     description:
-      "Kelola riwayat kode dengan Git dan kolaborasi dengan GitHub — skill wajib sebelum melamar kerja.",
+      "Kelola riwayat kode dengan Git dan kolaborasi dengan GitHub skill wajib sebelum melamar kerja.",
     category: "Tools",
     level: "Pemula",
     minutes: 12,

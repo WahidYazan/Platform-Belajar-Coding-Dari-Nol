@@ -4,7 +4,7 @@ export const laravelCrud: Tutorial = {
     slug: "laravel-crud",
     title: "CRUD Lengkap: Aplikasi Pertamamu",
     description:
-      "Bangun aplikasi CRUD (Create, Read, Update, Delete) penuh untuk artikel — gabungan route, controller, model, dan Blade.",
+      "Bangun aplikasi CRUD (Create, Read, Update, Delete) penuh untuk artikel gabungan route, controller, model, dan Blade.",
     category: "Laravel",
     level: "Menengah",
     minutes: 20,

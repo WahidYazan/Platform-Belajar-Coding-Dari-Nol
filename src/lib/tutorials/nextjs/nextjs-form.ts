@@ -12,7 +12,7 @@ export const nextjsForm: Tutorial = {
     content: [
       {
         type: "p",
-        text: "Server Action adalah fungsi async yang berjalan di server dan bisa dipanggil langsung dari form. Tidak perlu membuat API route untuk form sederhana — Next.js menangani pengiriman dan pembaruan UI dalam satu perjalanan.",
+        text: "Server Action adalah fungsi async yang berjalan di server dan bisa dipanggil langsung dari form. Tidak perlu membuat API route untuk form sederhana Next.js menangani pengiriman dan pembaruan UI dalam satu perjalanan.",
       },
       { type: "h2", text: "Membuat Server Action" },
       {
@@ -33,7 +33,7 @@ export async function simpanArtikel(formData: FormData) {
       {
         type: "list",
         items: [
-          "Tandai file dengan \"use server\" — semua export menjadi Server Action.",
+          "Tandai file dengan \"use server\" semua export menjadi Server Action.",
           "Server Action menerima FormData otomatis ketika dipakai di <form action={...}>.",
           "Hanya method POST yang bisa memanggil Server Action.",
         ],
@@ -150,7 +150,7 @@ export function FormArtikel() {
         items: [
           "useActionState(aksi, initialState) mengembalikan [state, formAction, pending].",
           "Server Action dipanggil dengan argumen kedua prevState.",
-          "pending menjadi true saat aksi berjalan — untuk tombol loading.",
+          "pending menjadi true saat aksi berjalan untuk tombol loading.",
         ],
       },
       { type: "h2", text: "Delete & update dengan tombol" },
@@ -198,7 +198,7 @@ export function TombolHapus({ id }: { id: number }) {
         type: "callout",
         title: "Keamanan",
         tone: "warning",
-        text: "Server Action bisa dipanggil lewat POST langsung, bukan hanya dari form kamu. Selalu verifikasi autentikasi & otorisasi di dalam setiap aksi — jangan hanya andalkan tombol yang tersembunyi.",
+        text: "Server Action bisa dipanggil lewat POST langsung, bukan hanya dari form kamu. Selalu verifikasi autentikasi & otorisasi di dalam setiap aksi jangan hanya andalkan tombol yang tersembunyi.",
       },
       {
         type: "callout",

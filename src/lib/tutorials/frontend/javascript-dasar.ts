@@ -134,7 +134,7 @@ for (const item of buah) {
       },
       {
         type: "p",
-        text: "Coba jalankan setiap contoh di DevTools browser (F12 → Console) atau di Node.js. Ubah angka dan teksnya sendiri — semakin sering kamu 'merusak' kode, semakin cepat paham.",
+        text: "Coba jalankan setiap contoh di DevTools browser (F12 → Console) atau di Node.js. Ubah angka dan teksnya sendiri semakin sering kamu 'merusak' kode, semakin cepat paham.",
       },
     ],
   }

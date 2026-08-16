@@ -4,7 +4,7 @@ export const deployVercel: Tutorial = {
     slug: "deploy-vercel",
     title: "Deploy Aplikasi ke Vercel",
     description:
-      "Publikasikan aplikasi Next.js ke internet dengan Vercel — connect GitHub, auto-deploy, dan kelola environment variables.",
+      "Publikasikan aplikasi Next.js ke internet dengan Vercel connect GitHub, auto-deploy, dan kelola environment variables.",
     category: "Deployment",
     level: "Menengah",
     minutes: 10,
@@ -32,7 +32,7 @@ export const deployVercel: Tutorial = {
           "Klik 'Add New...' → 'Project'.",
           "Pilih repository dari daftar.",
           "Framework terdeteksi otomatis: Next.js.",
-          "Klik Deploy. Selesai — kamu dapat URL seperti https://my-app.vercel.app.",
+          "Klik Deploy. Selesai kamu dapat URL seperti https://my-app.vercel.app.",
         ],
       },
       {
@@ -49,7 +49,7 @@ export const deployVercel: Tutorial = {
 1. Tambahkan domain kamu (contoh: kodingku.dev)
 2. Vercel menampilkan DNS record untuk diset di registrar domain
 3. Set record A/ALIAS/CNAME sesuai instruksi
-4. Tunggu propagasi (bisa 1–24 jam)
+4. Tunggu propagasi (bisa 1-24 jam)
 5. HTTPS aktif otomatis dengan sertifikat gratis`,
       },
       { type: "h2", text: "Environment variables" },
@@ -80,11 +80,11 @@ const dbUrl = process.env.DATABASE_URL;`,
         type: "callout",
         title: "Preview deployments",
         tone: "tip",
-        text: "Setiap pull request otomatis dibuatkan URL preview. Ini memudahkan review sebelum merge — workflow standar tim profesional.",
+        text: "Setiap pull request otomatis dibuatkan URL preview. Ini memudahkan review sebelum merge workflow standar tim profesional.",
       },
       {
         type: "p",
-        text: "Itu dia! Project pertamamu sudah online dan bisa dibagikan. Masukkan URL-nya ke portofolio dan CV — ini bukti nyata kemampuanmu.",
+        text: "Itu dia! Project pertamamu sudah online dan bisa dibagikan. Masukkan URL-nya ke portofolio dan CV ini bukti nyata kemampuanmu.",
       },
     ],
   }

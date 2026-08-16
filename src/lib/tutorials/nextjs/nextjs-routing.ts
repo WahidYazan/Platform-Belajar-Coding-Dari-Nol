@@ -12,7 +12,7 @@ export const nextjsRouting: Tutorial = {
     content: [
       {
         type: "p",
-        text: "Di Next.js, folder di dalam app/ menentukan URL. Tidak ada file konfigurasi routing — struktur file itu sendiri adalah rute. Ini disebut file-based routing.",
+        text: "Di Next.js, folder di dalam app/ menentukan URL. Tidak ada file konfigurasi routing struktur file itu sendiri adalah rute. Ini disebut file-based routing.",
       },
       { type: "h2", text: "Folder = URL" },
       {
@@ -51,7 +51,7 @@ export const nextjsRouting: Tutorial = {
       { type: "h2", text: "Dynamic route: [slug]" },
       {
         type: "p",
-        text: "Nama folder dalam kurung siku [ ] menjadi parameter yang bisa diakses lewat params. Parameter ini berupa Promise — wajib di-await:",
+        text: "Nama folder dalam kurung siku [ ] menjadi parameter yang bisa diakses lewat params. Parameter ini berupa Promise wajib di-await:",
       },
       {
         type: "code",
@@ -113,7 +113,7 @@ export function Nav() {
       {
         type: "list",
         items: [
-          "Link melakukan client-side navigation — cepat, tanpa reload penuh.",
+          "Link melakukan client-side navigation cepat, tanpa reload penuh.",
           "Halaman yang terhubung di-prefetch otomatis di background.",
           "Gunakan href sebagai string biasa (\" \"), bukan string template.",
         ],
@@ -163,7 +163,7 @@ export default async function BlogPostPage({
       },
       {
         type: "p",
-        text: "generateStaticParams membuat halaman di-pre-render saat build — halaman yang sama setiap orang kunjungi jadi sangat cepat.",
+        text: "generateStaticParams membuat halaman di-pre-render saat build halaman yang sama setiap orang kunjungi jadi sangat cepat.",
       },
       {
         type: "callout",

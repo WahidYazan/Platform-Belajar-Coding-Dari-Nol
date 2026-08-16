@@ -12,7 +12,7 @@ export const reactDasar: Tutorial = {
     content: [
       {
         type: "p",
-        text: "React adalah library JavaScript untuk membangun antarmuka pengguna. Idenya sederhana tapi revolusioner: semua yang kamu lihat adalah komponen — fungsi JavaScript yang mengembalikan UI.",
+        text: "React adalah library JavaScript untuk membangun antarmuka pengguna. Idenya sederhana tapi revolusioner: semua yang kamu lihat adalah komponen fungsi JavaScript yang mengembalikan UI.",
       },
       { type: "h2", text: "Komponen pertama" },
       {
@@ -41,7 +41,7 @@ export default App;`,
       {
         type: "list",
         items: [
-          "Komponen dimulai dengan huruf kapital (Welcome, App) — wajib untuk membedakan dari tag HTML.",
+          "Komponen dimulai dengan huruf kapital (Welcome, App) wajib untuk membedakan dari tag HTML.",
           "JSX memungkinkan menulis struktur UI seperti HTML di dalam JavaScript.",
           "Ekspresi JavaScript ditulis di dalam { }.",
           "Setiap komponen harus mengembalikan satu elemen akar.",
@@ -100,8 +100,8 @@ function Counter() {
       {
         type: "list",
         items: [
-          "useState(0) — menyimpan nilai awal 0 dan mengembalikan [nilai, setter].",
-          "Jangan ubah state langsung (count++) — selalu pakai setter (setCount).",
+          "useState(0) menyimpan nilai awal 0 dan mengembalikan [nilai, setter].",
+          "Jangan ubah state langsung (count++) selalu pakai setter (setCount).",
           "Saat state berubah, komponen di-render ulang otomatis.",
           "Inilah kekuatan React: UI selalu sinkron dengan data.",
         ],

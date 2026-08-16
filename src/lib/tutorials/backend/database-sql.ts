@@ -116,15 +116,15 @@ WHERE users.id = 1;`,
       {
         type: "list",
         items: [
-          "INNER JOIN — hanya baris yang cocok di kedua tabel.",
-          "LEFT JOIN — semua baris tabel kiri, yang cocok dari kanan (sisanya NULL).",
+          "INNER JOIN hanya baris yang cocok di kedua tabel.",
+          "LEFT JOIN semua baris tabel kiri, yang cocok dari kanan (sisanya NULL).",
           "Foreign key menjaga integritas: tidak bisa merujuk id yang tidak ada.",
         ],
       },
       { type: "h2", text: "Dari SQL mentah ke ORM" },
       {
         type: "p",
-        text: "Menulis SQL langsung itu penting dan wajib kamu pahami. Namun di project nyata, developer biasanya memakai ORM seperti Prisma atau Drizzle yang mengubah object JavaScript menjadi query SQL otomatis — dengan keamanan terhadap SQL injection.",
+        text: "Menulis SQL langsung itu penting dan wajib kamu pahami. Namun di project nyata, developer biasanya memakai ORM seperti Prisma atau Drizzle yang mengubah object JavaScript menjadi query SQL otomatis dengan keamanan terhadap SQL injection.",
       },
       {
         type: "code",
@@ -139,7 +139,7 @@ const users = await prisma.user.findMany({
       {
         type: "callout",
         title: "Langkah berikutnya",
-        text: "Hubungkan Express + database menjadi aplikasi fullstack. Setelah itu, tambahkan autentikasi (login/register) — materi roadmap fase Backend & Database.",
+        text: "Hubungkan Express + database menjadi aplikasi fullstack. Setelah itu, tambahkan autentikasi (login/register) materi roadmap fase Backend & Database.",
       },
     ],
   }
