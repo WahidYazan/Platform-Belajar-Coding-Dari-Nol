@@ -22,8 +22,8 @@ export const htmlDasar: Tutorial = {
             type: "code",
             lang: "html",
             filename: "anatomi.html",
-            code: `<p>Ini adalah paragraf</p>
-<!-- ^  ^                   ^ -->
+            code: `    <p>Ini adalah paragraf</p>
+<!-- ^                      ^ -->
 <!-- tag pembuka           tag penutup -->`,
         },
         {

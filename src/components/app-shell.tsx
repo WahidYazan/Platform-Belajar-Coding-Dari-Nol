@@ -1,3 +1,4 @@
+import { ChatWidget } from "@/app/component/chat-widget";
 import { AppSidebar } from "@/app/component/site-header-sidebar";
 import { SiteFooter } from "@/app/component/site-footer";
 import { SiteHeader } from "@/app/component/site-header";
@@ -38,6 +39,7 @@ export default async function AppShell({
                     {footer ?? <SiteFooter />}
                 </div>
             </SidebarInset>
+            <ChatWidget />
         </SidebarProvider>
     );
 }

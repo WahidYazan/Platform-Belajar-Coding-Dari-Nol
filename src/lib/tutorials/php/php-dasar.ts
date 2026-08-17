@@ -28,7 +28,7 @@ export const phpDasar: Tutorial = {
     { type: "h2", text: "Cara kerja PHP" },
     {
       type: "p",
-      text: "Berbeda dengan JavaScript yang berjalan di browser, PHP berjalan di server. Alurnya: (1) Browser request halaman → (2) Server menerima dan menjalankan kode PHP → (3) PHP menghasilkan HTML → (4) HTML dikirim ke browser → (5) Browser menampilkan halaman.",
+      text: "Berbeda dengan JavaScript yang berjalan di browser, PHP berjalan di server. Alurnya: (1) Browser request halaman [ page ]→ (2) Server menerima dan menjalankan kode PHP → (3) PHP menghasilkan HTML → (4) HTML dikirim ke browser → (5) Browser menampilkan halaman dari HTML.",
     },
     {
       type: "code",
@@ -44,10 +44,16 @@ echo "<p>Ini dihasilkan oleh PHP di server.</p>";
 // <p>Ini dihasilkan oleh PHP di server.</p>
 ?>`,
     },
+    //     {
+    //   type: "callout",
+    //   title: "Noted",
+    //   tone: "info",
+    //   text: "Untuk ().",
+    // },
     { type: "h2", text: "Instalasi PHP" },
     {
       type: "h3",
-      text: "Cara 1: XAMPP (Recommended untuk pemula)",
+      text: "Cara 1: XAMPP (Recommended untuk pemula atau yang baru baru mulai)",
     },
     {
       type: "list",
@@ -60,6 +66,12 @@ echo "<p>Ini dihasilkan oleh PHP di server.</p>";
         "Buat folder baru, buat file index.php di dalamnya.",
         "Buka browser → ketik localhost/nama-folder.",
       ],
+    },
+        {
+      type: "callout",
+      title: "Catatan",
+      tone: "info",
+      text: "Untuk folder tergantung kalian tarok directory xampp saat installing di mana.",
     },
     {
       type: "h3",
@@ -100,7 +112,7 @@ EXPOSE 80`,
       type: "callout",
       title: "Saran",
       tone: "tip",
-      text: "Untuk pemula, pakai XAMPP dulu. Setelah nyaman, beralih ke Docker atau ServBay untuk proyek yang lebih serius.",
+      text: "Untuk pemula, pakai XAMPP dulu. Setelah nyaman, dan ingin beralih ke yang lain, coba beralih ke Docker atau ServBay untuk proyek yang lebih serius.",
     },
     { type: "h2", text: "Struktur dasar file PHP" },
     {
@@ -117,7 +129,7 @@ echo "Halo, Dunia!";
       type: "list",
       items: [
         "File PHP selalu berakhiran .php.",
-        "Tag pembuka <?php dan penutup ?> (opsional di file murni PHP).",
+        "Tag pembuka <?php & untuk penutupnya ?> (opsional di file murni PHP).",
         "Setiap pernyataan diakhiri dengan titik koma (;).",
         "Komentar satu baris pakai // atau #.",
         "Komentar multi-baris pakai /* ... */.",
