@@ -1,5 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-import { Atom, BookOpen, Braces, Palette, Rocket, Server, Wrench, Zap, ShieldCheck, Globe } from "lucide-react";
+import { Atom, BookOpen, Braces, Palette, Rocket, Server, Wrench, Zap, ShieldCheck, Globe, Code2 } from "lucide-react";
 import { tutorials, type Tutorial } from "./tutorials";
 
 export type CategoryKind = "Dasar" | "Frontend" | "Backend" | "Tools" | "Deployment";
@@ -71,6 +71,14 @@ export const categories: Category[] = [
         description: "Sisi server: Node.js, REST API dengan Express, dan database SQL.",
     },
     {
+        slug: "php",
+        name: "PHP",
+        kind: "Backend",
+        icon: Code2,
+        accent: "bg-indigo-100 text-indigo-700",
+        description: "Bahasa pemrograman server-side paling populer untuk web: dasar, OOP, database, API, hingga project lengkap.",
+    },
+    {
         slug: "laravel",
         name: "Laravel",
         kind: "Backend",
@@ -113,6 +121,7 @@ const nameToSlug: Record<string, string> = {
     React: "react",
     "Next.js": "nextjs",
     Backend: "backend",
+    PHP: "php",
     Laravel: "laravel",
     Tools: "tools",
     Deployment: "deployment",

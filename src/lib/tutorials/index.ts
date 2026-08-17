@@ -44,6 +44,23 @@ import { nextjsAuth } from "./nextjs/nextjs-auth"
 import { nextjsOptimasi } from "./nextjs/nextjs-optimasi"
 import { nextjsDeploy } from "./nextjs/nextjs-deploy"
 import { nextjsProject } from "./nextjs/nextjs-project"
+import { phpDasar } from "./php/php-dasar"
+import { phpVariabel } from "./php/php-variabel"
+import { phpOperatorKondisi } from "./php/php-operator-kondisi"
+import { phpLoop } from "./php/php-loop"
+import { phpArrayString } from "./php/php-array-string"
+import { phpFunction } from "./php/php-function"
+import { phpFormHandling } from "./php/php-form"
+import { phpFileHandling } from "./php/php-file-handling"
+import { phpDatabase } from "./php/php-database"
+import { phpOOP } from "./php/php-oop"
+import { phpErrorHandling } from "./php/php-error-handling"
+import { phpSessionCookie } from "./php/php-session-cookie"
+import { phpApi } from "./php/php-api"
+import { phpSecurity } from "./php/php-security"
+import { phpComposer } from "./php/php-composer"
+import { phpModern } from "./php/php-modern"
+import { phpProject } from "./php/php-project"
 
 export const tutorials: Tutorial[] = [
   pengenalanPemrograman,
@@ -91,6 +108,23 @@ export const tutorials: Tutorial[] = [
   laravelRelasi,
   laravelApi,
   laravelProject,
+  phpDasar,
+  phpVariabel,
+  phpOperatorKondisi,
+  phpLoop,
+  phpArrayString,
+  phpFunction,
+  phpFormHandling,
+  phpFileHandling,
+  phpDatabase,
+  phpOOP,
+  phpErrorHandling,
+  phpSessionCookie,
+  phpApi,
+  phpSecurity,
+  phpComposer,
+  phpModern,
+  phpProject,
 ]
 
 export function getTutorialBySlug(slug: string) {

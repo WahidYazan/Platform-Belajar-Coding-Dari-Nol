@@ -41,12 +41,18 @@ export const deployVercel: Tutorial = {
         text: "Setiap push ke branch main akan otomatis membangun dan men-deploy versi terbaru. Ini yang disebut CI/CD dalam bentuk paling sederhana.",
       },
       { type: "h2", text: "Custom domain" },
+            {
+        type: "callout",
+        title: "Noted",
+        text: "Jika Tidak Memakai Domain Silahkan Skip Langkah Ini.",
+        tone: "tip"
+      },
       {
         type: "code",
         lang: "bash",
         filename: "terminal",
         code: `# Di dashboard Vercel → Settings → Domains:
-1. Tambahkan domain kamu (contoh: kodingku.dev)
+1. Tambahkan domain kamu (contoh: kodingku.dev) [Optional]
 2. Vercel menampilkan DNS record untuk diset di registrar domain
 3. Set record A/ALIAS/CNAME sesuai instruksi
 4. Tunggu propagasi (bisa 1-24 jam)
