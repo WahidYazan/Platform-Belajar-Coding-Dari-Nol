@@ -1,12 +1,5 @@
 import Link from "next/link";
 
-const exploreLinks = [
-    { href: "/start", label: "Mulai dari Sini" },
-    { href: "/roadmap", label: "Roadmap Belajar" },
-    { href: "/tutorials", label: "Semua Tutorial" },
-    { href: "/dashboard", label: "Dashboard" },
-];
-
 export function SiteFooter() {
     return (
         <footer className="relative mt-auto overflow-hidden border-t bg-muted/40">

@@ -297,11 +297,14 @@ export function ChatWidget() {
                                                 <button
                                                     key={q}
                                                     onClick={() => {
-                                                        setInput(q)
-                                                        setTimeout(() => {
-                                                            sendMessage({ text: q })
-                                                            setInput("")
-                                                        }, 0)
+                                                        if (!activeId) {
+                                                            const session = createSession()
+                                                            if (session) {
+                                                                setTimeout(() => sendMessage({ text: q }), 50)
+                                                                return
+                                                            }
+                                                        }
+                                                        sendMessage({ text: q })
                                                     }}
                                                     className="rounded-full border bg-muted/50 px-3 py-1 text-xs text-muted-foreground transition-colors hover:bg-muted"
                                                 >

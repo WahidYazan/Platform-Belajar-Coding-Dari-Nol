@@ -17,10 +17,9 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
   const [completed, setCompleted] = React.useState<string[]>([])
   const [user, setUser] = React.useState<User | null>(null)
   const [loading, setLoading] = React.useState(true)
+  const supabase = React.useMemo(() => createClient(), [])
 
   React.useEffect(() => {
-    const supabase = createClient()
-
     async function loadProgress(userId: string) {
       const { data } = await supabase
         .from("user_progress")
@@ -54,11 +53,10 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
     })
 
     return () => subscription.unsubscribe()
-  }, [])
+  }, [supabase])
 
   const toggle = React.useCallback(
     async (slug: string) => {
-      const supabase = createClient()
       const {
         data: { user: currentUser },
       } = await supabase.auth.getUser()
@@ -76,7 +74,7 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
         await supabase.from("user_progress").insert({ user_id: currentUser.id, tutorial_slug: slug })
       }
     },
-    [completed],
+    [supabase, completed],
   )
 
   return (

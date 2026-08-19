@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import AppShell from "@/components/app-shell";
-import { categories, getCategoryGroups } from "@/lib/categories";
+import { categories } from "@/lib/categories";
 import { tutorials } from "@/lib/tutorials";
 import { ArrowRight, BookOpen, CheckCircle2, Goal, GraduationCap, Map, Rocket, ThumbsUp } from "lucide-react";
 import Link from "next/link";
@@ -46,9 +46,6 @@ const features = [
 ];
 
 export default function HomePage() {
-    const groups = getCategoryGroups();
-    const totalMinutes = tutorials.reduce((total, tutorial) => total + tutorial.minutes, 0);
-
     return (
         <AppShell footer={<SiteFooter />}>
             <section className="mx-auto w-full max-w-6xl px-4 pb-16 pt-20 sm:pt-24">

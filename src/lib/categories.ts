@@ -113,19 +113,9 @@ export const categoryKinds: { kind: CategoryKind; label: string; description: st
     { kind: "Deployment", label: "Deployment", description: "Naikkan aplikasimu ke internet." },
 ];
 
-const nameToSlug: Record<string, string> = {
-    Dasar: "dasar",
-    HTML: "html",
-    CSS: "css",
-    JavaScript: "javascript",
-    React: "react",
-    "Next.js": "nextjs",
-    Backend: "backend",
-    PHP: "php",
-    Laravel: "laravel",
-    Tools: "tools",
-    Deployment: "deployment",
-};
+const nameToSlug: Record<string, string> = Object.fromEntries(
+    categories.map(c => [c.name, c.slug])
+);
 
 export function getCategoryBySlug(slug: string): Category | undefined {
     return categories.find(category => category.slug === slug);

@@ -2,12 +2,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { getCategoryGroups } from "@/lib/categories";
 import { tutorials } from "@/lib/tutorials";
-import { ArrowRight, BookOpen, Clock, GraduationCap } from "lucide-react";
+import { ArrowRight, BookOpen, GraduationCap } from "lucide-react";
 import Link from "next/link";
 
 export default function DashboardPage() {
     const groups = getCategoryGroups();
-    const totalMinutes = tutorials.reduce((total, tutorial) => total + tutorial.minutes, 0);
 
     return (
         <main className="mx-auto w-full max-w-6xl px-4 py-10">
@@ -24,9 +23,6 @@ export default function DashboardPage() {
                     <span className="flex items-center gap-2 rounded-full border px-3 py-1">
                         <GraduationCap className="size-4 text-primary" />
                         {tutorials.length} materi tersedia
-                    </span>
-                    <span className="flex items-center gap-2 rounded-full border px-3 py-1">
-                        <Clock className="size-4 text-primary" />±{totalMinutes} menit materi inti
                     </span>
                 </div>
                 <div className="mt-8 flex flex-wrap gap-3">
