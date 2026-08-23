@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { notFound } from "next/navigation"
 import { ArrowRight, ArrowLeft, BookOpen, Check, Clock } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -25,9 +24,9 @@ export default async function RoadmapDetailPage({ params }: PageProps<"/roadmap/
   return (
     <div className="mx-auto w-full max-w-6xl px-4 py-14">
       <div className="mb-10">
-        <Button asChild variant="ghost" size="sm" className="mb-6 -ml-2">
+        <Button asChild variant="ghost" size="sm" className="mb-6 -ml-2 text-muted-foreground hover:text-foreground">
           <Link href="/roadmap">
-            <ArrowLeft />
+            <ArrowLeft className="size-4" />
             Semua fase
           </Link>
         </Button>
@@ -37,7 +36,7 @@ export default async function RoadmapDetailPage({ params }: PageProps<"/roadmap/
             <p className="text-sm font-medium text-primary">
               Fase {currentIndex + 1} dari {roadmapPhases.length}
             </p>
-            <h1 className="font-heading text-3xl font-semibold tracking-tight md:text-4xl">
+            <h1 className="font-heading text-3xl font-bold tracking-tight text-foreground md:text-4xl">
               {phase.title}
             </h1>
           </div>
@@ -59,21 +58,21 @@ export default async function RoadmapDetailPage({ params }: PageProps<"/roadmap/
         {phase.topics.map((topic, index) => {
           const tutorial = topic.tutorialSlug ? getTutorialBySlug(topic.tutorialSlug) : undefined
           return (
-            <div key={topic.title} className="flex gap-4 rounded-xl border bg-card p-5">
+            <div key={topic.title} className="flex gap-4 rounded-xl border border-border/70 bg-card/95 p-5 shadow-sm backdrop-blur">
               <div className="flex flex-col items-center">
-                <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-muted text-sm font-semibold">
+                <span className="flex size-8 shrink-0 items-center justify-center rounded-full border border-border/70 bg-muted/80 text-sm font-semibold text-foreground ring-4 ring-background">
                   {index + 1}
                 </span>
-                {index < phase.topics.length - 1 && <span className="mt-1 flex-1 w-px bg-border" />}
+                {index < phase.topics.length - 1 && <span className="mt-1 flex-1 w-px bg-border/70" />}
               </div>
               <div className="flex-1 pb-1">
-                <h3 className="font-semibold">{topic.title}</h3>
+                <h3 className="font-heading text-lg font-semibold text-foreground">{topic.title}</h3>
                 <p className="mt-1 text-sm leading-6 text-muted-foreground">{topic.description}</p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {topic.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-muted-foreground"
+                      className="rounded-full border border-border/70 bg-background/80 px-2.5 py-0.5 text-xs text-muted-foreground backdrop-blur-sm"
                     >
                       {skill}
                     </span>
@@ -100,10 +99,10 @@ export default async function RoadmapDetailPage({ params }: PageProps<"/roadmap/
           <Link href={`/roadmap/${previous.id}`}>
             <Card className="h-full transition-colors hover:ring-primary/40">
               <CardHeader>
-                <CardDescription className="flex items-center gap-1">
+                <CardDescription className="flex items-center gap-1 text-muted-foreground">
                   <ArrowLeft className="size-4" /> Fase sebelumnya
                 </CardDescription>
-                <CardTitle>
+                <CardTitle className="font-heading text-lg font-bold text-foreground">
                   {previous.emoji} {previous.title}
                 </CardTitle>
               </CardHeader>
@@ -114,10 +113,10 @@ export default async function RoadmapDetailPage({ params }: PageProps<"/roadmap/
           <Link href={`/roadmap/${next.id}`} className="sm:col-start-2">
             <Card className="h-full text-right transition-colors hover:ring-primary/40">
               <CardHeader>
-                <CardDescription className="flex items-center justify-end gap-1">
+                <CardDescription className="flex items-center justify-end gap-1 text-muted-foreground">
                   Fase selanjutnya <ArrowRight className="size-4" />
                 </CardDescription>
-                <CardTitle>
+                <CardTitle className="font-heading text-lg font-bold text-foreground">
                   {next.emoji} {next.title}
                 </CardTitle>
               </CardHeader>

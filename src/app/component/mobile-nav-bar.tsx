@@ -16,7 +16,7 @@ export function MobileNavBar() {
     const pathname = usePathname();
 
     return (
-        <nav className="fixed inset-x-0 bottom-0 z-40 border-t bg-background/90 pb-[env(safe-area-inset-bottom)] backdrop-blur md:hidden">
+        <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-border/70 bg-background/80 pb-[env(safe-area-inset-bottom)] backdrop-blur md:hidden">
             <div className="mx-auto flex h-16 w-full max-w-lg items-stretch gap-1 px-2">
                 {items.map(item => {
                     const Icon = item.icon;
@@ -28,7 +28,7 @@ export function MobileNavBar() {
                             aria-label={item.label}
                             aria-current={active ? "page" : undefined}
                             className={cn(
-                                "flex flex-1 flex-col items-center justify-center gap-1 rounded-lg text-muted-foreground transition-colors",
+                                "flex flex-1 flex-col items-center justify-center gap-1 rounded-xl text-muted-foreground transition-colors hover:text-foreground",
                                 active && "text-primary",
                             )}
                         >

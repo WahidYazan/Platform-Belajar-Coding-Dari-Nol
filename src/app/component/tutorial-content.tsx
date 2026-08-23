@@ -20,10 +20,10 @@ function Callout({
   const Icon = tone === "tip" ? Lightbulb : tone === "warning" ? TriangleAlert : Info
 
   return (
-    <div className={`my-5 flex gap-3 rounded-xl border p-4 ${styles}`}>
+    <div className={`my-5 flex gap-3 rounded-xl border border-border/70 p-4 shadow-sm backdrop-blur ${styles}`}>
       <Icon className="mt-0.5 size-4 shrink-0" />
       <div>
-        <p className="font-medium">{title}</p>
+        <p className="font-semibold text-foreground">{title}</p>
         <p className="mt-1 text-sm text-muted-foreground">{text}</p>
       </div>
     </div>
@@ -43,19 +43,19 @@ export function TutorialContent({ blocks }: { blocks: ContentBlock[] }) {
             )
           case "h2":
             return (
-              <h2 key={index} className="mt-10 mb-4 font-heading text-2xl font-semibold scroll-mt-24">
+              <h2 key={index} className="mt-10 mb-4 font-heading text-2xl font-bold text-foreground scroll-mt-24">
                 {block.text}
               </h2>
             )
           case "h3":
             return (
-              <h3 key={index} className="mt-8 mb-3 font-heading text-lg font-semibold">
+              <h3 key={index} className="mt-8 mb-3 font-heading text-lg font-bold text-foreground">
                 {block.text}
               </h3>
             )
           case "list":
             return block.ordered ? (
-              <ol key={index} className="my-4 list-decimal space-y-2 pl-6 text-muted-foreground marker:font-medium marker:text-foreground">
+              <ol key={index} className="my-4 list-decimal space-y-2 pl-6 text-muted-foreground marker:font-semibold marker:text-foreground">
                 {block.items.map((item, i) => (
                   <li key={i}>{item}</li>
                 ))}

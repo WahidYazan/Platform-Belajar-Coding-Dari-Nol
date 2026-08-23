@@ -1,8 +1,8 @@
 "use client";
 
+import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
 import * as React from "react";
@@ -57,51 +57,54 @@ export default function RegisterPage() {
 
     return (
         <div className="w-full max-w-md">
-            <Card>
-                <CardHeader>
-                    <CardTitle className="font-heading text-2xl">Daftar Akun</CardTitle>
-                    <CardDescription>
-                        Buat akun gratis untuk menyimpan progres belajar per akun.
+            <Card className="border-border/60 bg-background/50 shadow-xl shadow-slate-900/5 backdrop-blur-xl">
+                <CardHeader className="space-y-1 pb-6 pt-8 text-center">
+                    <CardTitle className="text-2xl font-bold tracking-tight">Daftar Akun</CardTitle>
+                    <CardDescription className="text-sm">
+                        Mulai perjalanan codingmu hari ini
                     </CardDescription>
                 </CardHeader>
-                <CardContent>
-                    <form onSubmit={handleSubmit} className="space-y-4">
-                        <div className="space-y-2">
-                            <label htmlFor="email" className="text-sm font-medium">
+                <CardContent className="px-8 pb-8">
+                    <form onSubmit={handleSubmit} className="grid gap-4">
+                        <div className="grid gap-2">
+                            <label htmlFor="email" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground/80">
                                 Email
                             </label>
                             <Input
                                 id="email"
                                 type="email"
-                                placeholder="nama@email.com"
+                                placeholder="nama@contoh.com"
+                                className="h-10 rounded-lg border-border/60 bg-background/50 focus:bg-background"
                                 value={email}
                                 onChange={event => setEmail(event.target.value)}
                                 required
                                 autoComplete="email"
                             />
                         </div>
-                        <div className="space-y-2">
-                            <label htmlFor="password" className="text-sm font-medium">
+                        <div className="grid gap-2">
+                            <label htmlFor="password" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground/80">
                                 Password
                             </label>
                             <Input
                                 id="password"
                                 type="password"
                                 placeholder="Minimal 6 karakter"
+                                className="h-10 rounded-lg border-border/60 bg-background/50 focus:bg-background"
                                 value={password}
                                 onChange={event => setPassword(event.target.value)}
                                 required
                                 autoComplete="new-password"
                             />
                         </div>
-                        <div className="space-y-2">
-                            <label htmlFor="confirm-password" className="text-sm font-medium">
+                        <div className="grid gap-2">
+                            <label htmlFor="confirm-password" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground/80">
                                 Konfirmasi Password
                             </label>
                             <Input
                                 id="confirm-password"
                                 type="password"
                                 placeholder="Ulangi password"
+                                className="h-10 rounded-lg border-border/60 bg-background/50 focus:bg-background"
                                 value={confirmPassword}
                                 onChange={event => setConfirmPassword(event.target.value)}
                                 required
@@ -109,25 +112,25 @@ export default function RegisterPage() {
                             />
                         </div>
                         {error && (
-                            <p className="rounded-lg border border-destructive/30 bg-destructive/5 px-3 py-2 text-sm text-destructive">
+                            <div className="rounded-lg border border-destructive/20 bg-destructive/10 px-3 py-2 text-sm text-destructive">
                                 {error}
-                            </p>
+                            </div>
                         )}
                         {info && (
-                            <p className="rounded-lg border border-emerald-500/30 bg-emerald-500/5 px-3 py-2 text-sm text-emerald-600">
+                            <div className="rounded-lg border border-emerald-500/20 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-600">
                                 {info}
-                            </p>
+                            </div>
                         )}
-                        <Button type="submit" className="w-full" disabled={loading}>
-                            {loading ? "Memproses..." : "Daftar"}
+                        <Button type="submit" className="mt-2 h-10 w-full rounded-lg font-semibold" disabled={loading}>
+                            {loading ? "Memproses..." : "Buat Akun Gratis"}
                         </Button>
                     </form>
-                    <p className="mt-4 text-center text-sm text-muted-foreground">
-                        Sudah punya akun?{" "}
-                        <Link href="/login" className="font-medium text-primary hover:underline">
+                    <div className="mt-6 text-center text-sm">
+                        <span className="text-muted-foreground">Sudah punya akun?</span>{" "}
+                        <Link href="/login" className="font-semibold text-primary transition-colors hover:text-primary/80">
                             Masuk di sini
                         </Link>
-                    </p>
+                    </div>
                 </CardContent>
             </Card>
         </div>

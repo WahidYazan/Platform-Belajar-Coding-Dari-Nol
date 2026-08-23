@@ -37,7 +37,7 @@ export default async function CategoryPage({ params }: PageProps<"/[category]">)
     return (
         <div className="mx-auto w-full max-w-6xl px-4 py-14">
             <nav className="mb-8 flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
-                <Link href="/dashboard" className="hover:text-foreground">
+                <Link href="/dashboard" className="transition-colors hover:text-foreground">
                     Beranda
                 </Link>
                 <span>/</span>
@@ -53,7 +53,7 @@ export default async function CategoryPage({ params }: PageProps<"/[category]">)
                     </span>
                     <Badge variant="secondary">{kind?.label ?? category.kind}</Badge>
                 </div>
-                <h1 className="font-heading text-4xl font-semibold tracking-tight">Belajar {category.name}</h1>
+                <h1 className="font-heading text-4xl font-bold tracking-tight text-foreground">Belajar {category.name}</h1>
                 <p className="mt-3 max-w-2xl leading-7 text-muted-foreground">{category.description}</p>
                 <div className="mt-5 flex flex-wrap gap-4 text-sm">
                     <span className="flex items-center gap-1.5 text-muted-foreground">
@@ -69,7 +69,7 @@ export default async function CategoryPage({ params }: PageProps<"/[category]">)
                         <Button asChild size="lg">
                             <Link href={`/dashboard/tutorials/${firstTutorial.slug}`}>
                                 Mulai dari Bab 1
-                                <ArrowRight />
+                                <ArrowRight className="size-4" />
                             </Link>
                         </Button>
                     </div>
@@ -77,7 +77,7 @@ export default async function CategoryPage({ params }: PageProps<"/[category]">)
             </div>
 
             <div className="mb-14">
-                <h2 className="mb-2 font-heading text-2xl font-semibold">Daftar Bab</h2>
+                <h2 className="mb-2 font-heading text-2xl font-bold text-foreground">Daftar Bab</h2>
                 <p className="mb-6 text-muted-foreground">
                     Bab tersusun berurutan dari yang paling dasar. Ikuti dari atas, progres belajarmu tersimpan otomatis.
                 </p>
@@ -111,34 +111,38 @@ export default async function CategoryPage({ params }: PageProps<"/[category]">)
             </div>
 
             {(previous || next) && (
-                <div className="mb-14 grid gap-3 border-t pt-8 sm:grid-cols-2">
+                <div className="mb-14 grid gap-3 border-t border-border/70 pt-8 sm:grid-cols-2">
                     {previous ? (
                         <Link href={`/${previous.slug}`}>
-                            <div className="group h-full rounded-xl border p-4 transition-colors hover:ring-1 hover:ring-primary/40">
-                                <p className="mb-1 flex items-center gap-1 text-xs text-muted-foreground">
-                                    <ArrowLeft className="size-3.5" /> Topik sebelumnya
-                                </p>
-                                <p className="font-medium group-hover:underline">{previous.name}</p>
-                            </div>
+                            <Card className="h-full transition-colors hover:ring-primary/40">
+                                <CardHeader>
+                                    <CardDescription className="mb-1 flex items-center gap-1 text-xs text-muted-foreground">
+                                        <ArrowLeft className="size-3.5" /> Topik sebelumnya
+                                    </CardDescription>
+                                    <CardTitle className="font-heading text-base font-bold text-foreground">{previous.name}</CardTitle>
+                                </CardHeader>
+                            </Card>
                         </Link>
                     ) : (
                         <div className="hidden sm:block" />
                     )}
                     {next && (
                         <Link href={`/${next.slug}`} className="sm:col-start-2">
-                            <div className="group h-full rounded-xl border p-4 text-right transition-colors hover:ring-1 hover:ring-primary/40">
-                                <p className="mb-1 flex items-center justify-end gap-1 text-xs text-muted-foreground">
-                                    Topik selanjutnya <ArrowRight className="size-3.5" />
-                                </p>
-                                <p className="font-medium group-hover:underline">{next.name}</p>
-                            </div>
+                            <Card className="h-full text-right transition-colors hover:ring-primary/40">
+                                <CardHeader>
+                                    <CardDescription className="mb-1 flex items-center justify-end gap-1 text-xs text-muted-foreground">
+                                        Topik selanjutnya <ArrowRight className="size-3.5" />
+                                    </CardDescription>
+                                    <CardTitle className="font-heading text-base font-bold text-foreground">{next.name}</CardTitle>
+                                </CardHeader>
+                            </Card>
                         </Link>
                     )}
                 </div>
             )}
 
             <div>
-                <h2 className="mb-2 font-heading text-2xl font-semibold">Topik Lain</h2>
+                <h2 className="mb-2 font-heading text-2xl font-bold text-foreground">Topik Lain</h2>
                 <p className="mb-6 text-muted-foreground">Pilih topik lain yang mau kamu pelajari.</p>
                 <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                     {categories
@@ -154,7 +158,7 @@ export default async function CategoryPage({ params }: PageProps<"/[category]">)
                                             >
                                                 <ItemIcon className="size-4" />
                                             </span>
-                                            <CardTitle className="font-heading">{item.name}</CardTitle>
+                                            <CardTitle className="font-heading text-lg font-bold">{item.name}</CardTitle>
                                             <CardDescription className="line-clamp-2">{item.description}</CardDescription>
                                         </CardHeader>
                                         <CardContent className="mt-auto flex items-center gap-1 text-sm font-medium text-primary">

@@ -1,17 +1,18 @@
-"use client"
+"use client";
 
-import { CheckCircle2, Circle } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { useProgress } from "@/hooks/progress-context"
+import { CheckCircle2, Circle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useProgress } from "@/hooks/progress-context";
+import { Card, CardContent } from "@/components/ui/card";
 
 export function ChapterActions({ slug }: { slug: string }) {
-  const { completed, toggle } = useProgress()
-  const done = completed.includes(slug)
+  const { completed, toggle } = useProgress();
+  const done = completed.includes(slug);
 
   return (
-    <div className="flex flex-col gap-3 rounded-xl border bg-card p-4 sm:flex-row sm:items-center sm:justify-between">
+    <Card className="flex flex-col gap-3 p-4 sm:flex-row sm:items-center sm:justify-between">
       <div>
-        <p className="text-sm font-medium">{done ? "Bab selesai! 🎉" : "Sudah paham bab ini?"}</p>
+        <p className="text-sm font-medium text-foreground">{done ? "Bab selesai! 🎉" : "Sudah paham bab ini?"}</p>
         <p className="text-xs text-muted-foreground">
           {done
             ? "Kamu bisa menandai ulang jika ingin mengulang."
@@ -31,6 +32,6 @@ export function ChapterActions({ slug }: { slug: string }) {
           </>
         )}
       </Button>
-    </div>
-  )
+    </Card>
+  );
 }

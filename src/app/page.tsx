@@ -48,210 +48,126 @@ const features = [
 export default function HomePage() {
     return (
         <AppShell footer={<SiteFooter />}>
-            <section className="mx-auto w-full max-w-6xl px-4 pb-16 pt-20 sm:pt-24">
-                    <div className="mx-auto max-w-3xl text-center">
-                        <p className="mx-auto mb-4 inline-flex items-center gap-2 rounded-full border bg-muted/50 px-4 py-1.5 text-lg font-extrabold text-primary">
-                            {/* <Sparkles className="size-4" /> */}
-                            Website Sinau Coding
-                        </p>
-                        <h1 className="font-heading text-4xl font-semibold tracking-tight sm:text-6xl">
-                            Belajar Coding Dari Nol
-                            <span className="block text-primary">Sampai Bisa</span>
-                        </h1>
-                        <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">
-                            Sinau Coding adalah platform belajar pemrograman dalam Bahasa Indonesia. Tanpa perlu
-                            background IT, kamu belajar langkah demi langkah dari pengenalan dasar sampai bisa membuat
-                            dan mempublikasikan website buatanmu sendiri.
-                        </p>
-                        <div className="mt-10 flex flex-wrap justify-center gap-3">
-                            <Button asChild size="lg" className="px-8 text-2xl">
-                                <Link href="/register">
-                                    Mulai Belajar Gratis
-                                    <ArrowRight />
-                                </Link>
-                            </Button>
-                        </div>
-                        <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-lg text-muted-foreground">
-                            <span className="flex items-center gap-2">
-                                <GraduationCap className="size-4 text-primary" />
-                                {tutorials.length} materi yang stersedia
-                            </span>
-                            {/* <span className="flex items-center gap-2">
-                                <Clock className="size-4 text-primary" />±{totalMinutes} menit materi inti
-                            </span> */}
-                            <span className="flex items-center gap-2">
-                                <BookOpen className="size-4 text-primary" />
-                                {categories.length} topik belajar
-                            </span>
-                        </div>
+            <section className="relative mx-auto w-full max-w-6xl px-4 pb-20 pt-24 sm:pt-32">
+                <div className="absolute inset-x-0 top-0 -z-10 h-96 overflow-hidden [mask-image:radial-gradient(100%_100%_at_top_center,white,transparent)]">
+                    <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
+                </div>
+                <div className="mx-auto max-w-3xl text-center">
+                    <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-medium text-primary backdrop-blur-sm">
+                        <span className="relative flex h-2 w-2">
+                            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"></span>
+                            <span className="relative inline-flex h-2 w-2 rounded-full bg-primary"></span>
+                        </span>
+                        Platform Belajar Terstruktur
                     </div>
-                </section>
+                    <h1 className="font-heading text-4xl font-bold tracking-tight text-foreground sm:text-6xl/tight">
+                        Belajar Coding Dari Nol
+                        <span className="block text-primary">Sampai Mahir</span>
+                    </h1>
+                    <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
+                        Sinau Coding adalah platform belajar pemrograman dalam Bahasa Indonesia.
+                        Tanpa background IT, kamu bisa belajar langkah demi langkah dari dasar sampai mempublikasikan website karyamu sendiri.
+                    </p>
+                    <div className="mt-10 flex flex-wrap justify-center gap-4">
+                        <Button asChild size="lg" className="rounded-full px-8 text-base font-medium">
+                            <Link href="/register">
+                                Mulai Belajar Gratis
+                                <ArrowRight className="ml-2 size-4" />
+                            </Link>
+                        </Button>
+                        {/* <Button asChild variant="outline" size="lg" className="rounded-full px-8 text-base font-medium">
+                            <Link href="/start">
+                                Lihat Roadmap
+                            </Link>
+                        </Button> */}
+                    </div>
+                </div>
+            </section>
 
-                <section className="border-y bg-muted/40">
-                    <div className="mx-auto w-full max-w-6xl px-4 py-16">
-                        <div className="mb-10 text-center">
-                            <h2 className="font-heading text-2xl font-semibold tracking-tight sm:text-3xl">
-                                Sinau Coding itu buat siapa?
-                            </h2>
-                            <p className="mt-3 leading-7 text-muted-foreground">
-                                Buat kamu yang ingin pindah karier ke dunia IT, pelajar yang baru kenal koding, sampai
-                                pekerja yang mau upgrade skill. Yang penting niat, soal latar belakang di sini semua
-                                dimulai dari nol.
+            <section className="border-y border-border/40 bg-muted/20">
+                <div className="mx-auto w-full max-w-6xl px-4 py-20">
+                    <div className="mb-12 text-center">
+                        <h2 className="font-heading text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+                            Didesain untuk semua kalangan
+                        </h2>
+                        <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+                            Mulai dari siswa hingga profesional yang ingin berganti karier.
+                            Kurikulum kami disusun untuk memastikan siapa pun bisa mulai koding hari ini.
+                        </p>
+                    </div>
+                    <div className="grid gap-6 sm:grid-cols-3">
+                        <div className="group relative rounded-xl border border-border/40 bg-background/50 p-6 transition-all hover:bg-background hover:shadow-sm">
+                            <h3 className="font-heading text-base font-bold text-foreground">Total Pemula</h3>
+                            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                                Tidak tahu harus mulai dari mana? Materi disusun khusus untuk yang benar-benar baru, tanpa jargon yang membingungkan.
                             </p>
                         </div>
-                        <div className="text-center grid gap-6 sm:grid-cols-3">
-                            <Card>
-                                <CardHeader>
-                                    <CardTitle className="font-heading">Total pemula</CardTitle>
-                                </CardHeader>
-                                <CardContent className="text-sm leading-6 text-muted-foreground">
-                                    Tidak tahu harus mulai dari mana? Materi disusun khusus untuk yang benar-benar baru,
-                                    tanpa jargon yang bikin pusing.
-                                </CardContent>
-                            </Card>
-                            <Card>
-                                <CardHeader>
-                                    <CardTitle className="font-heading">Siswa & mahasiswa</CardTitle>
-                                </CardHeader>
-                                <CardContent className="text-sm leading-6 text-muted-foreground">
-                                    Pelengkap materi kuliah atau tugas sekolah. Contoh kode siap pakai yang bisa
-                                    langsung dicoba.
-                                </CardContent>
-                            </Card>
-                            <Card>
-                                <CardHeader>
-                                    <CardTitle className="font-heading">Karyawan yang mau switch</CardTitle>
-                                </CardHeader>
-                                <CardContent className="text-sm leading-6 text-muted-foreground">
-                                    Dari nol sampai bisa deploy website sendiri, modal buat portofolio dan karier
-                                    barumu.
-                                </CardContent>
-                            </Card>
+                        <div className="group relative rounded-xl border border-border/40 bg-background/50 p-6 transition-all hover:bg-background hover:shadow-sm">
+                            <h3 className="font-heading text-base font-bold text-foreground">Siswa & Mahasiswa</h3>
+                            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                                Pelengkap materi kuliah atau tugas sekolah dengan contoh kode praktis yang bisa langsung dipelajari dan diterapkan.
+                            </p>
+                        </div>
+                        <div className="group relative rounded-xl border border-border/40 bg-background/50 p-6 transition-all hover:bg-background hover:shadow-sm">
+                            <h3 className="font-heading text-base font-bold text-foreground">Profesional</h3>
+                            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                                Dari nol sampai siap deploy. Bekali dirimu dengan portofolio nyata untuk mendukung transisi karier ke dunia teknologi.
+                            </p>
                         </div>
                     </div>
-                </section>
+                </div>
+            </section>
 
-                <section className="mx-auto w-full max-w-6xl px-4 py-16">
-                    <div className="text-center mb-10">
-                        <h2 className="font-heading text-2xl font-semibold tracking-tight sm:text-3xl">
-                            Fitur yang bikin belajar makin gampang
-                        </h2>
-                        <p className="mt-3 leading-7 text-muted-foreground">
-                            Bukan sekadar kumpulan artikel. Semua dirancang supaya kamu konsisten sampai selesai.
-                        </p>
-                    </div>
-                    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                        {features.map(feature => {
-                            const Icon = feature.icon;
-                            return (
-                                <Card key={feature.title} className="flex h-full flex-col">
-                                    <CardHeader>
-                                        <span className="mb-3 flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                                            <Icon className="size-5" />
-                                        </span>
-                                        <CardTitle className="font-heading">{feature.title}</CardTitle>
-                                    </CardHeader>
-                                    <CardContent className="text-sm leading-6 text-muted-foreground">
-                                        {feature.description}
-                                    </CardContent>
-                                </Card>
-                            );
-                        })}
-                    </div>
-                </section>
-
-                {/* <section className="border-y bg-muted/40">
-                    <div className="mx-auto w-full max-w-6xl px-4 py-16">
-                        <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
-                            <div className="max-w-2xl">
-                                <h2 className="font-heading text-2xl font-semibold tracking-tight sm:text-3xl">
-                                    Pilih topik, langsung mulai
-                                </h2>
-                                <p className="mt-3 leading-7 text-muted-foreground">
-                                    Semua topik dibuka gratis. Kamu bebas pilih, tapi kalau baru mulai, ikuti urutannya
-                                    dari Dasar.
+            <section className="mx-auto w-full max-w-6xl px-4 py-24">
+                <div className="text-center mb-16">
+                    <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+                        Pengalaman belajar terbaik
+                    </h2>
+                    <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+                        Lebih dari sekadar artikel. Kami menyediakan ekosistem pendukung untuk memastikan progres belajarmu tetap konsisten.
+                    </p>
+                </div>
+                <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                    {features.map(feature => {
+                        const Icon = feature.icon;
+                        return (
+                            <div key={feature.title} className="flex flex-col items-start">
+                                <span className="mb-4 flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                    <Icon className="size-5" />
+                                </span>
+                                <h3 className="font-heading text-base font-bold text-foreground">{feature.title}</h3>
+                                <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                                    {feature.description}
                                 </p>
                             </div>
-                            <Button asChild variant="outline">
-                                <Link href="/dashboard">
-                                    Lihat semua materi
-                                    <ArrowRight />
-                                </Link>
-                            </Button>
-                        </div>
+                        );
+                    })}
+                </div>
+            </section>
 
-                        {categoryKinds
-                            .map(kind => ({
-                                kind,
-                                groups: groups.filter(group => group.category.kind === kind.kind),
-                            }))
-                            .filter(item => item.groups.length > 0)
-                            .map(({ kind, groups }) => (
-                                <div key={kind.kind} className="mb-8">
-                                    <div className="mb-3 flex items-baseline gap-3">
-                                        <h3 className="font-heading text-lg font-semibold">{kind.label}</h3>
-                                        <p className="text-sm text-muted-foreground">{kind.description}</p>
-                                    </div>
-                                    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-                                        {groups.map(({ category }) => {
-                                            const Icon = category.icon;
-                                            return (
-                                                <Link
-                                                    key={category.slug}
-                                                    href={`/${category.slug}`}
-                                                    className="group rounded-xl border p-4 transition-colors hover:ring-1 hover:ring-primary/40"
-                                                >
-                                                    <div className="flex items-center gap-3">
-                                                        <span
-                                                            className={`flex size-9 shrink-0 items-center justify-center rounded-lg ${category.accent}`}
-                                                        >
-                                                            <Icon className="size-4" />
-                                                        </span>
-                                                        <div className="min-w-0">
-                                                            <p className="truncate text-sm font-medium">
-                                                                {category.name}
-                                                            </p>
-                                                            <p className="truncate text-xs text-muted-foreground">
-                                                                {groups.find(
-                                                                    group => group.category.slug === category.slug,
-                                                                )?.items.length ?? 0}{" "}
-                                                                bab
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </Link>
-                                            );
-                                        })}
-                                    </div>
-                                </div>
-                            ))}
+            <section className="mx-auto w-full max-w-5xl px-4 py-24">
+                <div className="rounded-2xl border border-primary/20 bg-primary/5 p-8 sm:p-16 text-center overflow-hidden relative">
+                    <div className="absolute top-0 left-0 w-full h-full -z-10 opacity-10">
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--primary)_0,transparent_70%)]" />
                     </div>
-                </section> */}
-
-                <section className="mx-auto w-full max-w-4xl px-4 py-20 text-center">
-                    <span className="mx-auto mb-4 flex size-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                    <span className="mx-auto mb-6 flex size-12 items-center justify-center rounded-full bg-primary/10 text-primary">
                         <Goal className="size-6" />
-                        {/* <span className="text-3xl leading-none">🔰</span> */}
                     </span>
-                    <h2 className="font-heading text-3xl font-semibold tracking-tight sm:text-4xl">
-                        Karier di dunia IT dimulai dari satu langkah
+                    <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-5xl">
+                        Siap memulai perjalananmu?
                     </h2>
-                    <h2 className="font-heading text-2xl font-semibold tracking-tight sm:text-3xl">
-                        Mulai perjalanan codingmu hari ini
-                    </h2>
-                    <p className="mx-auto mt-4 max-w-xl text-lg leading-8 text-muted-foreground">
-                        Setiap developer hebat pernah jadi pemula. Hari ini giliran kamu. Mulai dari bab pertama, tandai
-                        progresmu, dan lihat seberapa jauh kamu bisa melangkah.
+                    <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground">
+                        Setiap developer hebat berawal dari baris kode pertama. Hari ini giliranmu untuk melangkah lebih jauh.
                     </p>
-                    <div className="mt-8 flex flex-wrap justify-center gap-3">
-                        <Button asChild size="lg" className="px-8 text-2xl">
+                    <div className="mt-10 flex flex-wrap justify-center gap-4">
+                        <Button asChild size="lg" className="rounded-full px-10 text-base font-medium">
                             <Link href="/register">
-                                Daftar & Mulai Sekarang
-                                <ArrowRight />
+                                Daftar Sekarang
                             </Link>
                         </Button>
                     </div>
-                </section>
+                </div>
+            </section>
         </AppShell>
     );
 }

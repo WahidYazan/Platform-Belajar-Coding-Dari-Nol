@@ -14,17 +14,17 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
     title: {
-        default: "Sinau Coding Belajar Coding dari Nol",
-        template: "%s Sinau Coding",
+        default: "Sinau Coding",
+        template: "%s · Sinau Coding",
     },
     description:
-        "Roadmap belajar coding lengkap dari nol dalam Bahasa Indonesia: HTML, CSS, JavaScript, React, backend, hingga deployment. Mulai dari mana dan ke mana arahmu, semua di sini.",
+        "Platform belajar coding berbahasa Indonesia dengan roadmap yang jelas, progres tersimpan otomatis, dan tampilan yang nyaman dipakai.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
     return (
         <html lang="id" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-            <body className="min-h-full flex flex-col">{children}</body>
+            <body className="min-h-full bg-background text-foreground">{children}</body>
         </html>
     );
 }

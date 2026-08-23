@@ -25,20 +25,20 @@ export default async function ChapterPage({ params }: PageProps<"/dashboard/tuto
 
     return (
         <div className="mx-auto w-full max-w-3xl px-4 py-10">
-            <div className="mb-8 border-b pb-8">
+            <div className="mb-8 border-b border-border/70 pb-8">
                 <div className="mb-3 flex flex-wrap items-center gap-2">
                     <Badge variant="secondary">{tutorial.category}</Badge>
                     <Badge variant="outline">{tutorial.level}</Badge>
-                    <span className="flex items-center gap-1 text-xs text-muted-foreground">
+                    <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
                         <Clock className="size-3.5" />
                         {tutorial.minutes} menit baca
                     </span>
-                    <span className="flex items-center gap-1 text-xs text-muted-foreground">
+                    <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
                         <ListChecks className="size-3.5" />
                         Bab {currentIndex + 1} dari {tutorials.length}
                     </span>
                 </div>
-                <h1 className="font-heading text-3xl font-semibold tracking-tight md:text-4xl">{tutorial.title}</h1>
+                <h1 className="font-heading text-3xl font-bold tracking-tight text-foreground md:text-4xl">{tutorial.title}</h1>
                 <p className="mt-3 leading-7 text-muted-foreground">{tutorial.description}</p>
             </div>
 
@@ -48,14 +48,14 @@ export default async function ChapterPage({ params }: PageProps<"/dashboard/tuto
                 <ChapterActions slug={tutorial.slug} />
             </div>
 
-            <div className="mt-8 grid gap-3 border-t pt-8 sm:grid-cols-2">
+            <div className="mt-8 grid gap-3 border-t border-border/70 pt-8 sm:grid-cols-2">
                 {previous ? (
                     <Link href={`/dashboard/tutorials/${previous.slug}`}>
-                        <div className="group h-full rounded-xl border p-4 transition-colors hover:ring-1 hover:ring-primary/40">
+                        <div className="group h-full rounded-xl border border-border/70 bg-card/95 p-4 shadow-sm backdrop-blur transition-colors hover:ring-1 hover:ring-primary/40">
                             <p className="mb-1 flex items-center gap-1 text-xs text-muted-foreground">
                                 <ArrowLeft className="size-3.5" /> Bab sebelumnya
                             </p>
-                            <p className="font-medium group-hover:underline">{previous.title}</p>
+                            <p className="font-heading text-base font-medium text-foreground group-hover:underline">{previous.title}</p>
                         </div>
                     </Link>
                 ) : (
@@ -69,9 +69,9 @@ export default async function ChapterPage({ params }: PageProps<"/dashboard/tuto
                                 className="flex h-full w-full flex-col items-end justify-center gap-1 sm:text-right"
                             >
                                 <span className="text-xs font-normal opacity-80">Lanjut ke bab berikutnya</span>
-                                <span className="flex items-center gap-2 text-sm">
+                                <span className="flex items-center gap-2 text-sm font-medium">
                                     <span className="line-clamp-2">{next.title}</span>
-                                    <ArrowRight className="shrink-0" />
+                                    <ArrowRight className="shrink-0 size-4" />
                                 </span>
                             </Link>
                         </Button>
