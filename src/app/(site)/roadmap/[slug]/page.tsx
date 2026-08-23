@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { getPhaseById, roadmapPhases } from "@/lib/roadmap"
 import { getTutorialBySlug } from "@/lib/tutorials"
+import { notFound } from "next/navigation"
 
 export function generateStaticParams() {
   return roadmapPhases.map((phase) => ({ slug: phase.id }))
