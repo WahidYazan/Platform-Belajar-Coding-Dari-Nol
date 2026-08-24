@@ -17,10 +17,15 @@ export default function DashboardPage() {
 
   return (
     <main className="mx-auto w-full max-w-6xl px-4 py-12 lg:py-16">
-      <div className="mb-16">
+      {/* Hero */}
+      <div className="relative mb-16 overflow-hidden rounded-3xl border border-border/40 bg-card/60 p-8 sm:p-10">
+        <div className="pointer-events-none absolute inset-0 -z-10">
+          <div className="absolute top-[-60%] right-[-10%] h-[300px] w-[400px] rounded-full bg-primary/[0.06] blur-[80px]" />
+          <div className="absolute bottom-[-40%] left-[-5%] h-[200px] w-[300px] rounded-full bg-blue-400/[0.04] blur-[60px]" />
+        </div>
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary/80">
+            <p className="mb-3 text-xs font-bold uppercase tracking-widest text-primary/70">
               Dashboard
             </p>
             <h1 className="font-heading text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
@@ -35,7 +40,7 @@ export default function DashboardPage() {
             <Button
               asChild
               size="lg"
-              className="rounded-full shadow-lg shadow-primary/20"
+              className="rounded-full shadow-lg shadow-primary/20 transition-all hover:shadow-xl hover:shadow-primary/25"
             >
               <Link href={`/dashboard/tutorials/${tutorials[0].slug}`}>
                 Mulai Belajar
@@ -46,7 +51,7 @@ export default function DashboardPage() {
               asChild
               variant="outline"
               size="lg"
-              className="rounded-full"
+              className="rounded-full bg-background"
             >
               <Link href="/start">
                 <BookOpen className="mr-2 size-4" />
@@ -57,19 +62,21 @@ export default function DashboardPage() {
         </div>
       </div>
 
+      {/* Progress */}
       <div>
-        <h2 className="font-heading text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+        <h2 className="mb-2 font-heading text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
           Progress
         </h2>
-        <OverviewProgress/>
+        <OverviewProgress />
       </div>
 
-      <div className="mt-20 space-y-24">
+      {/* Topics */}
+      <div className="mt-20 space-y-20">
         <div>
           <h2 className="font-heading text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
             Topik Materi
           </h2>
-          <p className="mt-2 text-muted-foreground">
+          <p className="mt-2 text-muted-foreground leading-relaxed">
             Eksplorasi kurikulum berdasarkan kategori. Ikuti urutan bab untuk
             hasil maksimal.
           </p>
@@ -100,7 +107,7 @@ export default function DashboardPage() {
                   </div>
                 </div>
                 <div className="sm:ml-auto">
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-muted/60 px-3 py-1 text-xs font-medium text-muted-foreground">
                     <BookOpen className="size-3.5" />
                     {items.length} Bab · ±{totalMinutes} Menit
                   </span>
@@ -113,29 +120,29 @@ export default function DashboardPage() {
                     href={`/dashboard/tutorials/${item.slug}`}
                     className="group"
                   >
-                    <Card className="flex h-full flex-col border-border/40 bg-background/50 transition-all duration-300 hover:border-primary/30 hover:bg-background hover:shadow-md">
+                    <Card className="flex h-full flex-col border-border/50 bg-card/80 transition-all duration-300 hover:border-border hover:bg-card hover:shadow-md hover:shadow-black/[0.03]">
                       <CardHeader className="pb-3">
-                        <div className="mb-2 flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground/70">
+                        <div className="mb-2 flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground/60">
                           <span className="text-primary/80">
                             Bab {index + 1}
                           </span>
                           <span>·</span>
                           <span>{item.minutes} Menit</span>
                           <span>·</span>
-                          <span className="rounded-sm bg-muted px-1.5 py-0.5">
+                          <span className="rounded-sm bg-muted/80 px-1.5 py-0.5">
                             {item.level}
                           </span>
                         </div>
-                        <CardTitle className="text-lg leading-tight group-hover:text-primary transition-colors">
+                        <CardTitle className="text-lg leading-tight group-hover:text-primary transition-colors duration-200">
                           {item.title}
                         </CardTitle>
                         <CardDescription className="line-clamp-2 mt-1 text-sm leading-relaxed">
                           {item.description}
                         </CardDescription>
                       </CardHeader>
-                      <CardContent className="mt-auto pt-0 pb-6 flex items-center text-sm font-semibold text-primary/80 transition-colors group-hover:text-primary">
+                      <CardContent className="mt-auto pt-0 pb-6 flex items-center text-sm font-semibold text-primary/80 transition-colors duration-200 group-hover:text-primary">
                         Lanjutkan Membaca
-                        <ArrowRight className="ml-1.5 size-4 transition-transform group-hover:translate-x-1" />
+                        <ArrowRight className="ml-1.5 size-4 transition-transform duration-200 group-hover:translate-x-1" />
                       </CardContent>
                     </Card>
                   </Link>
@@ -146,9 +153,12 @@ export default function DashboardPage() {
         })}
       </div>
 
-      <div className="mt-24 rounded-3xl border border-primary/10 bg-primary/[0.02] p-8 sm:p-12 text-center relative overflow-hidden">
-        <div className="absolute top-0 right-0 -mr-16 -mt-16 size-64 rounded-full bg-primary/5 blur-3xl" />
-        <h2 className="font-heading text-2xl font-bold text-foreground">
+      {/* CTA */}
+      <div className="mt-24 relative overflow-hidden rounded-3xl border border-border/50 bg-card/60 p-8 sm:p-12 text-center">
+        <div className="pointer-events-none absolute inset-0 -z-10">
+          <div className="absolute top-[-50%] right-[-10%] h-[300px] w-[400px] rounded-full bg-primary/[0.05] blur-[80px]" />
+        </div>
+        <h2 className="font-heading text-2xl font-bold text-foreground sm:text-3xl">
           Butuh Panduan Awal?
         </h2>
         <p className="mx-auto mt-3 max-w-lg text-muted-foreground leading-relaxed">
@@ -159,7 +169,7 @@ export default function DashboardPage() {
           <Button
             asChild
             size="lg"
-            className="rounded-full px-8 shadow-md shadow-primary/10"
+            className="rounded-full px-8 shadow-lg shadow-primary/15 transition-all hover:shadow-xl hover:shadow-primary/20"
           >
             <Link href="/start">Baca Panduan Persiapan</Link>
           </Button>

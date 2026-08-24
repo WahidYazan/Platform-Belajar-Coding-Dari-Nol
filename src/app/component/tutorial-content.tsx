@@ -12,19 +12,19 @@ function Callout({
   tone?: "info" | "tip" | "warning"
 }) {
   const styles = {
-    info: "border-blue-500/30 bg-blue-500/5 [&_svg]:text-blue-500",
-    tip: "border-emerald-500/30 bg-emerald-500/5 [&_svg]:text-emerald-500",
-    warning: "border-amber-500/30 bg-amber-500/5 [&_svg]:text-amber-500",
+    info: "border-blue-500/20 bg-blue-500/[0.04] [&_svg]:text-blue-500",
+    tip: "border-emerald-500/20 bg-emerald-500/[0.04] [&_svg]:text-emerald-500",
+    warning: "border-amber-500/20 bg-amber-500/[0.04] [&_svg]:text-amber-500",
   }[tone]
 
   const Icon = tone === "tip" ? Lightbulb : tone === "warning" ? TriangleAlert : Info
 
   return (
-    <div className={`my-5 flex gap-3 rounded-xl border border-border/70 p-4 shadow-sm backdrop-blur ${styles}`}>
+    <div className={`my-5 flex gap-3 rounded-xl border p-4 shadow-sm backdrop-blur ${styles}`}>
       <Icon className="mt-0.5 size-4 shrink-0" />
       <div>
         <p className="font-semibold text-foreground">{title}</p>
-        <p className="mt-1 text-sm text-muted-foreground">{text}</p>
+        <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{text}</p>
       </div>
     </div>
   )
@@ -37,7 +37,7 @@ export function TutorialContent({ blocks }: { blocks: ContentBlock[] }) {
         switch (block.type) {
           case "p":
             return (
-              <p key={index} className="my-4 leading-7 text-muted-foreground">
+              <p key={index} className="my-4 leading-relaxed text-muted-foreground">
                 {block.text}
               </p>
             )
@@ -57,13 +57,13 @@ export function TutorialContent({ blocks }: { blocks: ContentBlock[] }) {
             return block.ordered ? (
               <ol key={index} className="my-4 list-decimal space-y-2 pl-6 text-muted-foreground marker:font-semibold marker:text-foreground">
                 {block.items.map((item, i) => (
-                  <li key={i}>{item}</li>
+                  <li key={i} className="leading-relaxed">{item}</li>
                 ))}
               </ol>
             ) : (
               <ul key={index} className="my-4 list-disc space-y-2 pl-6 text-muted-foreground marker:text-primary">
                 {block.items.map((item, i) => (
-                  <li key={i}>{item}</li>
+                  <li key={i} className="leading-relaxed">{item}</li>
                 ))}
               </ul>
             )

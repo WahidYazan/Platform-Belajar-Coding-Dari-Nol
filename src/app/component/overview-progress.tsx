@@ -15,7 +15,6 @@ export function OverviewProgress() {
     const percentage = total === 0 ? 0 : Math.round((done / total) * 100);
     const nextTutorial = tutorials.find(tutorial => !completed.includes(tutorial.slug));
 
-    // Group tutorials by category
     const categories = tutorials.reduce((acc, tutorial) => {
         if (!acc[tutorial.category]) {
             acc[tutorial.category] = [];
@@ -26,10 +25,13 @@ export function OverviewProgress() {
 
     return (
         <div className="mt-8 grid gap-6 lg:grid-cols-12">
-            <Card className="lg:col-span-4 p-6 flex flex-col justify-center border-primary/10 bg-primary/[0.01]">
+            <Card className="lg:col-span-4 p-6 flex flex-col justify-center border-primary/10 bg-card/60 relative overflow-hidden">
+                <div className="pointer-events-none absolute inset-0 -z-10">
+                    <div className="absolute top-[-50%] right-[-20%] h-[200px] w-[200px] rounded-full bg-primary/[0.04] blur-[60px]" />
+                </div>
                 <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                        <h3 className="text-sm font-semibold uppercase tracking-wider text-primary/80">Keseluruhan</h3>
+                        <h3 className="text-xs font-bold uppercase tracking-widest text-primary/70">Keseluruhan</h3>
                         <span className="text-3xl font-extrabold text-foreground">{percentage}%</span>
                     </div>
                     <Progress value={percentage} className="h-3" />
@@ -37,7 +39,7 @@ export function OverviewProgress() {
                         <span className="font-bold text-foreground">{done}</span> dari {total} materi telah diselesaikan
                     </p>
                     {nextTutorial && (
-                        <Button asChild variant="outline" className="w-full mt-4 bg-background hover:bg-primary/5 hover:text-primary border-primary/20">
+                        <Button asChild variant="outline" className="w-full mt-4 bg-background hover:bg-primary/5 hover:text-primary hover:border-primary/30 border-primary/15 rounded-xl transition-all duration-200">
                             <Link href={`/dashboard/tutorials/${nextTutorial.slug}`}>
                                 Lanjutkan Belajar
                             </Link>
@@ -46,11 +48,11 @@ export function OverviewProgress() {
                 </div>
             </Card>
 
-            <Card className="lg:col-span-8 p-6">
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground/80 mb-6">Progres per Kategori</h3>
+            <Card className="lg:col-span-8 p-6 border-border/50 bg-card/60">
+                <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground/60 mb-6">Progres per Kategori</h3>
                 <div className="grid gap-4 sm:grid-cols-2">
                     {Object.entries(categories).map(([category, categoryTutorials]) => {
-                        const categoryDone = categoryTutorials.filter(t => 
+                        const categoryDone = categoryTutorials.filter(t =>
                             completed.includes(t.slug)
                         ).length;
                         const categoryTotal = categoryTutorials.length;
@@ -69,7 +71,7 @@ export function OverviewProgress() {
                     })}
                 </div>
                 {percentage === 100 && (
-                    <div className="mt-6 p-3 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-medium text-center border border-emerald-500/20">
+                    <div className="mt-6 p-3 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-medium text-center border border-emerald-500/20">
                         🎉 Selamat! Kamu telah menyelesaikan seluruh kurikulum.
                     </div>
                 )}

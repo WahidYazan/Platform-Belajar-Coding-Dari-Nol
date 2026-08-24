@@ -37,7 +37,7 @@ function LoginForm() {
     }
 
     return (
-        <Card className="border-border/60 bg-background/50 shadow-xl shadow-slate-900/5 backdrop-blur-xl">
+        <Card className="w-full max-w-md border-border/50 bg-card/80 shadow-xl shadow-black/[0.04] backdrop-blur-xl">
             <CardHeader className="space-y-1 pb-6 pt-8 text-center">
                 <CardTitle className="text-2xl font-bold tracking-tight">Selamat Datang</CardTitle>
                 <CardDescription className="text-sm">
@@ -54,7 +54,7 @@ function LoginForm() {
                             id="email"
                             type="email"
                             placeholder="nama@contoh.com"
-                            className="h-10 rounded-lg border-border/60 bg-background/50 focus:bg-background"
+                            className="h-11 rounded-xl border-border/50 bg-background/50 focus:bg-background transition-colors"
                             value={email}
                             onChange={event => setEmail(event.target.value)}
                             required
@@ -62,16 +62,14 @@ function LoginForm() {
                         />
                     </div>
                     <div className="grid gap-2">
-                        <div className="flex items-center justify-between">
-                            <label htmlFor="password" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground/80">
-                                Password
-                            </label>
-                        </div>
+                        <label htmlFor="password" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground/80">
+                            Password
+                        </label>
                         <Input
                             id="password"
                             type="password"
                             placeholder="••••••••"
-                            className="h-10 rounded-lg border-border/60 bg-background/50 focus:bg-background"
+                            className="h-11 rounded-xl border-border/50 bg-background/50 focus:bg-background transition-colors"
                             value={password}
                             onChange={event => setPassword(event.target.value)}
                             required
@@ -79,11 +77,11 @@ function LoginForm() {
                         />
                     </div>
                     {error && (
-                        <div className="rounded-lg border border-destructive/20 bg-destructive/10 px-3 py-2 text-sm text-destructive">
+                        <div className="rounded-xl border border-destructive/20 bg-destructive/10 px-3 py-2.5 text-sm text-destructive">
                             {error}
                         </div>
                     )}
-                    <Button type="submit" className="mt-2 h-10 w-full rounded-lg font-semibold" disabled={loading}>
+                    <Button type="submit" className="mt-2 h-11 w-full rounded-xl font-semibold shadow-lg shadow-primary/15 transition-all hover:shadow-xl hover:shadow-primary/20" disabled={loading}>
                         {loading ? "Memproses..." : "Masuk ke Akun"}
                     </Button>
                 </form>

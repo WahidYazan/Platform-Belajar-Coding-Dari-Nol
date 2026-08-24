@@ -166,10 +166,10 @@ export function ChatWidget() {
                 <Button
                     size="icon-lg"
                     className={cn(
-                        "size-14 rounded-full shadow-lg transition-all duration-200",
+                        "size-14 rounded-full shadow-lg transition-all duration-300",
                         open
                             ? "bg-muted hover:bg-muted/80 text-muted-foreground"
-                            : "bg-primary text-primary-foreground shadow-primary/20 hover:bg-primary/90 hover:shadow-xl",
+                            : "bg-primary text-primary-foreground shadow-primary/25 hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/30",
                     )}
                     onClick={() => setOpen(!open)}
                     aria-label={open ? "Tutup chat" : "Buka AI Assistant"}
@@ -179,10 +179,10 @@ export function ChatWidget() {
             </div>
 
             {open && (
-                <div className="fixed bottom-24 right-6 z-50 flex w-[380px] max-w-[calc(100vw-3rem)] flex-col overflow-hidden rounded-2xl border border-border/70 bg-background/90 shadow-2xl shadow-slate-900/15 backdrop-blur-md">
+                <div className="fixed bottom-24 right-6 z-50 flex w-[380px] max-w-[calc(100vw-3rem)] flex-col overflow-hidden rounded-2xl border border-border/50 bg-card/90 shadow-2xl shadow-black/[0.08] backdrop-blur-xl">
                     {view === "history" ? (
                         <>
-                            <div className="flex items-center gap-2 border-b border-border/70 px-4 py-3">
+                            <div className="flex items-center gap-2 border-b border-border/50 px-4 py-3">
                                 <Button
                                     variant="ghost"
                                     size="icon-sm"
@@ -204,7 +204,7 @@ export function ChatWidget() {
                             <div className="overflow-y-auto" style={{ maxHeight: "430px" }}>
                                 {sessions.length === 0 ? (
                                     <div className="flex flex-col items-center justify-center gap-2 py-12 text-center">
-                                        <History className="size-8 text-muted-foreground/40" />
+                                        <History className="size-8 text-muted-foreground/30" />
                                         <p className="text-xs text-muted-foreground">
                                             Belum ada riwayat chat
                                         </p>
@@ -220,8 +220,8 @@ export function ChatWidget() {
                                                 if (e.key === "Enter" || e.key === " ") handleSelectSession(s.id);
                                             }}
                                             className={cn(
-                                                "flex w-full items-center gap-3 px-4 py-3 text-left transition-colors hover:bg-muted/70",
-                                                s.id === activeId && "bg-muted/70",
+                                                "flex w-full items-center gap-3 px-4 py-3 text-left transition-colors duration-200 hover:bg-muted/60",
+                                                s.id === activeId && "bg-muted/60",
                                             )}
                                         >
                                             <MessageSquare className="size-4 shrink-0 text-muted-foreground" />
@@ -246,7 +246,7 @@ export function ChatWidget() {
                         </>
                     ) : (
                         <>
-                            <div className="flex items-center gap-2 border-b border-border/70 px-4 py-3">
+                            <div className="flex items-center gap-2 border-b border-border/50 px-4 py-3">
                                 <span className="flex size-9 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-sm shadow-primary/20">
                                     <Bot className="size-4" />
                                 </span>
@@ -281,7 +281,7 @@ export function ChatWidget() {
                             >
                                 {messages.length === 0 && (
                                     <div className="flex flex-col items-center justify-center gap-3 py-8 text-center">
-                                        <span className="flex size-12 items-center justify-center rounded-full border border-border/70 bg-muted/80 text-foreground/70">
+                                        <span className="flex size-12 items-center justify-center rounded-2xl border border-border/50 bg-muted/60 text-foreground/70">
                                             <Bot className="size-6" />
                                         </span>
                                         <div>
@@ -306,7 +306,7 @@ export function ChatWidget() {
                                                         }
                                                         sendMessage({ text: q });
                                                     }}
-                                                    className="rounded-full border border-border/70 bg-muted/50 px-3 py-1 text-xs text-muted-foreground transition-colors hover:bg-muted/70"
+                                                    className="rounded-full border border-border/50 bg-muted/40 px-3 py-1 text-xs text-muted-foreground transition-all duration-200 hover:bg-muted/60 hover:text-foreground"
                                                 >
                                                     {q}
                                                 </button>
@@ -328,7 +328,7 @@ export function ChatWidget() {
                                             )}
                                         >
                                             {m.role === "assistant" && (
-                                                <span className="mt-0.5 flex size-7 shrink-0 items-center justify-center rounded-full border border-border/70 bg-muted/80 text-foreground/70">
+                                                <span className="mt-0.5 flex size-7 shrink-0 items-center justify-center rounded-full border border-border/50 bg-muted/60 text-foreground/70">
                                                     <Bot className="size-3" />
                                                 </span>
                                             )}
@@ -337,7 +337,7 @@ export function ChatWidget() {
                                                     "max-w-[80%] rounded-2xl px-3 py-2 text-sm shadow-sm",
                                                     m.role === "user"
                                                         ? "rounded-br-md bg-primary text-primary-foreground shadow-primary/10"
-                                                        : "rounded-bl-md border border-border/70 bg-card/80 backdrop-blur-sm",
+                                                        : "rounded-bl-md border border-border/50 bg-card/80 backdrop-blur-sm",
                                                 )}
                                             >
                                                 <p className="whitespace-pre-wrap break-words">
@@ -356,10 +356,10 @@ export function ChatWidget() {
                                 {isLoading &&
                                     messages[messages.length - 1]?.role !== "assistant" && (
                                         <div className="flex gap-2">
-                                            <span className="flex size-7 shrink-0 items-center justify-center rounded-full border border-border/70 bg-muted/80 text-foreground/70">
+                                            <span className="flex size-7 shrink-0 items-center justify-center rounded-full border border-border/50 bg-muted/60 text-foreground/70">
                                                 <Bot className="size-3" />
                                             </span>
-                                            <div className="rounded-2xl rounded-bl-md border border-border/70 bg-card/80 px-3 py-2 shadow-sm backdrop-blur-sm">
+                                            <div className="rounded-2xl rounded-bl-md border border-border/50 bg-card/80 px-3 py-2 shadow-sm backdrop-blur-sm">
                                                 <div className="flex gap-1">
                                                     <span className="size-1.5 animate-bounce rounded-full bg-muted-foreground/40 [animation-delay:-0.3s]" />
                                                     <span className="size-1.5 animate-bounce rounded-full bg-muted-foreground/40 [animation-delay:-0.15s]" />
@@ -370,7 +370,7 @@ export function ChatWidget() {
                                     )}
                             </div>
 
-                            <form onSubmit={handleSubmit} className="border-t border-border/70 px-4 py-3">
+                            <form onSubmit={handleSubmit} className="border-t border-border/50 px-4 py-3">
                                 <div className="flex items-end gap-2">
                                     <textarea
                                         ref={inputRef}
@@ -379,14 +379,14 @@ export function ChatWidget() {
                                         onKeyDown={handleKeyDown}
                                         placeholder="Tanya tentang coding..."
                                         rows={1}
-                                        className="flex-1 resize-none rounded-xl border border-border/70 bg-muted/50 px-3 py-2 text-sm outline-none placeholder:text-muted-foreground/70 focus-visible:ring-2 focus-visible:ring-ring/20"
+                                        className="flex-1 resize-none rounded-xl border border-border/50 bg-muted/40 px-3 py-2 text-sm outline-none placeholder:text-muted-foreground/60 focus-visible:ring-2 focus-visible:ring-ring/20 transition-colors"
                                         style={{ maxHeight: "120px" }}
                                     />
                                     <Button
                                         type="submit"
                                         size="icon"
                                         disabled={isLoading || !input.trim()}
-                                        className="shrink-0 rounded-full shadow-sm shadow-primary/10"
+                                        className="shrink-0 rounded-full shadow-sm shadow-primary/10 transition-all duration-200 hover:shadow-md hover:shadow-primary/15"
                                     >
                                         <Send className="size-4" />
                                     </Button>

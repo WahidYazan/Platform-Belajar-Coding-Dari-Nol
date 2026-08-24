@@ -42,7 +42,6 @@ export default function RegisterPage() {
             return;
         }
 
-        // Jika email confirmation aktif, Supabase tidak langsung login
         if (!data.session) {
             setInfo(
                 "Pendaftaran berhasil! Cek email kamu untuk verifikasi, lalu masuk lewat halaman login.",
@@ -57,7 +56,7 @@ export default function RegisterPage() {
 
     return (
         <div className="w-full max-w-md">
-            <Card className="border-border/60 bg-background/50 shadow-xl shadow-slate-900/5 backdrop-blur-xl">
+            <Card className="border-border/50 bg-card/80 shadow-xl shadow-black/[0.04] backdrop-blur-xl">
                 <CardHeader className="space-y-1 pb-6 pt-8 text-center">
                     <CardTitle className="text-2xl font-bold tracking-tight">Daftar Akun</CardTitle>
                     <CardDescription className="text-sm">
@@ -74,7 +73,7 @@ export default function RegisterPage() {
                                 id="email"
                                 type="email"
                                 placeholder="nama@contoh.com"
-                                className="h-10 rounded-lg border-border/60 bg-background/50 focus:bg-background"
+                                className="h-11 rounded-xl border-border/50 bg-background/50 focus:bg-background transition-colors"
                                 value={email}
                                 onChange={event => setEmail(event.target.value)}
                                 required
@@ -89,7 +88,7 @@ export default function RegisterPage() {
                                 id="password"
                                 type="password"
                                 placeholder="Minimal 6 karakter"
-                                className="h-10 rounded-lg border-border/60 bg-background/50 focus:bg-background"
+                                className="h-11 rounded-xl border-border/50 bg-background/50 focus:bg-background transition-colors"
                                 value={password}
                                 onChange={event => setPassword(event.target.value)}
                                 required
@@ -104,7 +103,7 @@ export default function RegisterPage() {
                                 id="confirm-password"
                                 type="password"
                                 placeholder="Ulangi password"
-                                className="h-10 rounded-lg border-border/60 bg-background/50 focus:bg-background"
+                                className="h-11 rounded-xl border-border/50 bg-background/50 focus:bg-background transition-colors"
                                 value={confirmPassword}
                                 onChange={event => setConfirmPassword(event.target.value)}
                                 required
@@ -112,16 +111,16 @@ export default function RegisterPage() {
                             />
                         </div>
                         {error && (
-                            <div className="rounded-lg border border-destructive/20 bg-destructive/10 px-3 py-2 text-sm text-destructive">
+                            <div className="rounded-xl border border-destructive/20 bg-destructive/10 px-3 py-2.5 text-sm text-destructive">
                                 {error}
                             </div>
                         )}
                         {info && (
-                            <div className="rounded-lg border border-emerald-500/20 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-600">
+                            <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/10 px-3 py-2.5 text-sm text-emerald-600">
                                 {info}
                             </div>
                         )}
-                        <Button type="submit" className="mt-2 h-10 w-full rounded-lg font-semibold" disabled={loading}>
+                        <Button type="submit" className="mt-2 h-11 w-full rounded-xl font-semibold shadow-lg shadow-primary/15 transition-all hover:shadow-xl hover:shadow-primary/20" disabled={loading}>
                             {loading ? "Memproses..." : "Buat Akun Gratis"}
                         </Button>
                     </form>
