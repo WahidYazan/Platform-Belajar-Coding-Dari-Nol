@@ -123,17 +123,17 @@ export default function HomePage() {
                     <div className="grid gap-5 sm:grid-cols-3">
                         {[
                             {
-                                emoji: "🌱",
+                                // emoji: "🌱",
                                 title: "Total Pemula",
                                 desc: "Tidak tahu harus mulai dari mana? Materi disusun khusus untuk yang benar-benar baru, tanpa jargon yang membingungkan.",
                             },
                             {
-                                emoji: "🎓",
+                                // emoji: "🎓",
                                 title: "Siswa & Mahasiswa",
                                 desc: "Pelengkap materi kuliah atau tugas sekolah dengan contoh kode praktis yang bisa langsung dipelajari dan diterapkan.",
                             },
                             {
-                                emoji: "🚀",
+                                // emoji: "🚀",
                                 title: "Profesional",
                                 desc: "Dari nol sampai siap deploy. Bekali dirimu dengan portofolio nyata untuk mendukung transisi karier ke dunia teknologi.",
                             },
@@ -142,7 +142,7 @@ export default function HomePage() {
                                 key={item.title}
                                 className="group relative overflow-hidden rounded-2xl border border-border/50 bg-card/80 p-7 transition-all duration-300 hover:border-border hover:bg-card hover:shadow-lg hover:shadow-black/[0.03]"
                             >
-                                <div className="mb-4 text-3xl">{item.emoji}</div>
+                                {/* <div className="mb-4 text-3xl">{item.emoji}</div> */}
                                 <h3 className="font-heading text-lg font-bold text-foreground">{item.title}</h3>
                                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                                     {item.desc}
@@ -195,7 +195,7 @@ export default function HomePage() {
                         <div className="absolute bottom-[-30%] right-[-10%] h-[250px] w-[250px] rounded-full bg-blue-400/[0.04] blur-[60px]" />
                     </div>
                     <span className="mx-auto mb-6 flex size-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                        <Goal className="size-7" />
+                        <GraduationCap className="size-7" />
                     </span>
                     <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-5xl">
                         Siap memulai
