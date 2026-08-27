@@ -72,13 +72,13 @@ export default function HomePage() {
                 </div>
                 <div className="mx-auto w-full max-w-6xl px-4 pb-24 pt-28 sm:pt-36">
                     <div className="mx-auto max-w-3xl text-center">
-                        <div className="animate-fade-in-up mx-auto mb-8 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.04] px-4 py-1.5 text-xs font-medium text-primary backdrop-blur-sm">
+                        {/* <div className="animate-fade-in-up mx-auto mb-8 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.04] px-4 py-1.5 text-xs font-medium text-primary backdrop-blur-sm">
                             <span className="relative flex h-2 w-2">
                                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
                                 <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
                             </span>
                             Platform Belajar Terstruktur
-                        </div>
+                        </div> */}
                         <h1 className="animate-fade-in-up delay-100 font-heading text-5xl font-bold tracking-tight text-foreground sm:text-7xl/tight">
                             Belajar Coding
                             <br />
