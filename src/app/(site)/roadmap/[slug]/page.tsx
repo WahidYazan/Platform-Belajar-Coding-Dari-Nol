@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight, ArrowLeft, BookOpen, Check, Clock } from "lucide-react"
+import { ArrowRight, ArrowLeft, BookOpen, Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { getPhaseById, roadmapPhases } from "@/lib/roadmap"
@@ -48,10 +48,6 @@ export default async function RoadmapDetailPage({ params }: PageProps<"/roadmap/
         </div>
         <p className="mt-4 max-w-2xl leading-relaxed text-muted-foreground">{phase.description}</p>
         <div className="mt-5 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-          <span className="flex items-center gap-1.5">
-            <Clock className="size-4" />
-            Durasi: <span className="font-medium text-foreground">{phase.duration}</span>
-          </span>
           <span className="flex items-center gap-1.5">
             <Check className="size-4" />
             Level: <span className="font-medium text-foreground">{phase.level}</span>

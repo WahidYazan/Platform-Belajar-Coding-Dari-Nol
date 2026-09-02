@@ -1,15 +1,9 @@
 import Link from "next/link"
-import { ArrowRight, Check, Clock, ConeIcon, HelpCircleIcon, Sparkles } from "lucide-react"
+import { ArrowRight, Check, HelpCircleIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { roadmapPhases } from "@/lib/roadmap"
-import { CONNREFUSED } from "dns"
 
 export default function RoadmapPage() {
-  // const totalDuration = roadmapPhases.reduce((total, phase) => {
-  //   const match = phase.duration.match(/\d+/)
-  //   return total + (match ? parseInt(match[0], 10) : 0)
-  // }, 0)
-
   return (
     <div className="mx-auto w-full max-w-6xl px-4 py-14">
       {/* Hero */}
@@ -27,10 +21,6 @@ export default function RoadmapPage() {
           project untuk menguji pemahamanmu.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
-          {/* <span className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-background/80 px-3.5 py-1.5 text-sm text-muted-foreground backdrop-blur-sm">
-            <Clock className="size-4 text-primary" />
-            Total ±{totalDuration}+ minggu
-          </span> */}
           <span className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-background/80 px-3.5 py-1.5 text-sm text-muted-foreground backdrop-blur-sm">
             <Check className="size-4 text-primary" />
             {roadmapPhases.length} fase, dari nol sampai kerja
@@ -57,10 +47,6 @@ export default function RoadmapPage() {
                   <div className="flex items-center gap-2 text-xs text-muted-foreground">
                     <span className="rounded-full bg-primary/5 px-2.5 py-0.5 font-medium text-primary">
                       {phase.level}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Clock className="size-3.5" />
-                      {phase.duration}
                     </span>
                   </div>
                 </div>
