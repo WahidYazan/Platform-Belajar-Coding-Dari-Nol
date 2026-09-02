@@ -6,6 +6,3 @@ cmds = ["npm start"]
 
 [phases.install]
 cmds = ["npm install"]
-
-[phases.config]
-nixPkgs = ["nodejs-22_x"]
