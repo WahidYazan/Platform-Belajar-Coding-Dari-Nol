@@ -11,7 +11,7 @@ export type RoadmapPhase = {
   emoji: string
   tagline: string
   description: string
-  duration: string
+  // duration: string
   level: string
   topics: RoadmapTopic[]
 }
@@ -24,7 +24,7 @@ export const roadmapPhases: RoadmapPhase[] = [
     tagline: "Siapkan mental dan peralatanmu",
     description:
       "Sebelum menulis baris kode pertama, kamu perlu tahu tujuan belajar, menyiapkan peralatan yang tepat, dan memahami cara kerja komputer. Fase ini pendek tapi paling penting.",
-    duration: "1-2 minggu",
+    // duration: "1-2 minggu",
     level: "Pemula",
     topics: [
       {
@@ -56,11 +56,11 @@ export const roadmapPhases: RoadmapPhase[] = [
   {
     id: "html-css",
     title: "HTML & CSS",
-    emoji: "🎨",
+    emoji: "",
     tagline: "Bangun kerangka dan tampilan website",
     description:
       "HTML adalah struktur halaman web dan CSS adalah tampilannya. Di fase ini kamu belajar membuat halaman web statis yang rapi dan responsif. Ini fondasi semua karier frontend.",
-    duration: "4-6 minggu",
+    // duration: "4-6 minggu",
     level: "Pemula",
     topics: [
       {
@@ -105,7 +105,7 @@ export const roadmapPhases: RoadmapPhase[] = [
     tagline: "Jadikan website interaktif",
     description:
       "JavaScript mengubah website dari statis menjadi dinamis. Ini bahasa pemrograman yang paling penting untuk dikuasai dipakai di frontend dan backend.",
-    duration: "6-8 minggu",
+    // duration: "6-8 minggu",
     level: "Pemula",
     topics: [
       {
@@ -155,7 +155,7 @@ export const roadmapPhases: RoadmapPhase[] = [
     tagline: "Kelola versi kode dan kolaborasi",
     description:
       "Git adalah sistem version control yang wajib dikuasai semua developer. Fase ini bisa dijalankan paralel dengan fase JavaScript makin cepat dikuasai makin baik.",
-    duration: "1-2 minggu",
+    // duration: "1-2 minggu",
     level: "Pemula",
     topics: [
       {
@@ -192,7 +192,7 @@ export const roadmapPhases: RoadmapPhase[] = [
     tagline: "Bangun aplikasi dengan React",
     description:
       "Setelah JavaScript lancar, saatnya belajar framework. React adalah yang paling populer dan permintaannya tinggi di industri. Di Indonesia, React/Next.js adalah pilihan terbaik.",
-    duration: "6-8 minggu",
+    // duration: "6-8 minggu",
     level: "Menengah",
     topics: [
       {
@@ -236,7 +236,7 @@ export const roadmapPhases: RoadmapPhase[] = [
     tagline: "Framework React untuk produksi",
     description:
       "Dari pengenalan sampai bisa: routing, Server Components, data fetching, Server Actions, Route Handlers, database dengan Prisma, autentikasi, dan deploy ke Vercel.",
-    duration: "8-10 minggu",
+    // duration: "8-10 minggu",
     level: "Menengah",
     topics: [
       {
@@ -297,7 +297,7 @@ export const roadmapPhases: RoadmapPhase[] = [
     tagline: "Logika server, API, dan penyimpanan data",
     description:
       "Backend mengurus logika bisnis, autentikasi, dan data. Mulai dari Node.js, buat API sendiri, lalu koneksikan ke database.",
-    duration: "8-10 minggu",
+    // duration: "8-10 minggu",
     level: "Menengah",
     topics: [
       {
@@ -346,7 +346,7 @@ export const roadmapPhases: RoadmapPhase[] = [
     tagline: "Framework PHP paling populer",
     description:
       "Alternatif backend selain Node.js: Laravel memberi struktur MVC, Eloquent ORM, auth, dan ekosistem lengkap. Populer di industri dan perusahaan Indonesia.",
-    duration: "6-8 minggu",
+    // duration: "6-8 minggu",
     level: "Menengah",
     topics: [
       {
@@ -407,7 +407,7 @@ export const roadmapPhases: RoadmapPhase[] = [
     tagline: "Publikasikan karya ke dunia",
     description:
       "Kode yang tidak dideploy tidak berguna. Fase ini mengajarkan cara meng-upload aplikasi ke internet, otomasi, dan praktik ops dasar.",
-    duration: "2-4 minggu",
+    // duration: "2-4 minggu",
     level: "Menengah",
     topics: [
       {
@@ -444,7 +444,7 @@ export const roadmapPhases: RoadmapPhase[] = [
     tagline: "Pilih jalur dan bangun portofolio",
     description:
       "Setelah fondasi kuat, pilih spesialisasi yang paling kamu suka, perkuat portofolio, dan siapkan diri menghadapi dunia kerja.",
-    duration: "berkelanjutan",
+    // duration: "berkelanjutan",
     level: "Lanjutan",
     topics: [
       {

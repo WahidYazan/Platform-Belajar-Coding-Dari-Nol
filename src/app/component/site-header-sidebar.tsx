@@ -219,7 +219,7 @@ function TeamSwitcher() {
         <SidebarMenu>
             <SidebarMenuItem>
                 <SidebarMenuButton size="lg" asChild>
-                    <Link href="/" className="flex items-center gap-2">
+                    <Link href="/dashboard" className="flex items-center gap-2">
                         <div className="flex aspect-square size-7 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
                             <Code2 className="size-4" />
                         </div>

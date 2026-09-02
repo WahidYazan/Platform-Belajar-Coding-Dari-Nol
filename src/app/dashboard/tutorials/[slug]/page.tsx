@@ -30,10 +30,10 @@ export default async function ChapterPage({ params }: PageProps<"/dashboard/tuto
                 <div className="mb-3 flex flex-wrap items-center gap-2">
                     <Badge variant="secondary">{tutorial.category}</Badge>
                     <Badge variant="outline">{tutorial.level}</Badge>
-                    <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                    {/* <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
                         <Clock className="size-3.5" />
                         {tutorial.minutes} menit baca
-                    </span>
+                    </span> */}
                     <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
                         <ListChecks className="size-3.5" />
                         Bab {currentIndex + 1} dari {tutorials.length}

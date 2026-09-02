@@ -106,12 +106,12 @@ export default function DashboardPage() {
                     </p>
                   </div>
                 </div>
-                <div className="sm:ml-auto">
+                {/* <div className="sm:ml-auto">
                   <span className="inline-flex items-center gap-1.5 rounded-full bg-muted/60 px-3 py-1 text-xs font-medium text-muted-foreground">
                     <BookOpen className="size-3.5" />
                     {items.length} Bab · ±{totalMinutes} Menit
                   </span>
-                </div>
+                </div> */}
               </div>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {items.map((item, index) => (
@@ -126,9 +126,9 @@ export default function DashboardPage() {
                           <span className="text-primary/80">
                             Bab {index + 1}
                           </span>
-                          <span>·</span>
+                          {/* <span>·</span>
                           <span>{item.minutes} Menit</span>
-                          <span>·</span>
+                          <span>·</span> */}
                           <span className="rounded-sm bg-muted/80 px-1.5 py-0.5">
                             {item.level}
                           </span>

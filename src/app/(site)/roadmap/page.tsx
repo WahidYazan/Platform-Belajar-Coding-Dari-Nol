@@ -1,13 +1,14 @@
 import Link from "next/link"
-import { ArrowRight, Check, Clock, Sparkles } from "lucide-react"
+import { ArrowRight, Check, Clock, ConeIcon, HelpCircleIcon, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { roadmapPhases } from "@/lib/roadmap"
+import { CONNREFUSED } from "dns"
 
 export default function RoadmapPage() {
-  const totalDuration = roadmapPhases.reduce((total, phase) => {
-    const match = phase.duration.match(/\d+/)
-    return total + (match ? parseInt(match[0], 10) : 0)
-  }, 0)
+  // const totalDuration = roadmapPhases.reduce((total, phase) => {
+  //   const match = phase.duration.match(/\d+/)
+  //   return total + (match ? parseInt(match[0], 10) : 0)
+  // }, 0)
 
   return (
     <div className="mx-auto w-full max-w-6xl px-4 py-14">
@@ -26,10 +27,10 @@ export default function RoadmapPage() {
           project untuk menguji pemahamanmu.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
-          <span className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-background/80 px-3.5 py-1.5 text-sm text-muted-foreground backdrop-blur-sm">
+          {/* <span className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-background/80 px-3.5 py-1.5 text-sm text-muted-foreground backdrop-blur-sm">
             <Clock className="size-4 text-primary" />
             Total ±{totalDuration}+ minggu
-          </span>
+          </span> */}
           <span className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-background/80 px-3.5 py-1.5 text-sm text-muted-foreground backdrop-blur-sm">
             <Check className="size-4 text-primary" />
             {roadmapPhases.length} fase, dari nol sampai kerja
@@ -90,7 +91,8 @@ export default function RoadmapPage() {
           <div className="absolute top-[-50%] left-1/2 h-[300px] w-[400px] -translate-x-1/2 rounded-full bg-primary/[0.05] blur-[80px]" />
         </div>
         <span className="mx-auto mb-5 flex size-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-          <Sparkles className="size-6" />
+          <HelpCircleIcon className="size-8" />
+          
         </span>
         <h2 className="font-heading text-2xl font-bold text-foreground">Bingung mulai dari mana?</h2>
         <p className="mx-auto mt-3 max-w-md text-muted-foreground leading-relaxed">

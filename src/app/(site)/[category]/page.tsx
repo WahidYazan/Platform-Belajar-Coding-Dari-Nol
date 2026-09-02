@@ -64,9 +64,9 @@ export default async function CategoryPage({ params }: PageProps<"/[category]">)
                         <BookOpen className="size-4" />
                         <span className="font-medium text-foreground">{items.length} bab</span> materi
                     </span>
-                    <span className="flex items-center gap-1.5 text-muted-foreground">
+                    {/* <span className="flex items-center gap-1.5 text-muted-foreground">
                         <Clock className="size-4" />±{totalMinutes} menit materi inti
-                    </span>
+                    </span> */}
                 </div>
                 {firstTutorial && (
                     <div className="mt-6">
