@@ -34,11 +34,9 @@ import {
     Code2,
     CheckSquare,
     RefreshCw,
-    Copy,
     Zap,
 } from "lucide-react";
 import Link from "next/link";
-import { SiteFooter } from "./site-footer-home";
 
 const techStack = [
     { name: "HTML", icon: Braces, color: "hover:border-orange-500/30 hover:text-orange-500" },
@@ -237,7 +235,9 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 }
 
 function CodePlayground() {
-    const [activeTab, setActiveTab] = useState<"html" | "js" | "react" | "deploy">("html");
+    type TabId = "html" | "js" | "react" | "deploy";
+
+    const [activeTab, setActiveTab] = useState<TabId>("html");
 
     const [cardTheme, setCardTheme] = useState<"purple" | "emerald" | "amber" | "blue">("purple");
 
@@ -327,7 +327,7 @@ function CodePlayground() {
                             ].map((tab) => (
                                 <button
                                     key={tab.id}
-                                    onClick={() => setActiveTab(tab.id as any)}
+                                    onClick={() => setActiveTab(tab.id as TabId)}
                                     className={`rounded-lg px-2.5 py-1 font-mono text-xs font-medium transition-all ${
                                         activeTab === tab.id
                                             ? "bg-primary/10 text-primary border border-primary/20"
@@ -345,11 +345,11 @@ function CodePlayground() {
                             <pre className="text-foreground">
                                 <code>
                                     <span className="text-muted-foreground">{"<!-- Desain card HTML & CSS -->"}</span>{"\n"}
-                                    <span className="text-rose-400">{"<div"}</span> <span className="text-amber-400">class</span>=<span className="text-emerald-400">"materi-card {cardTheme}"</span><span className="text-rose-400">{">"}</span>{"\n"}
-                                    {"  "}<span className="text-rose-400">{"<div"}</span> <span className="text-amber-400">class</span>=<span className="text-emerald-400">"badge"</span><span className="text-rose-400">{">"}</span>Topik Baru<span className="text-rose-400">{"</div>"}</span>{"\n"}
+                                    <span className="text-rose-400">{"<div"}</span> <span className="text-amber-400">class</span>=<span className="text-emerald-400">&quot;materi-card {cardTheme}&quot;</span><span className="text-rose-400">{">"}</span>{"\n"}
+                                    {"  "}<span className="text-rose-400">{"<div"}</span> <span className="text-amber-400">class</span>=<span className="text-emerald-400">&quot;badge&quot;</span><span className="text-rose-400">{">"}</span>Topik Baru<span className="text-rose-400">{"</div>"}</span>{"\n"}
                                     {"  "}<span className="text-rose-400">{"<h3>"}</span>Belajar HTML & CSS<span className="text-rose-400">{"</h3>"}</span>{"\n"}
                                     {"  "}<span className="text-rose-400">{"<p>"}</span>Rancang layout responsive menggunakan CSS Flexbox & Grid dengan mudah.<span className="text-rose-400">{"</p>"}</span>{"\n"}
-                                    {"  "}<span className="text-rose-400">{"<button"}</span> <span className="text-amber-400">class</span>=<span className="text-emerald-400">"btn"</span><span className="text-rose-400">{">"}</span>Mulai Kelas<span className="text-rose-400">{"</button>"}</span>{"\n"}
+                                    {"  "}<span className="text-rose-400">{"<button"}</span> <span className="text-amber-400">class</span>=<span className="text-emerald-400">&quot;btn&quot;</span><span className="text-rose-400">{">"}</span>Mulai Kelas<span className="text-rose-400">{"</button>"}</span>{"\n"}
                                     <span className="text-rose-400">{"</div>"}</span>
                                 </code>
                             </pre>
@@ -360,8 +360,8 @@ function CodePlayground() {
                                 <code>
                                     <span className="text-muted-foreground">{"// app.js — Logika click counter"}</span>{"\n"}
                                     <span className="text-violet-400">let</span> count = <span className="text-amber-400">{jsCount}</span>;{"\n"}
-                                    <span className="text-violet-400">const</span> btn = document.querySelector(<span className="text-emerald-400">'.btn'</span>);{"\n"}
-                                    <span className="text-violet-400">const</span> status = document.querySelector(<span className="text-emerald-400">'.status'</span>);{"\n\n"}
+                                    <span className="text-violet-400">const</span> btn = document.querySelector(<span className="text-emerald-400">&apos;.btn&apos;</span>);{"\n"}
+                                    <span className="text-violet-400">const</span> status = document.querySelector(<span className="text-emerald-400">&apos;.status&apos;</span>);{"\n\n"}
                                     btn.onclick = () =&gt; {"{"}{"\n"}
                                     {"  "}count++;{"\n"}
                                     {"  "}status.innerHTML = <span className="text-emerald-400">`Kamu mengklik ${"{"}count{"}"} kali`</span>;{"\n"}
@@ -377,12 +377,12 @@ function CodePlayground() {
                             <pre className="text-foreground">
                                 <code>
                                     <span className="text-muted-foreground">{"// Dashboard.tsx — React state & progress"}</span>{"\n"}
-                                    <span className="text-violet-400">import</span> {"{"} useState {"}"} <span className="text-violet-400">from</span> <span className="text-emerald-400">'react'</span>;{"\n\n"}
+                                    <span className="text-violet-400">import</span> {"{"} useState {"}"} <span className="text-violet-400">from</span> <span className="text-emerald-400">&apos;react&apos;</span>;{"\n\n"}
                                     <span className="text-violet-400">export default function</span> Dashboard() {"{"}{"\n"}
                                     {"  "}<span className="text-violet-400">const</span> [materiSelesai, setMateriSelesai] = useState(<span className="text-amber-400">{checklistCount}</span>);{"\n"}
                                     {"  "}<span className="text-violet-400">const</span> progress = <span className="text-amber-400">{progressPercent}</span>; <span className="text-muted-foreground">{"// %"}</span>{"\n\n"}
                                     {"  "}<span className="text-violet-400">return</span> ({"\n"}
-                                    {"    "}<span className="text-rose-400">{"<div"}</span> <span className="text-amber-400">className</span>=<span className="text-emerald-400">"progress-bar"</span><span className="text-rose-400">{">"}</span>{"\n"}
+                                    {"    "}<span className="text-rose-400">{"<div"}</span> <span className="text-amber-400">className</span>=<span className="text-emerald-400">&quot;progress-bar&quot;</span><span className="text-rose-400">{">"}</span>{"\n"}
                                     {"      "}<span className="text-rose-400">{"<div"}</span> <span className="text-amber-400">style</span>={"{{"} width: <span className="text-emerald-400">{"`${progress}%`"}</span> {"}}"} <span className="text-rose-400">{" />"}</span>{"\n"}
                                     {"    "}<span className="text-rose-400">{"</div>"}</span>{"\n"}
                                     {"  "});{"\n"}
@@ -500,7 +500,7 @@ function CodePlayground() {
                                         ].map((theme) => (
                                             <button
                                                 key={theme.id}
-                                                onClick={() => setCardTheme(theme.id as any)}
+                                                onClick={() => setCardTheme(theme.id as "purple" | "emerald" | "amber" | "blue")}
                                                 aria-label={`Ubah tema ke ${theme.id}`}
                                                 className={`size-6 rounded-full border-2 transition-transform hover:scale-115 active:scale-95 ${theme.color} ${
                                                     cardTheme === theme.id ? "ring-2 ring-foreground/20 scale-110" : ""
@@ -576,7 +576,7 @@ function CodePlayground() {
                                         >
                                             <input
                                                 type="checkbox"
-                                                checked={(checklist as any)[item.key]}
+                                                checked={checklist[item.key as keyof typeof checklist]}
                                                 onChange={(e) =>
                                                     setChecklist((prev) => ({
                                                         ...prev,
@@ -585,7 +585,7 @@ function CodePlayground() {
                                                 }
                                                 className="rounded border-border text-primary focus:ring-primary size-4 accent-primary"
                                             />
-                                            <span className={(checklist as any)[item.key] ? "line-through text-muted-foreground" : "text-foreground"}>
+                                            <span className={(checklist[item.key as keyof typeof checklist]) ? "line-through text-muted-foreground" : "text-foreground"}>
                                                 {item.label}
                                             </span>
                                         </label>

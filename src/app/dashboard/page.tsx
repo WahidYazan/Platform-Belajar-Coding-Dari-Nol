@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/card";
 import { getCategoryGroups } from "@/lib/categories";
 import { tutorials } from "@/lib/tutorials";
-import { ArrowRight, BookOpen, GraduationCap } from "lucide-react";
+import { ArrowRight, BookOpen } from "lucide-react";
 import Link from "next/link";
 import { OverviewProgress } from "@/app/component/overview-progress";
 
@@ -84,10 +84,6 @@ export default function DashboardPage() {
 
         {groups.map(({ category, items }) => {
           const Icon = category.icon;
-          const totalMinutes = items.reduce(
-            (total, item) => total + item.minutes,
-            0,
-          );
           return (
             <section key={category.slug} className="scroll-mt-20">
               <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -105,15 +101,9 @@ export default function DashboardPage() {
                       {category.description}
                     </p>
                   </div>
+</div>
                 </div>
-                {/* <div className="sm:ml-auto">
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-muted/60 px-3 py-1 text-xs font-medium text-muted-foreground">
-                    <BookOpen className="size-3.5" />
-                    {items.length} Bab · ±{totalMinutes} Menit
-                  </span>
-                </div> */}
-              </div>
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {items.map((item, index) => (
                   <Link
                     key={item.slug}

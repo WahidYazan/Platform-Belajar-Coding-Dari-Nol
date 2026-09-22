@@ -3,7 +3,7 @@
 import { CheckCircle2, Circle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useProgress } from "@/hooks/progress-context";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 
 export function ChapterActions({ slug }: { slug: string }) {
   const { completed, toggle } = useProgress();

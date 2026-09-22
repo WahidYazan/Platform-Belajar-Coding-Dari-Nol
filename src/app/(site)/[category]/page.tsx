@@ -7,7 +7,7 @@ import {
     getCategoryBySlug,
     getTutorialsInCategory,
 } from "@/lib/categories";
-import { ArrowLeft, ArrowRight, BookOpen, Clock } from "lucide-react";
+import { ArrowLeft, ArrowRight, BookOpen } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -26,7 +26,6 @@ export default async function CategoryPage({ params }: PageProps<"/[category]">)
     }
 
     const items = getTutorialsInCategory(category.slug);
-    const totalMinutes = items.reduce((total, item) => total + item.minutes, 0);
     const kind = categoryKinds.find(kind => kind.kind === category.kind);
     const currentIndex = categories.findIndex(item => item.slug === category.slug);
     const previous = categories[currentIndex - 1];
@@ -64,9 +63,6 @@ export default async function CategoryPage({ params }: PageProps<"/[category]">)
                         <BookOpen className="size-4" />
                         <span className="font-medium text-foreground">{items.length} bab</span> materi
                     </span>
-                    {/* <span className="flex items-center gap-1.5 text-muted-foreground">
-                        <Clock className="size-4" />±{totalMinutes} menit materi inti
-                    </span> */}
                 </div>
                 {firstTutorial && (
                     <div className="mt-6">

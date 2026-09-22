@@ -5,7 +5,7 @@ export async function proxy(request: NextRequest) {
     const { supabaseResponse, user } = await updateSession(request);
     const pathname = request.nextUrl.pathname;
 
-    if (!user && pathname.startsWith("/dashboard")) {
+    if (!user && (pathname.startsWith("/dashboard") || pathname.startsWith("/start"))) {
         const url = request.nextUrl.clone();
         url.pathname = "/login";
         url.searchParams.set("next", pathname);
