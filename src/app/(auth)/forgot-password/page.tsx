@@ -9,6 +9,18 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import * as React from "react";
 
+const LOCAL_ORIGIN = /^https?:\/\/(localhost|127\.0\.0\.1|0\.0\.0\.0|\[::1\])(:\d+)?$/;
+
+function canonicalOrigin(): string {
+    const configured = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+
+    if (configured && !LOCAL_ORIGIN.test(configured)) {
+        return configured.replace(/\/+$/, "");
+    }
+
+    return window.location.origin;
+}
+
 export default function ForgotPasswordPage() {
     const router = useRouter();
 
@@ -29,7 +41,7 @@ export default function ForgotPasswordPage() {
         setLoading(true);
         const supabase = createClient();
         const { error } = await supabase.auth.resetPasswordForEmail(email.trim(), {
-            redirectTo: `${window.location.origin}/auth/callback?next=/reset-password`,
+            redirectTo: `${canonicalOrigin()}/auth/callback`,
         });
 
         if (error) {
