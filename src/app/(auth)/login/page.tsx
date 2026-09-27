@@ -100,6 +100,12 @@ function LoginForm() {
                         Daftar sekarang
                     </Link>
                 </div>
+                <div className="mt-6 text-center text-sm">
+                    {/*<span className="text-muted-foreground">Belum punya akun?</span>{" "}*/}
+                    <Link href="/forgot-password" className="font-semibold text-primary transition-colors hover:text-primary/80">
+                        Lupa Password
+                    </Link>
+                </div>
             </CardContent>
         </Card>
     );
