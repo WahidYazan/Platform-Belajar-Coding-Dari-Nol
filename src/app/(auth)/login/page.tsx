@@ -12,6 +12,7 @@ function LoginForm() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const next = searchParams.get("next") ?? "/dashboard";
+    const urlError = searchParams.get("error");
 
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
@@ -75,10 +76,18 @@ function LoginForm() {
                             required
                             autoComplete="current-password"
                         />
-                    </div>
-                    {error && (
+                            <div className="flex justify-end">
+                                <Link
+                                    href="/forgot-password"
+                                    className="text-xs font-semibold text-primary transition-colors hover:text-primary/80"
+                                >
+                                    Lupa password?
+                                </Link>
+                            </div>
+                        </div>
+                        {(error || urlError) && (
                         <div className="rounded-xl border border-destructive/20 bg-destructive/10 px-3 py-2.5 text-sm text-destructive">
-                            {error}
+                            {error ?? urlError}
                         </div>
                     )}
                     <Button type="submit" className="mt-2 h-11 w-full rounded-xl font-semibold shadow-lg shadow-primary/15 transition-all hover:shadow-xl hover:shadow-primary/20" disabled={loading}>

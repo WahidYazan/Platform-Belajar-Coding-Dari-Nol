@@ -874,8 +874,8 @@ export default function HomeContent() {
                         <h1 className="animate-fade-in-up delay-100 font-heading text-4xl font-extrabold tracking-tight text-foreground sm:text-6xl/tight lg:text-7xl/tight text-balance">
                             Belajar Coding Tanpa Pusing
                             <br />
-                            <span className="bg-gradient-to-r from-primary via-sky-500 to-indigo-500 bg-clip-text text-transparent">
-                                Dari Nol Sampai Siap Kerja
+                            <span className="bg-gradient-to-r from-primary via-indigo-250 to-indigo-300 bg-clip-text text-transparent">
+                                Dari Nol
                             </span>
                         </h1>
 

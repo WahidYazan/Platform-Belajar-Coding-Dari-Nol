@@ -1,0 +1,34 @@
+name: RTX 3050 Local AI
+version: 1.0.0
+schema: v1
+
+models:
+  # =========================
+  # CHAT / AGENT
+  # =========================
+  - name: Qwen3 8B Local
+    provider: ollama
+    model: qwen3:8b
+    roles:
+      - chat
+      - edit
+      - apply
+    capabilities:
+      - tool_use
+    defaultCompletionOptions:
+      contextLength: 8192
+      temperature: 0.6
+      maxTokens: 2048
+
+  # =========================
+  # AUTOCOMPLETE
+  # =========================
+  - name: Qwen Coder 1.5B Autocomplete
+    provider: ollama
+    model: qwen2.5-coder:1.5b
+    roles:
+      - autocomplete
+    defaultCompletionOptions:
+      contextLength: 2048
+      temperature: 0.1
+      maxTokens: 256
