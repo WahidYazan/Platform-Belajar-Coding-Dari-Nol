@@ -7,8 +7,21 @@ function safeNext(value: string | null): string {
     return value;
 }
 
+function publicOrigin(request: NextRequest): string {
+    const configured = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+    if (!configured) return request.nextUrl.origin;
+
+    const url = new URL(configured);
+    if (url.protocol !== "https:" && url.protocol !== "http:") {
+        throw new Error("NEXT_PUBLIC_SITE_URL harus menggunakan HTTP atau HTTPS.");
+    }
+
+    return url.origin;
+}
+
 export async function GET(request: NextRequest) {
-    const { searchParams, origin } = new URL(request.url);
+    const { searchParams } = new URL(request.url);
+    const origin = publicOrigin(request);
     const code = searchParams.get("code");
     const next = safeNext(searchParams.get("next"));
 
