@@ -2,6 +2,12 @@ import { updateSession } from "@/lib/supabase/middleware";
 import { NextResponse, type NextRequest } from "next/server";
 
 export async function proxy(request: NextRequest) {
+    if (request.nextUrl.pathname === "/" && request.nextUrl.searchParams.has("code")) {
+        const callbackUrl = request.nextUrl.clone();
+        callbackUrl.pathname = "/auth/callback";
+        return NextResponse.redirect(callbackUrl);
+    }
+
     const { supabaseResponse, user } = await updateSession(request);
     const pathname = request.nextUrl.pathname;
 
