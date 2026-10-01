@@ -35,6 +35,8 @@ import {
   CheckSquare,
   RefreshCw,
   Zap,
+  WandSparkles,
+  Code2Icon,
 } from "lucide-react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -778,10 +780,10 @@ function CodePlayground() {
           <div className="mb-4 flex items-center justify-between">
             <span className="text-xs font-black uppercase tracking-wider text-black dark:text-white flex items-center gap-1.5">
               <motion.div
-                animate={{ rotate: [0, 360] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
               >
-                <Sparkles className="size-4 text-primary fill-primary" />
+                <Code2 className="size-4 text-primary fill-primary" />
               </motion.div>
               Live Preview
             </span>
@@ -1868,7 +1870,7 @@ export default function HomeContent() {
           className="mb-14 text-center"
         >
           <span className="mb-3 inline-block rounded border-2 border-black bg-[#ffde59] px-3 py-1 text-xs font-black uppercase tracking-wider text-black shadow-[2px_2px_0px_0px_#000000]">
-            Keunggulan Kami
+            Keunggulan
           </span>
           <h2 className="font-heading text-3xl font-black tracking-tight text-foreground sm:text-4xl">
             Pengalaman Belajar Terbaik Bebas Hambatan
