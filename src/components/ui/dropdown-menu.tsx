@@ -30,7 +30,7 @@ function DropdownMenuContent({
                 data-slot="dropdown-menu-content"
                 sideOffset={sideOffset}
                 className={cn(
-                    "z-50 max-h-(--radix-dropdown-menu-content-available-height) min-w-[8rem] overflow-x-hidden overflow-y-auto rounded-xl border border-border/70 bg-popover/90 p-1 text-popover-foreground shadow-md shadow-slate-900/10 backdrop-blur supports-[backdrop-filter]:bg-popover/80",
+                    "z-50 max-h-(--radix-dropdown-menu-content-available-height) min-w-[10rem] overflow-x-hidden overflow-y-auto rounded-xl border-3 border-black bg-white p-1.5 text-black shadow-[5px_5px_0px_0px_#000000]",
                     "data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95",
                     "data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
                     "data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
@@ -43,13 +43,13 @@ function DropdownMenuContent({
 }
 
 const dropdownMenuItemVariants = cva(
-    "group/menu-item relative flex cursor-pointer select-none items-center gap-2 rounded-lg px-2 py-1.5 text-sm outline-hidden focus:bg-accent focus:text-accent-foreground data-disabled:pointer-events-none data-disabled:opacity-50 data-[slot=menu-indicator]:py-1 data-inset:pl-8 [&_svg:not([class*=\'size-\')]:size-4 [&_svg]:shrink-0 [&_svg]:pointer-events-none",
+    "group/menu-item relative flex cursor-pointer select-none items-center gap-2 rounded-lg px-2.5 py-2 text-xs font-black uppercase tracking-wider outline-hidden transition-all focus:bg-[#ffde59] focus:text-black hover:bg-[#ffde59] hover:text-black data-disabled:pointer-events-none data-disabled:opacity-50 data-[slot=menu-indicator]:py-1 data-inset:pl-8 [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0 [&_svg]:pointer-events-none",
     {
         variants: {
             variant: {
-                default: "text-foreground",
+                default: "text-black",
                 destructive:
-                    "text-destructive focus:bg-destructive/10 focus:text-destructive data-[highlighted]:bg-destructive/10 data-[highlighted]:text-destructive dark:focus:bg-destructive/15 dark:data-[highlighted]:bg-destructive/15",
+                    "text-black hover:bg-[#ff3333] hover:text-white focus:bg-[#ff3333] focus:text-white",
             },
         },
         defaultVariants: {

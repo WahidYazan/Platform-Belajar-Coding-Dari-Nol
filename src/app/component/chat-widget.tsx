@@ -115,10 +115,30 @@ export function ChatWidget() {
         return () => clearTimeout(timeout);
     }, [messages, activeId]);
 
+    const [cooldown, setCooldown] = React.useState(0);
+    const [rateLimitError, setRateLimitError] = React.useState<string | null>(null);
+
+    React.useEffect(() => {
+        if (cooldown <= 0) return;
+        const timer = setInterval(() => {
+            setCooldown((prev) => Math.max(0, prev - 1));
+        }, 1000);
+        return () => clearInterval(timer);
+    }, [cooldown]);
+
     const handleSubmit = (e?: React.FormEvent) => {
         e?.preventDefault();
         const trimmed = input.trim();
-        if (!trimmed || isLoading) return;
+        if (!trimmed || isLoading || cooldown > 0) return;
+
+        if (trimmed.length > 500) {
+            setRateLimitError("Pesan terlalu panjang (maksimal 500 karakter).");
+            return;
+        }
+
+        setRateLimitError(null);
+        // Set 5 seconds anti-spam client cooldown between messages
+        setCooldown(5);
 
         if (!activeId) {
             const session = createSession();
@@ -166,20 +186,20 @@ export function ChatWidget() {
                 <Button
                     size="icon-lg"
                     className={cn(
-                        "size-14 rounded-full shadow-lg transition-all duration-300",
+                        "size-14 rounded-xl border-3 border-black font-black transition-all shadow-[4px_4px_0px_0px_#000000] hover:shadow-[6px_6px_0px_0px_#000000] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5",
                         open
-                            ? "bg-muted hover:bg-muted/80 text-muted-foreground"
-                            : "bg-primary text-primary-foreground shadow-primary/25 hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/30",
+                            ? "bg-[#ff5b79] text-black"
+                            : "bg-[#ffde59] text-black hover:bg-[#ffde59] animate-wiggle",
                     )}
                     onClick={() => setOpen(!open)}
                     aria-label={open ? "Tutup chat" : "Buka AI Assistant"}
                 >
-                    {open ? <X className="size-5" /> : <MessageSquare className="size-5" />}
+                    {open ? <X className="size-6 stroke-[3]" /> : <MessageSquare className="size-6 stroke-[3]" />}
                 </Button>
             </div>
 
             {open && (
-                <div className="fixed bottom-24 right-6 z-50 flex w-[380px] max-w-[calc(100vw-3rem)] flex-col overflow-hidden rounded-2xl border border-border/50 bg-card/90 shadow-2xl shadow-black/[0.08] backdrop-blur-xl">
+                <div className="fixed bottom-24 right-6 z-50 flex w-[380px] max-w-[calc(100vw-3rem)] flex-col overflow-hidden rounded-xl border-3 border-black bg-white dark:bg-[#202024] shadow-[8px_8px_0px_0px_#000000] animate-neo-pop">
                     {view === "history" ? (
                         <>
                             <div className="flex items-center gap-2 border-b border-border/50 px-4 py-3">
@@ -246,13 +266,13 @@ export function ChatWidget() {
                         </>
                     ) : (
                         <>
-                            <div className="flex items-center gap-2 border-b border-border/50 px-4 py-3">
-                                <span className="flex size-9 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-sm shadow-primary/20">
-                                    <Bot className="size-4" />
+                            <div className="flex items-center gap-2 border-b-2 border-black bg-[#ffde59] px-4 py-3 text-black">
+                                <span className="flex size-9 items-center justify-center rounded-lg border-2 border-black bg-[#ff5b79] text-black shadow-[2px_2px_0px_0px_#000000]">
+                                    <Bot className="size-5 stroke-[2.5]" />
                                 </span>
                                 <div className="flex-1">
-                                    <h3 className="text-sm font-semibold text-foreground">Pembantu Di Web Sinau Coding</h3>
-                                    <p className="text-xs text-muted-foreground">Sinau Coding</p>
+                                    <h3 className="text-sm font-black uppercase text-black">AI Sinau Coding</h3>
+                                    <p className="text-[11px] font-bold text-neutral-800">Online & Siap Bantu ⚡</p>
                                 </div>
                                 <Button
                                     variant="ghost"
@@ -370,26 +390,41 @@ export function ChatWidget() {
                                     )}
                             </div>
 
-                            <form onSubmit={handleSubmit} className="border-t border-border/50 px-4 py-3">
+                            <form onSubmit={handleSubmit} className="border-t-2 border-black bg-[#fffdf5] dark:bg-[#18181b] px-4 py-3">
+                                {rateLimitError && (
+                                    <div className="mb-2 rounded border-2 border-black bg-[#ff3333] px-2.5 py-1 text-[11px] font-black text-white shadow-[2px_2px_0px_0px_#000000]">
+                                        ⚠️ {rateLimitError}
+                                    </div>
+                                )}
                                 <div className="flex items-end gap-2">
                                     <textarea
                                         ref={inputRef}
                                         value={input}
                                         onChange={(e) => setInput(e.target.value)}
                                         onKeyDown={handleKeyDown}
-                                        placeholder="Tanya tentang coding..."
+                                        placeholder={cooldown > 0 ? `Tunggu ${cooldown} detik...` : "Tanya tentang coding..."}
                                         rows={1}
-                                        className="flex-1 resize-none rounded-xl border border-border/50 bg-muted/40 px-3 py-2 text-sm outline-none placeholder:text-muted-foreground/60 focus-visible:ring-2 focus-visible:ring-ring/20 transition-colors"
+                                        disabled={cooldown > 0}
+                                        maxLength={500}
+                                        className="flex-1 resize-none rounded-lg border-2 border-black bg-white px-3 py-2 text-sm font-medium outline-none placeholder:text-neutral-500 shadow-[2px_2px_0px_0px_#000000] focus:shadow-[3px_3px_0px_0px_#000000] transition-all disabled:bg-neutral-100 disabled:cursor-not-allowed"
                                         style={{ maxHeight: "120px" }}
                                     />
                                     <Button
                                         type="submit"
                                         size="icon"
-                                        disabled={isLoading || !input.trim()}
-                                        className="shrink-0 rounded-full shadow-sm shadow-primary/10 transition-all duration-200 hover:shadow-md hover:shadow-primary/15"
+                                        disabled={isLoading || !input.trim() || cooldown > 0}
+                                        className="shrink-0 rounded-lg border-2 border-black bg-[#ff5b79] text-black shadow-[3px_3px_0px_0px_#000000] hover:bg-[#ff5b79] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 disabled:opacity-50"
                                     >
-                                        <Send className="size-4" />
+                                        {cooldown > 0 ? (
+                                            <span className="text-xs font-black">{cooldown}s</span>
+                                        ) : (
+                                            <Send className="size-4 stroke-[2.5]" />
+                                        )}
                                     </Button>
+                                </div>
+                                <div className="mt-1 flex items-center justify-between text-[10px] font-bold text-neutral-500">
+                                    <span>Anti-spam proteksi aktif</span>
+                                    <span>{input.length}/500</span>
                                 </div>
                             </form>
                         </>

@@ -17,44 +17,39 @@ export default function DashboardPage() {
 
   return (
     <main className="mx-auto w-full max-w-6xl px-4 py-12 lg:py-16">
-      {/* Hero */}
-      <div className="relative mb-16 overflow-hidden rounded-3xl border border-border/40 bg-card/60 p-8 sm:p-10">
-        <div className="pointer-events-none absolute inset-0 -z-10">
-          <div className="absolute top-[-60%] right-[-10%] h-[300px] w-[400px] rounded-full bg-primary/[0.06] blur-[80px]" />
-          <div className="absolute bottom-[-40%] left-[-5%] h-[200px] w-[300px] rounded-full bg-blue-400/[0.04] blur-[60px]" />
-        </div>
+      {/* Crazy Neobrutalism Billboard Banner */}
+      <div className="relative mb-16 overflow-hidden rounded-2xl border-4 border-black bg-[#ffde59] p-8 text-black shadow-[8px_8px_0px_0px_#000000] sm:p-10">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
-            <p className="mb-3 text-xs font-bold uppercase tracking-widest text-primary/70">
-              Dashboard
-            </p>
-            <h1 className="font-heading text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
-              Selamat Belajar
+            <span className="mb-3 inline-block rounded border-2 border-black bg-[#ff5b79] px-3 py-1 text-xs font-black uppercase tracking-wider text-black shadow-[2px_2px_0px_0px_#000000] animate-wiggle">
+              DASHBOARD BELAJAR
+            </span>
+            <h1 className="font-heading text-4xl font-black uppercase tracking-tight sm:text-5xl">
+              Selamat Belajar, Calon Programmer Handal! ⚡
             </h1>
-            <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-              Materi terstruktur dari Frontend hingga Deployment. Pilih topik
-              dan lanjutkan progresmu secara otomatis.
+            <p className="mt-4 text-base font-bold leading-relaxed text-neutral-800">
+              Materi terstruktur dari dasar Frontend hingga Deployment ke internet. Pilih materi favoritmu dan lanjutkan progres secara otomatis.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
             <Button
               asChild
               size="lg"
-              className="rounded-full shadow-lg shadow-primary/20 transition-all hover:shadow-xl hover:shadow-primary/25"
+              className="bg-black text-white hover:bg-neutral-800 border-3 border-black shadow-[4px_4px_0px_0px_#ffffff] font-black uppercase tracking-wider"
             >
               <Link href={`/dashboard/tutorials/${tutorials[0].slug}`}>
-                Mulai Belajar
-                <ArrowRight className="ml-2 size-4" />
+                Mulai Belajar Sekarang
+                <ArrowRight className="ml-2 size-5 stroke-[2.5]" />
               </Link>
             </Button>
             <Button
               asChild
               variant="outline"
               size="lg"
-              className="rounded-full bg-background"
+              className="bg-white text-black border-3 border-black shadow-[4px_4px_0px_0px_#000000] hover:bg-[#4ade80] font-black uppercase tracking-wider"
             >
               <Link href="/start">
-                <BookOpen className="mr-2 size-4" />
+                <BookOpen className="mr-2 size-5 stroke-[2.5]" />
                 Panduan
               </Link>
             </Button>

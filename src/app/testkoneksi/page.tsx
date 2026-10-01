@@ -186,27 +186,29 @@ export default async function TestDatabase() {
                 )}
             </div>
 
-            {/* Raw */}
-            <div className="relative overflow-hidden rounded-3xl border border-border/50 bg-card/60 p-8 shadow-sm backdrop-blur-sm">
-                <div className="pointer-events-none absolute inset-0 -z-10">
-                    <div className="absolute top-[-50%] right-[-10%] h-[250px] w-[350px] rounded-full bg-primary/[0.04] blur-[80px]" />
+            {/* Raw Details (Only shown in Development) */}
+            {process.env.NODE_ENV === "development" && (
+                <div className="relative overflow-hidden rounded-3xl border border-border/50 bg-card/60 p-8 shadow-sm backdrop-blur-sm">
+                    <div className="pointer-events-none absolute inset-0 -z-10">
+                        <div className="absolute top-[-50%] right-[-10%] h-[250px] w-[350px] rounded-full bg-primary/[0.04] blur-[80px]" />
+                    </div>
+                    <h2 className="flex items-center gap-3 font-heading text-2xl font-bold text-foreground">
+                        <span
+                            className={
+                                connected
+                                    ? "flex size-10 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600"
+                                    : "flex size-10 items-center justify-center rounded-xl bg-destructive/10 text-destructive"
+                            }
+                        >
+                            {connected ? <Braces className="size-5" /> : <AlertCircle className="size-5" />}
+                        </span>
+                        Detail Respons (Dev Only)
+                    </h2>
+                    <pre className="mt-4 overflow-x-auto rounded-2xl border border-border/50 bg-background/60 p-4 font-mono text-xs leading-relaxed text-muted-foreground">
+                        {JSON.stringify(result, null, 2)}
+                    </pre>
                 </div>
-                <h2 className="flex items-center gap-3 font-heading text-2xl font-bold text-foreground">
-                    <span
-                        className={
-                            connected
-                                ? "flex size-10 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600"
-                                : "flex size-10 items-center justify-center rounded-xl bg-destructive/10 text-destructive"
-                        }
-                    >
-                        {connected ? <Braces className="size-5" /> : <AlertCircle className="size-5" />}
-                    </span>
-                    Detail Respons
-                </h2>
-                <pre className="mt-4 overflow-x-auto rounded-2xl border border-border/50 bg-background/60 p-4 font-mono text-xs leading-relaxed text-muted-foreground">
-                    {JSON.stringify(result, null, 2)}
-                </pre>
-            </div>
+            )}
         </div>
     );
 }

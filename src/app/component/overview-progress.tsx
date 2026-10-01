@@ -25,31 +25,37 @@ export function OverviewProgress() {
 
     return (
         <div className="mt-8 grid gap-6 lg:grid-cols-12">
-            <Card className="lg:col-span-4 p-6 flex flex-col justify-center border-primary/10 bg-card/60 relative overflow-hidden">
-                <div className="pointer-events-none absolute inset-0 -z-10">
-                    <div className="absolute top-[-50%] right-[-20%] h-[200px] w-[200px] rounded-full bg-primary/[0.04] blur-[60px]" />
-                </div>
+            <Card className="lg:col-span-4 p-6 flex flex-col justify-center border-3 border-black bg-white dark:bg-[#202024] shadow-[6px_6px_0px_0px_#000000] relative overflow-hidden">
                 <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                        <h3 className="text-xs font-bold uppercase tracking-widest text-primary/70">Keseluruhan</h3>
-                        <span className="text-3xl font-extrabold text-foreground">{percentage}%</span>
+                        <span className="text-xs font-black uppercase tracking-widest rounded border-2 border-black bg-[#ffde59] px-2 py-0.5 text-black shadow-[1.5px_1.5px_0px_0px_#000000]">
+                            Keseluruhan
+                        </span>
+                        <span className="text-3xl font-black text-foreground">{percentage}%</span>
                     </div>
-                    <Progress value={percentage} className="h-3" />
-                    <p className="text-sm text-muted-foreground">
-                        <span className="font-bold text-foreground">{done}</span> dari {total} materi telah diselesaikan
+                    <div className="h-4 w-full overflow-hidden rounded-md border-2 border-black bg-[#f4efe2] shadow-[2px_2px_0px_0px_#000000]">
+                        <div
+                            className="h-full bg-[#4ade80] transition-all duration-300"
+                            style={{ width: `${percentage}%` }}
+                        />
+                    </div>
+                    <p className="text-sm font-bold text-muted-foreground">
+                        <span className="font-black text-foreground">{done}</span> dari {total} materi telah diselesaikan
                     </p>
                     {nextTutorial && (
-                        <Button asChild variant="outline" className="w-full mt-4 bg-background hover:bg-primary/5 hover:text-primary hover:border-primary/30 border-primary/15 rounded-xl transition-all duration-200">
+                        <Button asChild className="w-full mt-4 bg-primary text-black border-2 border-black shadow-[3px_3px_0px_0px_#000000] font-black uppercase">
                             <Link href={`/dashboard/tutorials/${nextTutorial.slug}`}>
-                                Lanjutkan Belajar
+                                Lanjutkan Belajar ⚡
                             </Link>
                         </Button>
                     )}
                 </div>
             </Card>
 
-            <Card className="lg:col-span-8 p-6 border-border/50 bg-card/60">
-                <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground/60 mb-6">Progres per Kategori</h3>
+            <Card className="lg:col-span-8 p-6 border-3 border-black bg-white dark:bg-[#202024] shadow-[6px_6px_0px_0px_#000000]">
+                <span className="inline-block text-xs font-black uppercase tracking-widest rounded border-2 border-black bg-[#38bdf8] px-2.5 py-0.5 text-black shadow-[1.5px_1.5px_0px_0px_#000000] mb-6">
+                    Progres per Kategori
+                </span>
                 <div className="grid gap-4 sm:grid-cols-2">
                     {Object.entries(categories).map(([category, categoryTutorials]) => {
                         const categoryDone = categoryTutorials.filter(t =>
@@ -60,19 +66,24 @@ export function OverviewProgress() {
                         const isCategoryComplete = categoryDone === categoryTotal;
 
                         return (
-                            <div key={category} className="space-y-2">
-                                <div className="flex items-center justify-between text-xs">
-                                    <span className="font-bold text-foreground truncate max-w-[150px]">{category}</span>
-                                    <span className="text-muted-foreground font-medium">{categoryPercentage}%</span>
+                            <div key={category} className="rounded-lg border-2 border-black bg-[#f4efe2] dark:bg-[#18181b] p-3 shadow-[2px_2px_0px_0px_#000000]">
+                                <div className="flex items-center justify-between text-xs mb-1.5">
+                                    <span className="font-black uppercase text-foreground truncate max-w-[150px]">{category}</span>
+                                    <span className="font-mono font-bold text-foreground">{categoryPercentage}%</span>
                                 </div>
-                                <Progress value={categoryPercentage} className={`h-1.5 ${isCategoryComplete ? "[&>div]:bg-emerald-500" : ""}`} />
+                                <div className="h-3 w-full overflow-hidden rounded border border-black bg-white">
+                                    <div
+                                        className={`h-full ${isCategoryComplete ? "bg-[#4ade80]" : "bg-[#ffde59]"} transition-all duration-300`}
+                                        style={{ width: `${categoryPercentage}%` }}
+                                    />
+                                </div>
                             </div>
                         );
                     })}
                 </div>
                 {percentage === 100 && (
-                    <div className="mt-6 p-3 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-medium text-center border border-emerald-500/20">
-                        🎉 Selamat! Kamu telah menyelesaikan seluruh kurikulum.
+                    <div className="mt-6 p-3 rounded-lg bg-[#4ade80] text-black text-xs font-black uppercase text-center border-2 border-black shadow-[3px_3px_0px_0px_#000000] animate-wiggle">
+                        🎉 Selamat! Kamu telah menyelesaikan seluruh kurikulum! 🎓
                     </div>
                 )}
             </Card>

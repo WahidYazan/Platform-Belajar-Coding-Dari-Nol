@@ -5,16 +5,16 @@ import { Slot } from "radix-ui";
 import { cn } from "@/lib/utils";
 
 const badgeVariants = cva(
-    "group/badge inline-flex h-6 w-fit shrink-0 items-center justify-center gap-1.5 overflow-hidden rounded-full border border-transparent px-2.5 py-0.5 text-xs font-medium whitespace-nowrap transition-colors focus-visible:ring-2 focus-visible:ring-ring/40 has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/30 [&>svg]:pointer-events-none [&>svg]:size-3",
+    "group/badge inline-flex h-7 w-fit shrink-0 items-center justify-center gap-1.5 overflow-hidden rounded-md border-2 border-black px-3 py-0.5 text-xs font-black tracking-wider uppercase whitespace-nowrap shadow-[2px_2px_0px_0px_#000000] transition-transform select-none focus-visible:ring-2 focus-visible:ring-ring has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 aria-invalid:border-destructive [&>svg]:pointer-events-none [&>svg]:size-3",
     {
         variants: {
             variant: {
-                default: "bg-primary text-primary-foreground shadow-sm shadow-primary/10",
-                secondary: "bg-muted text-foreground",
-                destructive: "bg-destructive/10 text-destructive dark:bg-destructive/15",
-                outline: "border-border/80 bg-background text-foreground",
-                ghost: "bg-transparent text-muted-foreground",
-                link: "text-primary underline-offset-4 hover:underline",
+                default: "bg-primary text-black",
+                secondary: "bg-secondary text-black",
+                destructive: "bg-destructive text-white",
+                outline: "bg-white text-black",
+                ghost: "border-transparent shadow-none text-foreground",
+                link: "text-primary underline-offset-4 hover:underline shadow-none border-transparent",
             },
         },
         defaultVariants: {

@@ -64,113 +64,118 @@ const mistakes = [
 
 export default function StartPage() {
   return (
-    <div className="mx-auto w-full max-w-6xl px-4 py-14">
-      {/* Hero */}
-      <div className="relative mb-14 max-w-2xl overflow-hidden rounded-3xl border border-border/40 bg-card/60 p-8 sm:p-10">
-        <div className="pointer-events-none absolute inset-0 -z-10">
-          <div className="absolute top-[-60%] right-[-10%] h-[250px] w-[350px] rounded-full bg-primary/[0.06] blur-[80px]" />
+    <div className="mx-auto w-full max-w-6xl px-4 py-12">
+      {/* Hero Billboard */}
+      <div className="relative mb-14 overflow-hidden rounded-2xl border-3 border-black bg-[#ffde59] p-8 sm:p-12 shadow-[8px_8px_0px_0px_#000000]">
+        <div className="inline-block rounded-md border-2 border-black bg-white px-3 py-1 text-xs font-black uppercase tracking-wider text-black shadow-[2px_2px_0px_0px_#000000] mb-4">
+          ⚡ PANDUAN LANGKAH PERTAMA
         </div>
-        <p className="mb-3 text-xs font-bold uppercase tracking-widest text-primary/70">Panduan Langkah Pertama</p>
-        <h1 className="font-heading text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-          Mulai dari Sini
+        <h1 className="font-heading text-4xl font-black tracking-tight text-black sm:text-6xl uppercase">
+          Mulai dari Sini! 🚀
         </h1>
-        <p className="mt-4 leading-relaxed text-muted-foreground">
+        <p className="mt-4 max-w-2xl text-base sm:text-lg font-bold leading-relaxed text-black/90">
           Panduan lengkap untuk hari-hari pertamamu belajar coding: apa yang harus dipasang,
-          bagaimana cara belajar yang benar, dan kesalahan yang harus dihindari.
+          bagaimana cara belajar yang benar, dan kesalahan yang wajib kamu hindari!
         </p>
       </div>
 
       {/* Tools */}
       <div className="mb-16">
-        <h2 className="mb-6 flex items-center gap-3 font-heading text-2xl font-bold text-foreground">
-          <span className="flex size-10 items-center justify-center rounded-xl bg-blue-500/10 text-blue-600">
-            <Download className="size-5" />
+        <div className="mb-6 flex items-center gap-3">
+          <span className="flex size-11 items-center justify-center rounded-xl border-3 border-black bg-[#38bdf8] text-black shadow-[3px_3px_0px_0px_#000000]">
+            <Download className="size-6 stroke-[2.5]" />
           </span>
-          Langkah 1 — Pasang Tools
-        </h2>
-        <div className="grid gap-4 sm:grid-cols-2">
+          <h2 className="font-heading text-2xl font-black uppercase text-foreground sm:text-3xl">
+            Langkah 1 — Pasang Tools
+          </h2>
+        </div>
+        <div className="grid gap-5 sm:grid-cols-2">
           {tools.map((tool) => (
-            <Card key={tool.title} className="group flex h-full flex-col border-border/50 bg-card/80 transition-all duration-300 hover:border-border hover:bg-card hover:shadow-md hover:shadow-black/[0.03]">
-              <CardHeader>
-                <div className="mb-1 text-2xl">{tool.emoji}</div>
-                <CardTitle className="font-heading text-lg font-bold">{tool.title}</CardTitle>
-                <CardDescription className="leading-relaxed">{tool.desc}</CardDescription>
-              </CardHeader>
-              <CardContent className="mt-auto">
-                <Button asChild variant="outline" size="sm" className="group-hover:border-primary/30 group-hover:text-primary transition-colors duration-200">
+            <div key={tool.title} className="group flex h-full flex-col rounded-xl border-3 border-black bg-white p-6 shadow-[5px_5px_0px_0px_#000000] transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px_#000000]">
+              <div className="mb-2 text-3xl">{tool.emoji}</div>
+              <h3 className="font-heading text-xl font-black uppercase text-black">{tool.title}</h3>
+              <p className="mt-2 text-sm font-medium leading-relaxed text-black/80">{tool.desc}</p>
+              <div className="mt-auto pt-5">
+                <Button asChild variant="outline" size="sm" className="border-2 border-black bg-[#ffde59] text-black font-black uppercase shadow-[2px_2px_0px_0px_#000000] hover:bg-[#ff5b79]">
                   <a href={tool.link} target="_blank" rel="noreferrer">
                     Kunjungi situs
-                    <ArrowRight className="size-4" />
+                    <ArrowRight className="size-4 stroke-[2.5]" />
                   </a>
                 </Button>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           ))}
         </div>
-        <div className="mt-6">
-          <p className="mb-2 text-sm font-medium text-foreground">Verifikasi instalasi Node.js:</p>
+        <div className="mt-8 rounded-xl border-3 border-black bg-[#fffdf5] p-5 shadow-[4px_4px_0px_0px_#000000]">
+          <p className="mb-2 text-sm font-black uppercase text-black">Verifikasi instalasi Node.js di terminal:</p>
           <CodeBlock
             lang="bash"
             filename="terminal"
-            code={`node --version\n100: npm --version`}
+            code={`node --version\nnpm --version`}
           />
-          <p className="text-sm text-muted-foreground">
-            Jika muncul angka versi (contoh v22.x.x), instalasi sukses.
+          <p className="text-xs font-bold text-black/70">
+            ✓ Jika muncul angka versi (contoh v22.x.x), instalasi sukses 100%!
           </p>
         </div>
       </div>
 
       {/* Foundation */}
       <div className="mb-16">
-        <h2 className="mb-6 flex items-center gap-3 font-heading text-2xl font-bold text-foreground">
-          <span className="flex size-10 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600">
-            <PencilRuler className="size-5" />
+        <div className="mb-6 flex items-center gap-3">
+          <span className="flex size-11 items-center justify-center rounded-xl border-3 border-black bg-[#4ade80] text-black shadow-[3px_3px_0px_0px_#000000]">
+            <PencilRuler className="size-6 stroke-[2.5]" />
           </span>
-          Langkah 2 — Pelajari Fondasi
-        </h2>
-        <div className="grid gap-4 sm:grid-cols-2">
+          <h2 className="font-heading text-2xl font-black uppercase text-foreground sm:text-3xl">
+            Langkah 2 — Pelajari Fondasi
+          </h2>
+        </div>
+        <div className="grid gap-5 sm:grid-cols-2">
           {[
             {
               title: "Fondasi 1: HTML & CSS",
               desc: "Struktur dan tampilan website. Kerjakan 4-6 minggu. Cukup sampai kamu bisa membuat halaman profil yang rapi.",
               emoji: "🎨",
+              bg: "bg-[#ff5b79]/20",
             },
             {
               title: "Fondasi 2: JavaScript",
               desc: "Logika dan interaksi. Ini fondasi paling penting berikan 6-8 minggu sebelum menyentuh framework apa pun.",
               emoji: "⚡",
+              bg: "bg-[#ffde59]/25",
             },
             {
               title: "Fondasi 3: Git & GitHub",
               desc: "Kelola versi kode. Bisa dipelajari paralel. Mulai menyimpan semua project di GitHub sejak sekarang.",
               emoji: "📦",
+              bg: "bg-[#38bdf8]/20",
             },
             {
               title: "Fondasi 4: React + Next.js",
               desc: "Setelah JS lancar, baru ke framework. Ini keterampilan yang paling banyak dicari perusahaan.",
               emoji: "⚛️",
+              bg: "bg-[#c084fc]/20",
             },
           ].map((item) => (
-            <Card key={item.title} className="group border-border/50 bg-card/80 transition-all duration-300 hover:border-border hover:bg-card hover:shadow-md hover:shadow-black/[0.03]">
-              <CardHeader>
-                <div className="mb-1 text-2xl">{item.emoji}</div>
-                <CardTitle className="font-heading text-lg font-bold">{item.title}</CardTitle>
-                <CardDescription className="leading-relaxed">{item.desc}</CardDescription>
-              </CardHeader>
-            </Card>
+            <div key={item.title} className={`rounded-xl border-3 border-black ${item.bg} p-6 shadow-[5px_5px_0px_0px_#000000] transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[7px_7px_0px_0px_#000000]`}>
+              <div className="mb-2 text-3xl">{item.emoji}</div>
+              <h3 className="font-heading text-lg font-black uppercase text-black">{item.title}</h3>
+              <p className="mt-2 text-sm font-medium leading-relaxed text-black/85">{item.desc}</p>
+            </div>
           ))}
         </div>
       </div>
 
       {/* Learning Methods */}
       <div className="mb-16">
-        <h2 className="mb-6 flex items-center gap-3 font-heading text-2xl font-bold text-foreground">
-          <span className="flex size-10 items-center justify-center rounded-xl bg-amber-500/10 text-amber-600">
-            <MousePointerClick className="size-5" />
+        <div className="mb-6 flex items-center gap-3">
+          <span className="flex size-11 items-center justify-center rounded-xl border-3 border-black bg-[#ff5b79] text-black shadow-[3px_3px_0px_0px_#000000]">
+            <MousePointerClick className="size-6 stroke-[2.5]" />
           </span>
-          Langkah 3 — Cara Belajar yang Efektif
-        </h2>
-        <div className="grid gap-4 sm:grid-cols-2">
+          <h2 className="font-heading text-2xl font-black uppercase text-foreground sm:text-3xl">
+            Langkah 3 — Cara Belajar yang Efektif
+          </h2>
+        </div>
+        <div className="grid gap-5 sm:grid-cols-2">
           {[
             {
               title: "1. Belajar aktif, bukan pasif",
@@ -184,7 +189,7 @@ export default function StartPage() {
             },
             {
               title: "3. Rusak kodenya",
-              desc: "Ubah nilai, hapus baris, buat error lalu perbaiki. Ini cara tercepat membangun intuisi.",
+              desc: "Ubah nilai, hapus baris, buat error lalu perbaiki. Ini cara tercepat membangun intuisi coder tangguh.",
               emoji: "🔧",
             },
             {
@@ -193,49 +198,46 @@ export default function StartPage() {
               emoji: "🏗️",
             },
           ].map((item) => (
-            <Card key={item.title} className="group border-border/50 bg-card/80 transition-all duration-300 hover:border-border hover:bg-card hover:shadow-md hover:shadow-black/[0.03]">
-              <CardHeader>
-                <div className="mb-1 text-2xl">{item.emoji}</div>
-                <CardTitle className="font-heading text-lg font-bold">{item.title}</CardTitle>
-                <CardDescription className="leading-relaxed">{item.desc}</CardDescription>
-              </CardHeader>
-            </Card>
+            <div key={item.title} className="rounded-xl border-3 border-black bg-white p-6 shadow-[5px_5px_0px_0px_#000000] transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[7px_7px_0px_0px_#000000]">
+              <div className="mb-2 text-3xl">{item.emoji}</div>
+              <h3 className="font-heading text-lg font-black uppercase text-black">{item.title}</h3>
+              <p className="mt-2 text-sm font-medium leading-relaxed text-black/80">{item.desc}</p>
+            </div>
           ))}
         </div>
       </div>
 
       {/* Mistakes */}
       <div className="mb-16">
-        <h2 className="mb-6 flex items-center gap-3 font-heading text-2xl font-bold text-foreground">
-          <span className="flex size-10 items-center justify-center rounded-xl bg-rose-500/10 text-rose-600">
-            <ShieldAlert className="size-5" />
+        <div className="mb-6 flex items-center gap-3">
+          <span className="flex size-11 items-center justify-center rounded-xl border-3 border-black bg-[#ff3333] text-white shadow-[3px_3px_0px_0px_#000000]">
+            <ShieldAlert className="size-6 stroke-[2.5]" />
           </span>
-          Hindari Kesalahan Ini
-        </h2>
-        <div className="grid gap-4 sm:grid-cols-2">
+          <h2 className="font-heading text-2xl font-black uppercase text-foreground sm:text-3xl">
+            Hindari Kesalahan Ini! 🚫
+          </h2>
+        </div>
+        <div className="grid gap-5 sm:grid-cols-2">
           {mistakes.map((mistake) => (
-            <Card key={mistake.title} className="group border-dashed border-border/60 bg-background/60 shadow-none transition-all duration-300 hover:border-border/80 hover:bg-background/80">
-              <CardHeader>
-                <div className="mb-1 text-2xl">{mistake.emoji}</div>
-                <CardTitle className="font-heading text-lg font-bold">{mistake.title}</CardTitle>
-                <CardDescription className="leading-relaxed">{mistake.desc}</CardDescription>
-              </CardHeader>
-            </Card>
+            <div key={mistake.title} className="rounded-xl border-3 border-black bg-[#fff5f5] p-6 shadow-[4px_4px_0px_0px_#000000] transition-all hover:-translate-x-1 hover:-translate-y-1">
+              <div className="mb-2 text-3xl">{mistake.emoji}</div>
+              <h3 className="font-heading text-lg font-black uppercase text-black">{mistake.title}</h3>
+              <p className="mt-2 text-sm font-medium leading-relaxed text-black/80">{mistake.desc}</p>
+            </div>
           ))}
         </div>
       </div>
 
       {/* Checklist */}
-      <div className="relative overflow-hidden rounded-3xl border border-border/50 bg-card/60 p-8 shadow-sm backdrop-blur-sm">
-        <div className="pointer-events-none absolute inset-0 -z-10">
-          <div className="absolute top-[-50%] right-[-10%] h-[250px] w-[350px] rounded-full bg-primary/[0.04] blur-[80px]" />
-        </div>
-        <h2 className="flex items-center gap-3 font-heading text-2xl font-bold text-foreground">
-          <span className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
-            <CheckCircle2 className="size-5" />
+      <div className="relative overflow-hidden rounded-2xl border-3 border-black bg-[#4deeea] p-8 sm:p-10 shadow-[8px_8px_0px_0px_#000000]">
+        <div className="flex items-center gap-3">
+          <span className="flex size-11 items-center justify-center rounded-xl border-2 border-black bg-white text-black shadow-[2px_2px_0px_0px_#000000]">
+            <CheckCircle2 className="size-6 stroke-[2.5]" />
           </span>
-          Checklist Minggu Pertamamu
-        </h2>
+          <h2 className="font-heading text-2xl font-black uppercase text-black sm:text-3xl">
+            Checklist Minggu Pertamamu
+          </h2>
+        </div>
         <ul className="mt-6 grid gap-3 sm:grid-cols-2">
           {[
             "Semua tools terpasang & terverifikasi",
@@ -247,22 +249,22 @@ export default function StartPage() {
             "Jadwalkan 30-60 menit belajar per hari",
             "Bergabung komunitas (Discord/komunitas lokal)",
           ].map((item) => (
-            <li key={item} className="flex items-start gap-2.5 text-sm text-muted-foreground leading-relaxed">
-              <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" />
+            <li key={item} className="flex items-center gap-2.5 rounded-lg border-2 border-black bg-white px-3.5 py-2 font-bold text-xs sm:text-sm text-black shadow-[2px_2px_0px_0px_#000000]">
+              <CheckCircle2 className="size-4 shrink-0 text-black stroke-[3]" />
               {item}
             </li>
           ))}
         </ul>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Button asChild size="lg" className="rounded-full shadow-lg shadow-primary/15 transition-all hover:shadow-xl hover:shadow-primary/20">
+        <div className="mt-8 flex flex-wrap gap-4">
+          <Button asChild size="lg" className="border-3 border-black bg-[#ff5b79] text-black font-black uppercase tracking-wider shadow-[4px_4px_0px_0px_#000000] hover:shadow-[6px_6px_0px_0px_#000000] hover:-translate-x-0.5 hover:-translate-y-0.5">
             <Link href="/roadmap">
               Lanjut ke Roadmap
-              <ArrowRight className="size-4" />
+              <ArrowRight className="size-5 stroke-[2.5]" />
             </Link>
           </Button>
-          <Button asChild variant="outline" size="lg" className="rounded-full bg-background">
+          <Button asChild variant="outline" size="lg" className="border-3 border-black bg-white text-black font-black uppercase tracking-wider shadow-[4px_4px_0px_0px_#000000] hover:bg-[#ffde59] hover:-translate-x-0.5 hover:-translate-y-0.5">
             <Link href="/dashboard">
-              <BookOpen className="size-4" />
+              <BookOpen className="size-5 stroke-[2.5]" />
               Lihat Tutorial
             </Link>
           </Button>

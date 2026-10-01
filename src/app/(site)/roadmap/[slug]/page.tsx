@@ -23,58 +23,55 @@ export default async function RoadmapDetailPage({ params }: PageProps<"/roadmap/
   const next = currentIndex < roadmapPhases.length - 1 ? roadmapPhases[currentIndex + 1] : undefined
 
   return (
-    <div className="mx-auto w-full max-w-6xl px-4 py-14">
-      {/* Hero */}
-      <div className="relative mb-10 overflow-hidden rounded-3xl border border-border/40 bg-card/60 p-8 sm:p-10">
-        <div className="pointer-events-none absolute inset-0 -z-10">
-          <div className="absolute top-[-60%] right-[-10%] h-[250px] w-[350px] rounded-full bg-primary/[0.06] blur-[80px]" />
-        </div>
-        <Button asChild variant="ghost" size="sm" className="mb-6 -ml-2 text-muted-foreground hover:text-foreground">
+    <div className="mx-auto w-full max-w-5xl px-4 py-12">
+      {/* Hero Billboard */}
+      <div className="relative mb-10 overflow-hidden rounded-2xl border-3 border-black bg-[#ffde59] p-8 sm:p-12 shadow-[8px_8px_0px_0px_#000000]">
+        <Button asChild variant="outline" size="sm" className="mb-6 border-2 border-black bg-white text-black font-black uppercase text-xs shadow-[2px_2px_0px_0px_#000000] hover:bg-[#ff5b79]">
           <Link href="/roadmap">
-            <ArrowLeft className="size-4" />
+            <ArrowLeft className="size-4 stroke-[2.5]" />
             Semua fase
           </Link>
         </Button>
-        <div className="flex flex-wrap items-center gap-3">
-          <span className="text-4xl">{phase.emoji}</span>
+        <div className="flex flex-wrap items-center gap-4">
+          <span className="text-5xl">{phase.emoji}</span>
           <div>
-            <p className="text-sm font-semibold text-primary">
-              Fase {currentIndex + 1} dari {roadmapPhases.length}
+            <p className="text-xs font-black uppercase tracking-wider text-black/80">
+              ⚡ FASE {currentIndex + 1} DARI {roadmapPhases.length}
             </p>
-            <h1 className="font-heading text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+            <h1 className="font-heading text-3xl font-black uppercase tracking-tight text-black md:text-5xl">
               {phase.title}
             </h1>
           </div>
         </div>
-        <p className="mt-4 max-w-2xl leading-relaxed text-muted-foreground">{phase.description}</p>
-        <div className="mt-5 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-          <span className="flex items-center gap-1.5">
-            <Check className="size-4" />
-            Level: <span className="font-medium text-foreground">{phase.level}</span>
+        <p className="mt-4 max-w-2xl text-base font-bold leading-relaxed text-black/90">{phase.description}</p>
+        <div className="mt-6 flex flex-wrap items-center gap-4">
+          <span className="inline-flex items-center gap-2 rounded-lg border-2 border-black bg-white px-3.5 py-1.5 text-xs font-black uppercase text-black shadow-[2px_2px_0px_0px_#000000]">
+            <Check className="size-4 stroke-[3] text-black" />
+            LEVEL: {phase.level}
           </span>
         </div>
       </div>
 
       {/* Topics */}
-      <div className="space-y-4">
+      <div className="space-y-5">
         {phase.topics.map((topic, index) => {
           const tutorial = topic.tutorialSlug ? getTutorialBySlug(topic.tutorialSlug) : undefined
           return (
-            <div key={topic.title} className="flex gap-4 rounded-2xl border border-border/50 bg-card/80 p-5 shadow-sm backdrop-blur transition-all duration-300 hover:border-border hover:shadow-md hover:shadow-black/[0.03]">
+            <div key={topic.title} className="flex gap-4 rounded-xl border-3 border-black bg-white p-6 shadow-[5px_5px_0px_0px_#000000] transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[7px_7px_0px_0px_#000000]">
               <div className="flex flex-col items-center">
-                <span className="flex size-8 shrink-0 items-center justify-center rounded-full border border-primary/20 bg-primary/5 text-sm font-bold text-primary ring-4 ring-background">
+                <span className="flex size-10 shrink-0 items-center justify-center rounded-lg border-2 border-black bg-[#4ade80] text-sm font-black text-black shadow-[2px_2px_0px_0px_#000000]">
                   {index + 1}
                 </span>
-                {index < phase.topics.length - 1 && <span className="mt-1 flex-1 w-px bg-gradient-to-b from-border/70 to-transparent" />}
+                {index < phase.topics.length - 1 && <span className="mt-2 flex-1 w-[3px] bg-black" />}
               </div>
               <div className="flex-1 pb-1">
-                <h3 className="font-heading text-lg font-semibold text-foreground">{topic.title}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{topic.description}</p>
-                <div className="mt-3 flex flex-wrap gap-2">
+                <h3 className="font-heading text-xl font-black uppercase text-black">{topic.title}</h3>
+                <p className="mt-2 text-sm font-medium leading-relaxed text-black/80">{topic.description}</p>
+                <div className="mt-4 flex flex-wrap gap-2">
                   {topic.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="rounded-full border border-border/50 bg-background/60 px-2.5 py-0.5 text-xs text-muted-foreground backdrop-blur-sm"
+                      className="rounded border-2 border-black bg-[#fffdf5] px-2.5 py-0.5 text-xs font-bold text-black"
                     >
                       {skill}
                     </span>
@@ -83,11 +80,11 @@ export default async function RoadmapDetailPage({ params }: PageProps<"/roadmap/
                 {tutorial && (
                   <Link
                     href={`/dashboard/tutorials/${tutorial.slug}`}
-                    className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary/80 transition-colors duration-200 hover:text-primary"
+                    className="mt-5 inline-flex items-center gap-2 rounded-lg border-2 border-black bg-[#ff5b79] px-4 py-2 text-xs font-black uppercase text-black shadow-[3px_3px_0px_0px_#000000] hover:shadow-[5px_5px_0px_0px_#000000] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all"
                   >
-                    <BookOpen className="size-4" />
+                    <BookOpen className="size-4 stroke-[2.5]" />
                     Baca tutorial: {tutorial.title}
-                    <ArrowRight className="size-4" />
+                    <ArrowRight className="size-4 stroke-[2.5]" />
                   </Link>
                 )}
               </div>
@@ -97,33 +94,29 @@ export default async function RoadmapDetailPage({ params }: PageProps<"/roadmap/
       </div>
 
       {/* Previous / Next */}
-      <div className="mt-10 grid gap-4 sm:grid-cols-2">
+      <div className="mt-12 grid gap-4 sm:grid-cols-2">
         {previous && (
           <Link href={`/roadmap/${previous.id}`}>
-            <Card className="h-full border-border/50 bg-card/80 transition-all duration-300 hover:border-border hover:bg-card hover:shadow-md">
-              <CardHeader>
-                <CardDescription className="flex items-center gap-1 text-muted-foreground">
-                  <ArrowLeft className="size-4" /> Fase sebelumnya
-                </CardDescription>
-                <CardTitle className="font-heading text-lg font-bold text-foreground">
-                  {previous.emoji} {previous.title}
-                </CardTitle>
-              </CardHeader>
-            </Card>
+            <div className="h-full rounded-xl border-3 border-black bg-white p-5 shadow-[4px_4px_0px_0px_#000000] transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_#000000] hover:bg-[#ffde59]">
+              <p className="flex items-center gap-1.5 text-xs font-black uppercase text-black mb-1">
+                <ArrowLeft className="size-4 stroke-[2.5]" /> Fase sebelumnya
+              </p>
+              <p className="font-heading text-base font-black uppercase text-black">
+                {previous.emoji} {previous.title}
+              </p>
+            </div>
           </Link>
         )}
         {next && (
           <Link href={`/roadmap/${next.id}`} className="sm:col-start-2">
-            <Card className="h-full border-border/50 bg-card/80 text-right transition-all duration-300 hover:border-border hover:bg-card hover:shadow-md">
-              <CardHeader>
-                <CardDescription className="flex items-center justify-end gap-1 text-muted-foreground">
-                  Fase selanjutnya <ArrowRight className="size-4" />
-                </CardDescription>
-                <CardTitle className="font-heading text-lg font-bold text-foreground">
-                  {next.emoji} {next.title}
-                </CardTitle>
-              </CardHeader>
-            </Card>
+            <div className="h-full rounded-xl border-3 border-black bg-white p-5 text-right shadow-[4px_4px_0px_0px_#000000] transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_#000000] hover:bg-[#4ade80]">
+              <p className="flex items-center justify-end gap-1.5 text-xs font-black uppercase text-black mb-1">
+                Fase selanjutnya <ArrowRight className="size-4 stroke-[2.5]" />
+              </p>
+              <p className="font-heading text-base font-black uppercase text-black">
+                {next.emoji} {next.title}
+              </p>
+            </div>
           </Link>
         )}
       </div>
