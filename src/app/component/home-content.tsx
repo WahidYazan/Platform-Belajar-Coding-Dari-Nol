@@ -35,28 +35,28 @@ import {
   CheckSquare,
   RefreshCw,
   Zap,
-  WandSparkles,
-  Code2Icon,
 } from "lucide-react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Animated background with particles
 function AnimatedBackground() {
-  const particles = useMemo(() => 
-    Array.from({ length: 50 }, (_, i) => ({
-      id: i,
-      x: (Math.sin(i * 0.5) * 50 + 50),
-      y: (Math.cos(i * 0.3) * 50 + 50),
-      size: (Math.sin(i * 0.7) * 2 + 3),
-      delay: (i % 5),
-    }))
-  , []);
+  const particles = useMemo(
+    () =>
+      Array.from({ length: 50 }, (_, i) => ({
+        id: i,
+        x: Math.sin(i * 0.5) * 50 + 50,
+        y: Math.cos(i * 0.3) * 50 + 50,
+        size: Math.sin(i * 0.7) * 2 + 3,
+        delay: i % 5,
+      })),
+    [],
+  );
 
   return (
     <div className="pointer-events-none fixed inset-0 -z-50 overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,transparent_30%,var(--background)),linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:32px_32px] dark:bg-[radial-gradient(ellipse_at_top,transparent_30%,var(--background)),linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)]" />
-      
+
       {/* Animated gradient orbs */}
       <motion.div
         animate={{
@@ -399,7 +399,9 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
-          <ChevronDown className={`size-5 shrink-0 ${isOpen ? "text-primary" : "text-muted-foreground"}`} />
+          <ChevronDown
+            className={`size-5 shrink-0 ${isOpen ? "text-primary" : "text-muted-foreground"}`}
+          />
         </motion.div>
       </motion.button>
       <AnimatePresence mode="wait">
@@ -589,8 +591,8 @@ function CodePlayground() {
                     <span className="text-rose-400">{"</div>"}</span>
                     {"\n"}
                     {"  "}
-                    <span className="text-rose-400">{"<h3>"}</span>Belajar HTML &
-                    CSS<span className="text-rose-400">{"</h3>"}</span>
+                    <span className="text-rose-400">{"<h3>"}</span>Belajar HTML
+                    & CSS<span className="text-rose-400">{"</h3>"}</span>
                     {"\n"}
                     {"  "}
                     <span className="text-rose-400">{"<p>"}</span>Rancang layout
@@ -631,7 +633,9 @@ function CodePlayground() {
                     {"\n"}
                     <span className="text-violet-400">const</span> status =
                     document.querySelector(
-                    <span className="text-emerald-400">&apos;.status&apos;</span>
+                    <span className="text-emerald-400">
+                      &apos;.status&apos;
+                    </span>
                     );{"\n\n"}
                     btn.onclick = () =&gt; {"{"}
                     {"\n"}
@@ -672,8 +676,8 @@ function CodePlayground() {
                       {"// Dashboard.tsx — React state & progress"}
                     </span>
                     {"\n"}
-                    <span className="text-violet-400">import</span> {"{"} useState{" "}
-                    {"}"} <span className="text-violet-400">from</span>{" "}
+                    <span className="text-violet-400">import</span> {"{"}{" "}
+                    useState {"}"} <span className="text-violet-400">from</span>{" "}
                     <span className="text-emerald-400">&apos;react&apos;</span>;
                     {"\n\n"}
                     <span className="text-violet-400">
@@ -682,8 +686,8 @@ function CodePlayground() {
                     Dashboard() {"{"}
                     {"\n"}
                     {"  "}
-                    <span className="text-violet-400">const</span> [materiSelesai,
-                    setMateriSelesai] = useState(
+                    <span className="text-violet-400">const</span>{" "}
+                    [materiSelesai, setMateriSelesai] = useState(
                     <span className="text-amber-400">{checklistCount}</span>);
                     {"\n"}
                     {"  "}
@@ -730,8 +734,8 @@ function CodePlayground() {
                   </span>
                   {terminalLines.length === 0 ? (
                     <span className="text-muted-foreground italic">
-                      Klik tombol &quot;Jalankan Deploy&quot; di sisi kanan untuk
-                      memulai simulasi...
+                      Klik tombol &quot;Jalankan Deploy&quot; di sisi kanan
+                      untuk memulai simulasi...
                     </span>
                   ) : (
                     terminalLines.map((line, i) => (
@@ -888,7 +892,11 @@ function CodePlayground() {
                           whileTap={{ scale: 0.9 }}
                           onClick={() =>
                             setCardTheme(
-                              theme.id as "purple" | "emerald" | "amber" | "blue",
+                              theme.id as
+                                | "purple"
+                                | "emerald"
+                                | "amber"
+                                | "blue",
                             )
                           }
                           aria-label={`Ubah tema ke ${theme.id}`}
@@ -977,7 +985,8 @@ function CodePlayground() {
                     {jsCount >= 5 &&
                       jsCount < 10 &&
                       "Gokil! Fungsi JavaScript-mu berjalan sempurna! ⚡"}
-                    {jsCount >= 10 && "Luar biasa! Kamu pemrogram berbakat! 🎉💻"}
+                    {jsCount >= 10 &&
+                      "Luar biasa! Kamu pemrogram berbakat! 🎉💻"}
                   </motion.p>
                 </motion.div>
               )}
@@ -1028,7 +1037,9 @@ function CodePlayground() {
                       >
                         <input
                           type="checkbox"
-                          checked={checklist[item.key as keyof typeof checklist]}
+                          checked={
+                            checklist[item.key as keyof typeof checklist]
+                          }
                           onChange={(e) =>
                             setChecklist((prev) => ({
                               ...prev,
@@ -1099,13 +1110,17 @@ function CodePlayground() {
                         Deploy karyamu ke server Vercel instan agar bisa diakses
                         temanmu.
                       </p>
-                      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                      <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
                         <Button
                           onClick={handleRunDeploy}
                           size="sm"
                           className="mt-4 rounded-xl text-xs font-semibold flex items-center gap-1"
                         >
-                          <Play className="size-3 fill-current" /> Jalankan Deploy
+                          <Play className="size-3 fill-current" /> Jalankan
+                          Deploy
                         </Button>
                       </motion.div>
                     </motion.div>
@@ -1170,7 +1185,10 @@ function CodePlayground() {
                       >
                         https://sinau-belajar.vercel.app
                       </Link>
-                      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                      <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
                         <Button
                           variant="outline"
                           onClick={handleResetDeploy}
@@ -1225,7 +1243,7 @@ function RoadmapVisualizer() {
           </Badge>
         </motion.div>
         <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          Alur Belajar Dari Nol Sampai Siap Kerja
+          Alur Belajar Dari Nol Sampai Siap
         </h2>
         <p className="mt-4 text-muted-foreground max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
           Kami menyusun kurikulum ini khusus untuk pemula. Pelajari materi
@@ -1318,7 +1336,8 @@ function RoadmapVisualizer() {
                     Detail Alur: {currentStage.title.split(". ")[1]}
                   </h3>
                   <span className="text-xs font-bold text-muted-foreground flex items-center gap-1.5 mt-0.5">
-                    <ClockIcon className="size-3.5 stroke-[2.5]" /> {currentStage.stats}
+                    <ClockIcon className="size-3.5 stroke-[2.5]" />{" "}
+                    {currentStage.stats}
                   </span>
                 </div>
               </div>
@@ -1336,7 +1355,8 @@ function RoadmapVisualizer() {
 
             <div className="space-y-4">
               <h4 className="text-xs font-black text-foreground uppercase tracking-widest flex items-center gap-1.5">
-                <CheckSquare className="size-4 stroke-[2.5] text-black" /> Yang Akan Kamu Pelajari:
+                <CheckSquare className="size-4 stroke-[2.5] text-black" /> Yang
+                Akan Kamu Pelajari:
               </h4>
               <div className="grid gap-2.5 sm:grid-cols-1">
                 {currentStage.materi.map((m, i) => (
@@ -1359,7 +1379,11 @@ function RoadmapVisualizer() {
               <span className="text-xs font-bold text-muted-foreground">
                 Akses gratis selamanya, belajar kapan saja.
               </span>
-              <Button asChild size="default" className="bg-primary text-black border-2 border-black shadow-[3px_3px_0px_0px_#000000] font-black uppercase">
+              <Button
+                asChild
+                size="default"
+                className="bg-primary text-black border-2 border-black shadow-[3px_3px_0px_0px_#000000] font-black uppercase"
+              >
                 <Link href="/start">
                   Mulai Kelas Ini
                   <ArrowRight className="ml-1.5 size-4 stroke-[2.5]" />
@@ -1405,35 +1429,60 @@ function FloatingSymbols() {
       </motion.div>
       <motion.div
         animate={{ y: [0, -25, 0], rotate: [0, -5, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 0.5,
+        }}
         className="absolute top-[25%] right-[12%] text-blue-500/20 font-mono text-5xl select-none"
       >
         {"<>"}
       </motion.div>
       <motion.div
         animate={{ y: [0, -15, 0], rotate: [0, 10, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1,
+        }}
         className="absolute bottom-[25%] left-[15%] text-violet-500/15 font-mono text-3xl select-none"
       >
         {"#"}
       </motion.div>
       <motion.div
         animate={{ y: [0, -20, 0], rotate: [0, -10, 0] }}
-        transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+        transition={{
+          duration: 4.5,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1.5,
+        }}
         className="absolute top-[45%] left-[8%] text-emerald-500/15 font-mono text-4xl select-none"
       >
         {"();"}
       </motion.div>
       <motion.div
         animate={{ y: [0, -30, 0], rotate: [0, 15, 0] }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        transition={{
+          duration: 7,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2,
+        }}
         className="absolute bottom-[35%] right-[15%] text-amber-500/15 font-mono text-6xl select-none"
       >
         {"*"}
       </motion.div>
       <motion.div
         animate={{ y: [0, -18, 0], rotate: [0, -8, 0] }}
-        transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
+        transition={{
+          duration: 5.5,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 0.8,
+        }}
         className="absolute top-[60%] right-[8%] text-rose-500/10 font-mono text-3xl select-none"
       >
         {"$"}
@@ -1451,11 +1500,19 @@ export default function HomeContent() {
           <span>⚡ BELAJAR CODING DARI NOL HINGGA DEPLOY!</span>
           <span>★ 100% GRATIS TANPA RIBET</span>
           <span>💻 HTML · CSS · JAVASCRIPT · REACT · NEXT.JS · SUPABASE</span>
-          <span>🚀 SIAPKAN PORTFOLIO & KERJA NYATA!</span>
+          <span>🚀 SIAPKAN PORTOFOLIO & KERJA NYATA!</span>
           <span>⚡ BELAJAR CODING DARI NOL HINGGA DEPLOY!</span>
           <span>★ 100% GRATIS TANPA RIBET</span>
           <span>💻 HTML · CSS · JAVASCRIPT · REACT · NEXT.JS · SUPABASE</span>
-          <span>🚀 SIAPKAN PORTFOLIO & KERJA NYATA!</span>
+          <span>🚀 SIAPKAN PORTOFOLIO & KERJA NYATA!</span>
+          <span>⚡ BELAJAR CODING DARI NOL HINGGA DEPLOY!</span>
+          <span>★ 100% GRATIS TANPA RIBET</span>
+          <span>💻 HTML · CSS · JAVASCRIPT · REACT · NEXT.JS · SUPABASE</span>
+          <span>🚀 SIAPKAN PORTOFOLIO & KERJA NYATA!</span>
+          <span>⚡ BELAJAR CODING DARI NOL HINGGA DEPLOY!</span>
+          <span>★ 100% GRATIS TANPA RIBET</span>
+          <span>💻 HTML · CSS · JAVASCRIPT · REACT · NEXT.JS · SUPABASE</span>
+          <span>🚀 SIAPKAN PORTOFOLIO & KERJA NYATA!</span>
         </div>
       </div>
 
@@ -1534,7 +1591,10 @@ export default function HomeContent() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mx-auto mt-8 max-w-2xl text-base sm:text-lg font-medium leading-relaxed text-foreground"
             >
-              Sinau Coding adalah platform belajar pemrograman gratis yang disusun runut, visual, dan praktis. Tanpa latar belakang IT pun, kamu dipandu langkah demi langkah sampai mempublikasikan website karyamu ke internet.
+              Sinau Coding adalah platform belajar pemrograman gratis yang
+              disusun runut, visual, dan praktis. Tanpa latar belakang IT pun,
+              kamu dipandu langkah demi langkah sampai mempublikasikan website
+              karyamu ke internet.
             </motion.p>
 
             <motion.div
@@ -1543,7 +1603,10 @@ export default function HomeContent() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="mt-10 flex flex-wrap justify-center gap-4"
             >
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <Button
                   asChild
                   size="lg"
@@ -1555,7 +1618,10 @@ export default function HomeContent() {
                   </Link>
                 </Button>
               </motion.div>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <Button
                   asChild
                   size="lg"
@@ -1573,27 +1639,29 @@ export default function HomeContent() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-14 flex flex-wrap items-center justify-center gap-2.5 max-w-3xl mx-auto"
+              className="mt-14 flex flex-col items-center justify-center gap-3.5 max-w-3xl mx-auto"
             >
-              <span className="text-xs font-black text-black dark:text-white mr-1 uppercase tracking-wider font-mono">
-                Topik:
+              <span className="text-lg font-black text-black dark:text-white mr-1 uppercase tracking-wider font-mono">
+                Materi Yang Tersedia
               </span>
-              {techStack.map((tech, index) => {
-                const Icon = tech.icon;
-                return (
-                  <motion.span
-                    key={tech.name}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.5 + index * 0.05 }}
-                    whileHover={{ scale: 1.1, y: -5 }}
-                    className="flex items-center gap-1.5 rounded-md border-2 border-black bg-white px-3.5 py-1.5 font-mono text-xs font-black text-black shadow-[2px_2px_0px_0px_#000000] hover:bg-[#ffde59] hover:shadow-[3px_3px_0px_0px_#000000] transition-all cursor-default"
-                  >
-                    <Icon className="size-3.5 stroke-[2.5]" />
-                    {tech.name}
-                  </motion.span>
-                );
-              })}
+              <div className="flex flex-row flex-wrap items-center justify-center gap-2.5">
+                {techStack.map((tech, index) => {
+                  const Icon = tech.icon;
+                  return (
+                    <motion.span
+                      key={tech.name}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.5 + index * 0.05 }}
+                      whileHover={{ scale: 1.1, y: -5 }}
+                      className="flex items-center gap-1.5 rounded-md border-2 border-black bg-white px-3.5 py-1.5 font-mono text-xs font-black text-black shadow-[2px_2px_0px_0px_#000000] hover:bg-[#ffde59] hover:shadow-[3px_3px_0px_0px_#000000] transition-all cursor-default"
+                    >
+                      <Icon className="size-3.5 stroke-[2.5]" />
+                      {tech.name}
+                    </motion.span>
+                  );
+                })}
+              </div>
             </motion.div>
           </div>
 
@@ -1656,7 +1724,11 @@ export default function HomeContent() {
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 + 0.2, type: "spring", stiffness: 200 }}
+                    transition={{
+                      delay: index * 0.1 + 0.2,
+                      type: "spring",
+                      stiffness: 200,
+                    }}
                     className="text-3xl font-black tracking-tight text-black"
                   >
                     {stat.value}
@@ -1696,7 +1768,8 @@ export default function HomeContent() {
               Belajar Efektif dalam 4 Langkah
             </h2>
             <p className="mt-3 text-muted-foreground max-w-2xl mx-auto leading-relaxed text-sm sm:text-base font-medium">
-              Kami merancang platform ini dengan sistem belajar mandiri yang fokus pada praktek, bukan sekadar membaca teori.
+              Kami merancang platform ini dengan sistem belajar mandiri yang
+              fokus pada praktek, bukan sekadar membaca teori.
             </p>
           </motion.div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -1791,7 +1864,9 @@ export default function HomeContent() {
               Didesain Ramah untuk Semua Kalangan
             </h2>
             <p className="mt-3 text-muted-foreground max-w-2xl mx-auto leading-relaxed text-sm sm:text-base font-medium">
-              Kamu tidak butuh bakat khusus matematika atau logika rumit. Kurikulum kami disusun berurutan agar siapa pun bisa paham koding sejak hari pertama.
+              Kamu tidak butuh bakat khusus matematika atau logika rumit.
+              Kurikulum kami disusun berurutan agar siapa pun bisa paham koding
+              sejak hari pertama.
             </p>
           </motion.div>
           <div className="grid gap-6 sm:grid-cols-3">
@@ -1810,7 +1885,11 @@ export default function HomeContent() {
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.5 }}
                     className={`flex size-12 items-center justify-center rounded-lg border-2 border-black ${
-                      idx === 0 ? "bg-[#4ade80]" : idx === 1 ? "bg-[#38bdf8]" : "bg-[#c084fc]"
+                      idx === 0
+                        ? "bg-[#4ade80]"
+                        : idx === 1
+                          ? "bg-[#38bdf8]"
+                          : "bg-[#c084fc]"
                     } text-black shadow-[2px_2px_0px_0px_#000000]`}
                   >
                     <item.icon className="size-6 stroke-[2.5]" />
@@ -1876,13 +1955,22 @@ export default function HomeContent() {
             Pengalaman Belajar Terbaik Bebas Hambatan
           </h2>
           <p className="mt-3 text-muted-foreground max-w-2xl mx-auto leading-relaxed text-sm sm:text-base font-medium">
-            Lebih dari sekadar membaca tutorial biasa. Sinau Coding menyediakan ekosistem terpadu agar kamu tetap termotivasi dan belajar secara konsisten.
+            Lebih dari sekadar membaca tutorial biasa. Sinau Coding menyediakan
+            ekosistem terpadu agar kamu tetap termotivasi dan belajar secara
+            konsisten.
           </p>
         </motion.div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, i) => {
             const Icon = feature.icon;
-            const colors = ["bg-[#ff5b79]", "bg-[#4ade80]", "bg-[#ffde59]", "bg-[#c084fc]", "bg-[#38bdf8]", "bg-[#fb923c]"];
+            const colors = [
+              "bg-[#ff5b79]",
+              "bg-[#4ade80]",
+              "bg-[#ffde59]",
+              "bg-[#c084fc]",
+              "bg-[#38bdf8]",
+              "bg-[#fb923c]",
+            ];
             return (
               <motion.div
                 key={feature.title}
@@ -1931,7 +2019,8 @@ export default function HomeContent() {
             Ada Pertanyaan? Kami Punya Jawaban
           </h2>
           <p className="mt-3 text-muted-foreground max-w-xl mx-auto leading-relaxed text-sm sm:text-base font-medium">
-            Masih ragu untuk mulai belajar koding? Baca FAQ di bawah ini atau hubungi admin di komunitas.
+            Masih ragu untuk mulai belajar koding? Baca FAQ di bawah ini atau
+            hubungi admin di komunitas.
           </p>
         </motion.div>
         <motion.div
@@ -1948,10 +2037,7 @@ export default function HomeContent() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <FAQItem
-                question={faq.question}
-                answer={faq.answer}
-              />
+              <FAQItem question={faq.question} answer={faq.answer} />
             </motion.div>
           ))}
         </motion.div>
@@ -1981,7 +2067,9 @@ export default function HomeContent() {
             Siap Memulai Perjalanan Coding Kamu?
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-sm sm:text-base font-bold leading-relaxed text-neutral-800">
-            Setiap programer handal kelas dunia selalu memulai karier mereka dari menulis baris kode pertama. Hari ini giliranmu untuk melangkah maju!
+            Setiap programer handal kelas dunia selalu memulai karier mereka
+            dari menulis baris kode pertama. Hari ini giliranmu untuk melangkah
+            maju!
           </p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

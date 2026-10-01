@@ -311,6 +311,12 @@
     animation: marquee 16s linear infinite;
 }
 
+.animate-marquee::after{
+    content: "";
+    display: block;
+    width: 100%;
+}
+
 .animate-marquee:hover {
     animation-play-state: paused;
 }
