@@ -33,7 +33,7 @@ export default async function AppShell({
         <SidebarProvider>
             <AppSidebar />
             <SidebarInset>
-                <SiteHeader />
+                <SiteHeader showLoginButton={false} />
                 <div className="flex flex-1 flex-col">
                     <main className="flex-1">{children}</main>
                     {footer ?? <SiteFooter />}

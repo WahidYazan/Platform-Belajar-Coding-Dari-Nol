@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { BookOpen, ChevronRight, Code2, GraduationCap, LogOut, Map, MoreVertical, Rocket } from "lucide-react";
+import { BookOpen, ChevronRight, Code2, GraduationCap, LogOut, Map, MoreVertical, Rocket, Settings } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -44,6 +44,7 @@ const data = {
         { title: "Dashboard", url: "/dashboard", icon: GraduationCap },
         { title: "Mulai dari Sini", url: "/start", icon: Rocket },
         { title: "Roadmap", url: "/roadmap", icon: Map },
+        { title: "Pengaturan Akun", url: "/dashboard/settings", icon: Settings },
     ],
 };
 
@@ -56,7 +57,9 @@ function NavMain() {
             <SidebarGroupLabel>Platform</SidebarGroupLabel>
             <SidebarMenu>
                 {data.navMain.map(item => {
-                    const active = pathname.startsWith(item.url);
+                    const active = item.url === "/dashboard"
+                        ? pathname === item.url
+                        : pathname.startsWith(item.url);
                     return (
                         <SidebarMenuItem key={item.title}>
                             <SidebarMenuButton
@@ -167,6 +170,17 @@ function NavUser({ user }: { user: User | null }) {
         );
     }
 
+    const metadata = user.user_metadata;
+    const displayName =
+        (typeof metadata.full_name === "string" && metadata.full_name) ||
+        (typeof metadata.name === "string" && metadata.name) ||
+        user.email?.split("@")[0] ||
+        "Akun";
+    const avatarUrl =
+        (typeof metadata.avatar_url === "string" && metadata.avatar_url) ||
+        (typeof metadata.picture === "string" && metadata.picture) ||
+        null;
+
     return (
         <SidebarMenu>
             <SidebarMenuItem>
@@ -177,10 +191,16 @@ function NavUser({ user }: { user: User | null }) {
                             className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
                         >
                             <div className="flex aspect-square size-9 items-center justify-center rounded-xl bg-sidebar-primary text-sidebar-primary-foreground">
-                                <Code2 className="size-4" />
+                                {avatarUrl ? (
+                                    // OAuth avatar URLs are external and are not processed by Next Image.
+                                    // eslint-disable-next-line @next/next/no-img-element
+                                    <img src={avatarUrl} alt="" className="size-full rounded-xl object-cover" />
+                                ) : (
+                                    <Code2 className="size-4" />
+                                )}
                             </div>
                             <div className="grid flex-1 text-left text-sm leading-tight">
-                                <span className="truncate font-semibold">{user.email?.split("@")[0]}</span>
+                                <span className="truncate font-semibold">{displayName}</span>
                                 <span className="truncate text-xs text-muted-foreground">{user.email}</span>
                             </div>
                             <MoreVertical className="ml-auto size-4" />
@@ -190,14 +210,26 @@ function NavUser({ user }: { user: User | null }) {
                         <DropdownMenuLabel className="p-0 font-normal">
                             <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                                 <div className="flex aspect-square size-9 items-center justify-center rounded-xl bg-sidebar-primary text-sidebar-primary-foreground">
-                                    <Code2 className="size-4" />
+                                    {avatarUrl ? (
+                                        // eslint-disable-next-line @next/next/no-img-element
+                                        <img src={avatarUrl} alt="" className="size-full rounded-xl object-cover" />
+                                    ) : (
+                                        <Code2 className="size-4" />
+                                    )}
                                 </div>
                                 <div className="grid flex-1 text-left text-sm leading-tight">
-                                    <span className="truncate font-semibold">{user.email?.split("@")[0]}</span>
+                                    <span className="truncate font-semibold">{displayName}</span>
                                     <span className="truncate text-xs text-muted-foreground">{user.email}</span>
                                 </div>
                             </div>
                         </DropdownMenuLabel>
+                        <DropdownMenuSeparator />
+                        <DropdownMenuItem asChild>
+                            <Link href="/dashboard/settings" onClick={() => setOpenMobile(false)}>
+                                <Settings className="mr-2 size-4" />
+                                Pengaturan akun
+                            </Link>
+                        </DropdownMenuItem>
                         <DropdownMenuSeparator />
                         <form action="/auth/logout" method="post">
                             <DropdownMenuItem asChild>

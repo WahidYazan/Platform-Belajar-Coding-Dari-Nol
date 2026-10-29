@@ -2,7 +2,13 @@ import { SidebarTrigger } from "@/components/ui/sidebar";
 import { Code2 } from "lucide-react";
 import Link from "next/link";
 
-export function SiteHeader({ showTrigger = true }: { showTrigger?: boolean }) {
+export function SiteHeader({
+    showTrigger = true,
+    showLoginButton = true,
+}: {
+    showTrigger?: boolean;
+    showLoginButton?: boolean;
+}) {
     return (
         <header className="sticky top-0 z-50 flex h-16 shrink-0 items-center border-b-3 border-black bg-[#fffdf5]/95 backdrop-blur-md dark:bg-[#18181b]/95">
             <div className="flex w-full items-center justify-between gap-2 px-4 sm:px-6">
@@ -22,12 +28,14 @@ export function SiteHeader({ showTrigger = true }: { showTrigger?: boolean }) {
                     >
                         Dashboard
                     </Link>
-                    <Link
-                        href="/login"
-                        className="inline-flex items-center gap-1.5 rounded-md border-2 border-black bg-secondary px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-black shadow-[3px_3px_0px_0px_#000000] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all"
-                    >
-                        Masuk
-                    </Link>
+                    {showLoginButton && (
+                        <Link
+                            href="/login"
+                            className="inline-flex items-center gap-1.5 rounded-md border-2 border-black bg-secondary px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-black shadow-[3px_3px_0px_0px_#000000] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all"
+                        >
+                            Masuk
+                        </Link>
+                    )}
                 </div>
             </div>
         </header>

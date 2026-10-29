@@ -42,9 +42,10 @@ yarn-error.log*
 next-env.d.ts
 
 # editor/agent tooling (local only)
-.agents/
-.claude/
-.windsurf/
+.agents/*
+.claude/*
+.windsurf/*
+.continue/*
 skills-lock.json
 
 .fake

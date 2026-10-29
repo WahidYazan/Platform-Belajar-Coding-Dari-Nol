@@ -1,7 +1,13 @@
 import Link from "next/link";
 import { Code2 } from "lucide-react";
+import { createClient } from "@/lib/supabase/server";
 
-export function SiteFooter() {
+export async function SiteFooter() {
+    const supabase = await createClient();
+    const {
+        data: { user },
+    } = await supabase.auth.getUser();
+
     return (
         <footer className="relative mt-auto border-t-3 border-black bg-[#f4efe2] dark:bg-[#18181b]">
             <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
@@ -45,16 +51,20 @@ export function SiteFooter() {
                     <div>
                         <h4 className="mb-3 inline-block border-b-2 border-black text-xs font-black uppercase tracking-wider text-foreground">Platform</h4>
                         <ul className="space-y-2">
-                            <li>
-                                <Link href="/register" className="text-xs font-semibold text-muted-foreground transition-colors hover:text-black hover:underline">
-                                    Daftar Akun
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/login" className="text-xs font-semibold text-muted-foreground transition-colors hover:text-black hover:underline">
-                                    Masuk
-                                </Link>
-                            </li>
+                            {!user && (
+                                <>
+                                    <li>
+                                        <Link href="/register" className="text-xs font-semibold text-muted-foreground transition-colors hover:text-black hover:underline">
+                                            Daftar Akun
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/login" className="text-xs font-semibold text-muted-foreground transition-colors hover:text-black hover:underline">
+                                            Masuk
+                                        </Link>
+                                    </li>
+                                </>
+                            )}
                         </ul>
                     </div>
 
