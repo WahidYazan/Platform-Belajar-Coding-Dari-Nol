@@ -18,6 +18,21 @@ Dokumen ini berisi daftar lengkap environment variable yang wajib diisi saat dep
 
 ## 1. Supabase Auth
 
+Untuk mengaktifkan login Google dan GitHub, atur provider di **Supabase Dashboard → Authentication → Sign In / Providers**. Masukkan OAuth Client ID dan Client Secret dari Google/GitHub di sana; secret provider tidak perlu dan tidak boleh ditaruh di `.env` aplikasi.
+
+Pada konfigurasi OAuth app di Google Cloud Console dan GitHub, gunakan URL callback Supabase berikut sebagai **Authorization callback URL** (ganti `<project-ref>` dengan referensi project Supabase):
+
+```text
+https://<project-ref>.supabase.co/auth/v1/callback
+```
+
+Lalu di **Supabase → Authentication → URL Configuration**:
+
+- Atur **Site URL** ke URL aplikasi, misalnya `http://localhost:3000` saat development atau domain production.
+- Tambahkan ke **Redirect URLs** callback aplikasi, termasuk query string `next` (misalnya `http://localhost:3000/auth/callback*` dan `https://domain-anda.com/auth/callback*`).
+
+URL callback provider di atas berbeda dengan `/auth/callback` aplikasi: provider kembali ke Supabase, kemudian Supabase meneruskan pengguna ke aplikasi.
+
 ### `NEXT_PUBLIC_SUPABASE_URL`
 - **Wajib**: Ya
 - Contoh: `https://xxxxxxxxxxxx.supabase.co`
@@ -156,7 +171,9 @@ setelah env terpasang.
 - [ ] `GOOGLE_GENERATIVE_AI_API_KEY` terisi dan kuota masih tersedia
 - [ ] Di **Supabase → Authentication → URL Configuration**, `Site URL` dan
       `Redirect URLs` sudah mengarah ke domain publik Anda
-      (minimal tambahkan `/auth/callback*`)
+      (pastikan Redirect URLs mencakup `/auth/callback*`)
+- [ ] Provider Google dan GitHub sudah diaktifkan di Supabase dengan Client ID/Secret yang benar
+- [ ] OAuth callback URL pada Google/GitHub mengarah ke `https://<project-ref>.supabase.co/auth/v1/callback`
 - [ ] `.env` tidak ikut ter-commit ke repository (sudah ada di `.gitignore` & `.dockerignore`)
 - [ ] Semua key yang pernah pernah ter-expose (commit, paste di chat, screenshot)
       sudah di-**rotate/revoke** di dashboard masing-masing provider
@@ -172,3 +189,5 @@ setelah env terpasang.
 | `/api/chat` balas 500 dengan pesan API key | `GOOGLE_GENERATIVE_AI_API_KEY` belum di-set di runtime container. |
 | Perubahan env tidak terlihat setelah rebuild | Nilai `NEXT_PUBLIC_*` ter-cache di build lama. Wajib **build ulang**, bukan hanya restart container. |
 | Login Google/GitHub gagal | Redirect URL di Supabase belum mendaftarkan domain production. |
+| Login gagal dengan `provider is not enabled` | Aktifkan provider dan isi Client ID/Secret di Supabase → Authentication → Sign In / Providers. |
+| Login kembali ke aplikasi lalu muncul error redirect | Pastikan URL aplikasi `/auth/callback*` ada di Supabase Redirect URLs dan `NEXT_PUBLIC_SITE_URL` cocok dengan domain yang dibuka. |

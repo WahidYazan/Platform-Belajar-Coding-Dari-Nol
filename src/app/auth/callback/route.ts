@@ -3,7 +3,13 @@ import { NextResponse, type NextRequest } from "next/server";
 
 function safeNext(value: string | null): string {
     if (!value) return "/reset-password";
-    if (!value.startsWith("/") || value.startsWith("//")) return "/reset-password";
+    if (
+        !value.startsWith("/") ||
+        value.startsWith("//") ||
+        value.startsWith("/\\")
+    ) {
+        return "/reset-password";
+    }
     return value;
 }
 

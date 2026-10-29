@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import { useRouter } from "next/navigation";
 import { siGithub, siGoogle } from "simple-icons";
 
 import { Button } from "@/components/ui/button";
@@ -20,32 +19,47 @@ const PROVIDERS: Array<{
 ];
 
 export function OAuthButtons({ next }: { next: string }) {
-    const router = useRouter();
     const [loading, setLoading] = React.useState<Provider | null>(null);
+    const [error, setError] = React.useState<string | null>(null);
 
     async function handleOAuth(provider: Provider) {
         setLoading(provider);
+        setError(null);
 
-        const supabase = createClient();
-        const redirectTo = new URL("/auth/callback", canonicalOrigin());
-        redirectTo.searchParams.set("next", next);
+        try {
+            const supabase = createClient();
+            const redirectTo = new URL("/auth/callback", canonicalOrigin());
+            redirectTo.searchParams.set("next", next);
 
-        const { error } = await supabase.auth.signInWithOAuth({
-            provider,
-            options: { redirectTo: redirectTo.toString() },
-        });
+            const { error: oauthError } = await supabase.auth.signInWithOAuth({
+                provider,
+                options: { redirectTo: redirectTo.toString() },
+            });
 
-        if (error) {
-            const url = new URL("/login", window.location.origin);
-            url.searchParams.set("error", error.message);
-            router.replace(url.toString());
+            if (oauthError) {
+                setError(oauthError.message);
+                setLoading(null);
+            }
+        } catch (cause) {
+            setError(
+                cause instanceof Error
+                    ? cause.message
+                    : "Tidak dapat memulai login. Silakan coba lagi.",
+            );
             setLoading(null);
-            return;
         }
     }
 
     return (
         <div className="grid gap-3">
+            {error && (
+                <p
+                    role="alert"
+                    className="rounded-lg border-2 border-black bg-[#ff5b79] px-3 py-2.5 text-xs font-black text-black shadow-[2px_2px_0px_0px_#000000]"
+                >
+                    {error}
+                </p>
+            )}
             {PROVIDERS.map(({ id, label, icon }) => (
                 <Button
                     key={id}

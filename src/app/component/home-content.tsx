@@ -1670,7 +1670,7 @@ export default function HomeContent() {
                   className="bg-white text-black border-3 border-black shadow-[4px_4px_0px_0px_#000000] hover:bg-[#ffde59] hover:shadow-[6px_6px_0px_0px_#000000] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 text-sm sm:text-base font-black uppercase tracking-wider"
                 >
                   <Link href="#roadmap">
-                    <span>Lihat Alur Belajar 🧭</span>
+                    <span>Lihat Alur Belajar</span>
                   </Link>
                 </Button>
               </motion.div>
