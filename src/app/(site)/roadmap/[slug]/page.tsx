@@ -36,7 +36,7 @@ export default async function RoadmapDetailPage({ params }: PageProps<"/roadmap/
           <span className="text-5xl">{phase.emoji}</span>
           <div>
             <p className="text-xs font-black uppercase tracking-wider text-black/80">
-              ⚡ FASE {currentIndex + 1} DARI {roadmapPhases.length}
+              FASE {currentIndex + 1} DARI {roadmapPhases.length}
             </p>
             <h1 className="font-heading text-3xl font-black uppercase tracking-tight text-black md:text-5xl">
               {phase.title}

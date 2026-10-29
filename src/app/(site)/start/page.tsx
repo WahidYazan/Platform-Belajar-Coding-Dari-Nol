@@ -91,7 +91,7 @@ export default function StartPage() {
         </div>
         <div className="grid gap-5 sm:grid-cols-2">
           {tools.map((tool) => (
-            <div key={tool.title} className="group flex h-full flex-col rounded-xl border-3 border-black bg-white p-6 shadow-[5px_5px_0px_0px_#000000] transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px_#000000]">
+            <div key={tool.title} className="group flex h-full flex-col rounded-xl border-3 border-black bg-white p-6 shadow-[5px_5px_0px_0px_#000000] transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px_#000000] hover:animate-wiggle ">
               <div className="mb-2 text-3xl">{tool.emoji}</div>
               <h3 className="font-heading text-xl font-black uppercase text-black">{tool.title}</h3>
               <p className="mt-2 text-sm font-medium leading-relaxed text-black/80">{tool.desc}</p>

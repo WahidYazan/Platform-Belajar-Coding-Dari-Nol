@@ -4,22 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { createClient } from "@/lib/supabase/client";
+import { canonicalOrigin } from "@/lib/auth/origin";
 import { AlertCircle, CheckCircle2, MailCheck, Send } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import * as React from "react";
-
-const LOCAL_ORIGIN = /^https?:\/\/(localhost|127\.0\.0\.1|0\.0\.0\.0|\[::1\])(:\d+)?$/;
-
-function canonicalOrigin(): string {
-    const configured = process.env.NEXT_PUBLIC_SITE_URL?.trim();
-
-    if (configured && !LOCAL_ORIGIN.test(configured)) {
-        return configured.replace(/\/+$/, "");
-    }
-
-    return window.location.origin;
-}
 
 export default function ForgotPasswordPage() {
     const router = useRouter();

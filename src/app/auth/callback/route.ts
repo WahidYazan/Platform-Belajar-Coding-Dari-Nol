@@ -24,10 +24,14 @@ export async function GET(request: NextRequest) {
     const origin = publicOrigin(request);
     const code = searchParams.get("code");
     const next = safeNext(searchParams.get("next"));
+    const oauthError = searchParams.get("error_description") ?? searchParams.get("error");
 
     if (!code) {
         const url = new URL("/login", origin);
-        url.searchParams.set("error", "Tautan reset tidak valid atau sudah kedaluwarsa.");
+        url.searchParams.set(
+            "error",
+            oauthError ?? "Tautan reset tidak valid atau sudah kedaluwarsa.",
+        );
         return NextResponse.redirect(url);
     }
 

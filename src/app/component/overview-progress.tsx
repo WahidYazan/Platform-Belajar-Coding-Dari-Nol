@@ -45,7 +45,7 @@ export function OverviewProgress() {
                     {nextTutorial && (
                         <Button asChild className="w-full mt-4 bg-primary text-black border-2 border-black shadow-[3px_3px_0px_0px_#000000] font-black uppercase">
                             <Link href={`/dashboard/tutorials/${nextTutorial.slug}`}>
-                                Lanjutkan Belajar ⚡
+                                Lanjutkan Belajar
                             </Link>
                         </Button>
                     )}

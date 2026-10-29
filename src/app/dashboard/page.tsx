@@ -5,6 +5,7 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
+
 } from "@/components/ui/card";
 import { getCategoryGroups } from "@/lib/categories";
 import { tutorials } from "@/lib/tutorials";
@@ -25,7 +26,7 @@ export default function DashboardPage() {
               DASHBOARD BELAJAR
             </span>
             <h1 className="font-heading text-4xl font-black uppercase tracking-tight sm:text-5xl">
-              Selamat Belajar, Calon Programmer Handal! ⚡
+              Selamat Belajar, Calon Programmer Handal
             </h1>
             <p className="mt-4 text-base font-bold leading-relaxed text-neutral-800">
               Materi terstruktur dari dasar Frontend hingga Deployment ke internet. Pilih materi favoritmu dan lanjutkan progres secara otomatis.
@@ -96,9 +97,9 @@ export default function DashboardPage() {
                       {category.description}
                     </p>
                   </div>
-</div>
                 </div>
-                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              </div>
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {items.map((item, index) => (
                   <Link
                     key={item.slug}

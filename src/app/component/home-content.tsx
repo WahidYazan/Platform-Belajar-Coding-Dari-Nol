@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo } from "react";  
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -41,17 +41,58 @@ import { motion, AnimatePresence } from "framer-motion";
 
 // Animated background with particles
 function AnimatedBackground() {
-  const particles = useMemo(
-    () =>
-      Array.from({ length: 50 }, (_, i) => ({
-        id: i,
-        x: Math.sin(i * 0.5) * 50 + 50,
-        y: Math.cos(i * 0.3) * 50 + 50,
-        size: Math.sin(i * 0.7) * 2 + 3,
-        delay: i % 5,
-      })),
-    [],
-  );
+  const particles = useMemo(() => [
+    { id: 0, x: 10, y: 15, size: 3, delay: 0 },
+    { id: 1, x: 25, y: 25, size: 4, delay: 1 },
+    { id: 2, x: 40, y: 10, size: 2, delay: 2 },
+    { id: 3, x: 15, y: 45, size: 5, delay: 3 },
+    { id: 4, x: 60, y: 35, size: 3, delay: 4 },
+    { id: 5, x: 8, y: 60, size: 4, delay: 0 },
+    { id: 6, x: 30, y: 70, size: 2, delay: 1 },
+    { id: 7, x: 50, y: 55, size: 3, delay: 2 },
+    { id: 8, x: 75, y: 20, size: 4, delay: 3 },
+    { id: 9, x: 20, y: 80, size: 2, delay: 4 },
+    { id: 10, x: 45, y: 5, size: 3, delay: 0 },
+    { id: 11, x: 65, y: 15, size: 4, delay: 1 },
+    { id: 12, x: 85, y: 30, size: 2, delay: 2 },
+    { id: 13, x: 35, y: 45, size: 5, delay: 3 },
+    { id: 14, x: 55, y: 65, size: 3, delay: 4 },
+    { id: 15, x: 12, y: 25, size: 4, delay: 0 },
+    { id: 16, x: 28, y: 40, size: 2, delay: 1 },
+    { id: 17, x: 42, y: 55, size: 3, delay: 2 },
+    { id: 18, x: 58, y: 70, size: 4, delay: 3 },
+    { id: 19, x: 72, y: 85, size: 2, delay: 4 },
+    { id: 20, x: 18, y: 10, size: 3, delay: 0 },
+    { id: 21, x: 33, y: 20, size: 4, delay: 1 },
+    { id: 22, x: 48, y: 35, size: 2, delay: 2 },
+    { id: 23, x: 63, y: 50, size: 5, delay: 3 },
+    { id: 24, x: 78, y: 65, size: 3, delay: 4 },
+    { id: 25, x: 5, y: 40, size: 4, delay: 0 },
+    { id: 26, x: 22, y: 55, size: 2, delay: 1 },
+    { id: 27, x: 38, y: 70, size: 3, delay: 2 },
+    { id: 28, x: 52, y: 85, size: 4, delay: 3 },
+    { id: 29, x: 68, y: 15, size: 2, delay: 4 },
+    { id: 30, x: 82, y: 30, size: 3, delay: 0 },
+    { id: 31, x: 15, y: 60, size: 4, delay: 1 },
+    { id: 32, x: 32, y: 75, size: 2, delay: 2 },
+    { id: 33, x: 47, y: 5, size: 5, delay: 3 },
+    { id: 34, x: 62, y: 20, size: 3, delay: 4 },
+    { id: 35, x: 77, y: 35, size: 4, delay: 0 },
+    { id: 36, x: 10, y: 50, size: 2, delay: 1 },
+    { id: 37, x: 26, y: 65, size: 3, delay: 2 },
+    { id: 38, x: 41, y: 80, size: 4, delay: 3 },
+    { id: 39, x: 56, y: 10, size: 2, delay: 4 },
+    { id: 40, x: 71, y: 25, size: 5, delay: 0 },
+    { id: 41, x: 86, y: 40, size: 3, delay: 1 },
+    { id: 42, x: 20, y: 70, size: 4, delay: 2 },
+    { id: 43, x: 35, y: 85, size: 2, delay: 3 },
+    { id: 44, x: 50, y: 12, size: 3, delay: 4 },
+    { id: 45, x: 65, y: 27, size: 4, delay: 0 },
+    { id: 46, x: 80, y: 42, size: 2, delay: 1 },
+    { id: 47, x: 13, y: 55, size: 5, delay: 2 },
+    { id: 48, x: 28, y: 70, size: 3, delay: 3 },
+    { id: 49, x: 43, y: 85, size: 4, delay: 4 },
+  ], []);
 
   return (
     <div className="pointer-events-none fixed inset-0 -z-50 overflow-hidden">
@@ -925,7 +966,7 @@ function CodePlayground() {
                     animate={{ scale: jsCount > 0 ? [1, 1.1, 1] : 1 }}
                     transition={{ duration: 0.2 }}
                     className="flex flex-col items-center justify-center size-24 rounded-2xl bg-muted/40 border border-border/40 mb-2"
-                  >
+                  >  
                     <motion.span
                       key={jsCount}
                       initial={{ scale: 0.5, opacity: 0 }}
@@ -1536,9 +1577,9 @@ export default function HomeContent() {
             transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
             className="hidden lg:block absolute -top-8 right-6 z-20"
           >
-            <div className="rounded-lg border-3 border-black bg-[#ff5b79] px-3.5 py-1.5 font-black text-xs uppercase tracking-wider text-black shadow-[4px_4px_0px_0px_#000000]">
+            {/* <div className="rounded-lg border-3 border-black bg-[#ff5b79] px-3.5 py-1.5 font-black text-xs uppercase tracking-wider text-black shadow-[4px_4px_0px_0px_#000000]">
               ✨ PEMULA FRIENDLY!
-            </div>
+            </div> */}
           </motion.div>
           <motion.div
             animate={{ rotate: [-6, -4, -6], y: [0, -6, 0] }}
@@ -1551,7 +1592,7 @@ export default function HomeContent() {
           </motion.div>
 
           <div className="mx-auto max-w-4xl text-center">
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -1566,7 +1607,7 @@ export default function HomeContent() {
                 <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#ff5b79] border border-black" />
               </span>
               Platform Belajar Coding #1 Bahasa Indonesia 🇮🇩
-            </motion.div>
+            </motion.div> */}
 
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
@@ -1652,7 +1693,7 @@ export default function HomeContent() {
                       key={tech.name}
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 0.5 + index * 0.05 }}
+                      transition={{ delay: 0.1 + index * 0.1 }}
                       whileHover={{ scale: 1.1, y: -5 }}
                       className="flex items-center gap-1.5 rounded-md border-2 border-black bg-white px-3.5 py-1.5 font-mono text-xs font-black text-black shadow-[2px_2px_0px_0px_#000000] hover:bg-[#ffde59] hover:shadow-[3px_3px_0px_0px_#000000] transition-all cursor-default"
                     >
@@ -1772,7 +1813,7 @@ export default function HomeContent() {
               fokus pada praktek, bukan sekadar membaca teori.
             </p>
           </motion.div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
                 step: "01",
@@ -1790,14 +1831,14 @@ export default function HomeContent() {
                   "Setiap materi dilengkapi penjelasan bergambar dan contoh potongan kode interaktif siap uji.",
                 bg: "bg-[#ffde59]",
               },
-              {
-                step: "03",
-                icon: CircleCheck,
-                title: "Tandai Progress Selesai",
-                description:
-                  "Simpan kemajuan belajarmu secara otomatis di akun pribadimu dan pantau grafik progresmu di dashboard.",
-                bg: "bg-[#38bdf8]",
-              },
+              // {
+              //   step: "03",
+              //   icon: CircleCheck,
+              //   title: "Tandai Progress Selesai",
+              //   description:
+              //     "Simpan kemajuan belajarmu secara otomatis di akun pribadimu dan pantau grafik progresmu di dashboard.",
+              //   bg: "bg-[#38bdf8]",
+              // },
               {
                 step: "04",
                 icon: Rocket,
@@ -1844,7 +1885,7 @@ export default function HomeContent() {
         </div>
       </motion.section>
 
-      <motion.section
+      {/* <motion.section
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -1934,7 +1975,7 @@ export default function HomeContent() {
             ))}
           </motion.div>
         </div>
-      </motion.section>
+      </motion.section> */}
 
       <motion.section
         initial={{ opacity: 0 }}

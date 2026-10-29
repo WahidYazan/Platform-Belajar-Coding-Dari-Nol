@@ -22,11 +22,10 @@ export function ChapterActions({ slug }: { slug: string }) {
       <Button
         variant={done ? "outline" : "default"}
         onClick={() => toggle(slug)}
-        className={`w-full shrink-0 sm:w-auto font-black text-xs uppercase tracking-wider border-2 border-black ${
-          done
-            ? "bg-white text-black shadow-[3px_3px_0px_0px_#000000] hover:bg-neutral-100"
-            : "bg-[#ff5b79] text-black shadow-[4px_4px_0px_0px_#000000] hover:shadow-[6px_6px_0px_0px_#000000] hover:-translate-x-0.5 hover:-translate-y-0.5"
-        }`}
+        className={`w-full shrink-0 sm:w-auto font-black text-xs uppercase tracking-wider border-2 border-black ${done
+          ? "bg-white text-black shadow-[3px_3px_0px_0px_#000000] hover:bg-neutral-100"
+          : "bg-[#ff5b79] text-black shadow-[4px_4px_0px_0px_#000000] hover:shadow-[6px_6px_0px_0px_#000000] hover:-translate-x-0.5 hover:-translate-y-0.5"
+          }`}
       >
         {done ? (
           <>

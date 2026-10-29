@@ -26,7 +26,7 @@ export function SiteHeader({ showTrigger = true }: { showTrigger?: boolean }) {
                         href="/login"
                         className="inline-flex items-center gap-1.5 rounded-md border-2 border-black bg-secondary px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-black shadow-[3px_3px_0px_0px_#000000] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all"
                     >
-                        Masuk ⚡
+                        Masuk
                     </Link>
                 </div>
             </div>

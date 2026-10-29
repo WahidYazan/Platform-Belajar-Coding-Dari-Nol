@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { createClient } from "@/lib/supabase/client";
+import { OAuthButtons } from "@/components/auth/oauth-buttons";
 import { useRouter } from "next/navigation";
 import * as React from "react";
 import Link from "next/link";
@@ -121,6 +122,14 @@ export default function RegisterPage() {
                             {loading ? "Memproses..." : "Buat Akun Sekarang ✨"}
                         </Button>
                     </form>
+                    <div className="my-6 flex items-center gap-3">
+                        <span className="h-0.5 flex-1 bg-border" />
+                        <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+                            atau
+                        </span>
+                        <span className="h-0.5 flex-1 bg-border" />
+                    </div>
+                    <OAuthButtons next="/dashboard" />
                     <div className="mt-6 text-center text-sm font-medium">
                         <span className="text-muted-foreground">Sudah punya akun?</span>{" "}
                         <Link href="/login" className="font-black text-foreground underline hover:text-primary">

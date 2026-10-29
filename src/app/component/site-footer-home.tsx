@@ -73,7 +73,7 @@ export function SiteFooter() {
 
                 <div className="border-t-2 border-black py-6">
                     <div className="flex flex-col items-center justify-between gap-3 sm:flex-row">
-                        <p className="text-xs font-bold text-muted-foreground">&copy; {new Date().getFullYear()} Sinau Coding. Dibuat dengan 💖 untuk pelajar Indonesia.</p>
+                        <p className="text-xs font-bold text-muted-foreground">&copy; {new Date().getFullYear()} Sinau Coding.</p>
                         <div className="flex items-center gap-4 text-xs font-bold text-muted-foreground">
                             <Link href="/dashboard" className="hover:text-black hover:underline">
                                 Tutorial
